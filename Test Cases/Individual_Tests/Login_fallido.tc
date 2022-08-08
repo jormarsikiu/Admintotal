@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Validación si la autenticación es fallida</description>
+   <name>Login_fallido</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>d4564f63-6ad2-4ef2-9638-6fe4b57101cd</testCaseGuid>
+</TestCaseEntity>

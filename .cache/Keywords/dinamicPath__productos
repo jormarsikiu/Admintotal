@@ -1,0 +1,29 @@
+{
+  "keywordFileContentHash": "16D759562CE16DB52E19302B7A4E54FE",
+  "keywordClasses": [
+    {
+      "name": "dinamicPath.productos",
+      "keywordMethods": [
+        {
+          "name": "testdynamicobj",
+          "parameters": [
+            {
+              "name": "elemento",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "javadocParsed": false
+}
