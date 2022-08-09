@@ -20,7 +20,6 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 
 import com.kms.katalon.core.testobject.ConditionType
-import com.kms.katalon.core.testobject.TestObject
 import internal.GlobalVariable
 
 public class dynamicPath {
@@ -99,8 +98,102 @@ public class dynamicPath {
 		else if (elemento == 'input_retencion_isr')
 			xpath = '//input[@id="id_retencion_isr"]'
 
+		else if (elemento == 'input_codigo_origen')
+			xpath = "//input[@id='id_codigo_origen']"
 
+		else if (elemento == 'input_factor_conversion')
+			xpath = "//input[@id='id_factor_conversion']"
 
+		else if (elemento == 'input_tipo_servicio')
+			xpath = "//select[@id='id_tipo_servicio']"
+
+		else if (elemento == 'input_cuenta_servicio_personalizado')
+			xpath = "//input[@id='id_cuenta_servicio_personalizado']"
+
+		else if (elemento == 'first_cuenta_servicio_personalizado')
+			xpath = "(//ul[@id='ui-id-2']/li/a)[1]"
+
+		else if (elemento == 'input_grupo_activo')
+			xpath = "//select[@id='id_grupo_activo']"
+
+		else if (elemento == 'input_costo_reposicion')
+			xpath = "//input[@id='id_costo']"
+
+		else if (elemento == 'input_consumo_interno')
+			xpath = "//input[@id='id_cuenta_consumo_interno']"
+
+		else if (elemento == 'first_consumo_interno')
+			xpath = "(//ul[@id='ui-id-9']/li/a)[1]"
+
+		else if (elemento == 'input_clave_material_peligroso')
+			xpath = "//input[@id='id_clave_material_peligroso_txt']"
+
+		else if (elemento == 'first_clave_material_peligroso')
+			xpath = "(//ul[@id='ui-id-3']/li/a)[1]"
+			
+		else if (elemento == 'select_clave_embalaje_material_peligroso')
+			xpath = "//select[@id='id_clave_embalaje_material_peligroso']"
+			
+		else if (elemento == 'input_comentarios')
+			xpath = "//textarea[@id='id_comentarios']"
+			
+		else if (elemento == 'input_MU')
+			xpath = "//input[@id='id_pls_margen_utilidad_porciento']"
+			
+		else if (elemento == 'input_precio')
+			xpath = "//input[@id='id_pls_precio']"
+			
+		else if (elemento == 'select_moneda')
+			xpath = "//select[@id='id_pls_moneda']"
+			
+		else if (elemento == 'select_moneda')
+			xpath = "//select[@id='id_pls_moneda']"
+			
+		else if (elemento == 'input_unidad_medida')
+			xpath = "//input[@id='id_um-0-um']"
+			
+		else if (elemento == 'first_unidad_medida')
+			xpath = "(//ul[@id='ui-id-12']/li/a)[1]"
+			
+		else if (elemento == 'input_factor')
+			xpath = "//input[@id='id_um-0-factor']"
+			
+		else if (elemento == 'input_codigo_barra')
+			xpath = "//input[@id='id_um-0-codigo_barras']"
+			
+		else if (elemento == 'input_base')
+			xpath = "//input[@id='id_um-0-base']"
+				
+		else if (elemento == 'input_altura')
+			xpath = "//input[@id='id_um-0-altura']"
+					
+		else if (elemento == 'input_profundidad')
+			xpath = "//input[@id='id_um-0-profundidad']"
+						
+		else if (elemento == 'input_peso')
+			xpath = "//input[@id='id_um-0-peso']"
+			
+		else if (elemento == 'check_selec_compra')
+			xpath = "//input[@id='id_um-0-seleccionado_compra']"
+				
+		else if (elemento == 'check_selec_venta')
+			xpath = "//input[@id='id_um-0-seleccionado']"
+					
+		else if (elemento == 'check_kardex')
+			xpath = "//input[@id='id_um-0-um_kardex']"
+			
+		else if (elemento == 'boton_lista_precios_proveedores')
+			xpath = "//a[contains(@href, '#listaPreciosProvTabContent')]"
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		TestObject to = new TestObject().addProperty('xpath', ConditionType.EQUALS, xpath)
 		return to
 	}
