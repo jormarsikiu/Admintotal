@@ -17,16 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import com.kms.katalon.core.exception.StepFailedException as StepFailedException
-import com.kms.katalon.core.testobject.ConditionType
-
-'Xpath para input de usuario'
-TestObject input_username = new TestObject().addProperty('xpath', ConditionType.EQUALS, '//input[@name="username"]')
-
-'Xpath para input de password'
-TestObject input_password = new TestObject().addProperty('xpath', ConditionType.EQUALS, '//input[@name="password"]')
-
-'Xpath para boton de login'
-TestObject button_entrar = new TestObject().addProperty('xpath', ConditionType.EQUALS, '//button[@type="submit"]')
+import com.kms.katalon.core.testobject.ConditionType as ConditionType
 
 'Abrir navegador'
 WebUI.openBrowser(GlobalVariable.Web)
@@ -35,13 +26,13 @@ WebUI.openBrowser(GlobalVariable.Web)
 WebUI.maximizeWindow()
 
 'Insertar usuario'
-WebUI.setText(input_username, GlobalVariable.Usuario)
+WebUI.setText(CustomKeywords.'login.xpath_dynamic.object'('input_username'), GlobalVariable.Usuario)
 
 'Insertar contraseña'
-WebUI.setEncryptedText(input_password, GlobalVariable.Contrasena)
+WebUI.setEncryptedText(CustomKeywords.'login.xpath_dynamic.object'('input_password'), GlobalVariable.Contrasena)
 
 'Click en el boton entrar'
-WebUI.click(button_entrar)
+WebUI.click(CustomKeywords.'login.xpath_dynamic.object'('button_entrar'))
 
 'Esperar 2 segundos'
 WebUI.delay(2)
@@ -49,18 +40,16 @@ WebUI.delay(2)
 'Obtener la URl'
 currentUrl = WebUI.getUrl()
 
-String Url_new = GlobalVariable.Web+'/admin/index/'
+'Generar la URl completa'
+String Url_new = GlobalVariable.Web + '/admin/index/'
 
 'Validar la URL correcta'
 if (currentUrl != Url_new) {
-    
-	'Mostrar error si no esta en la URL'
-	throw new StepFailedException('Bad URL')
+    'Mostrar error si no esta en la URL'
+    throw new StepFailedException('Bad URL')
 }
+
 'Esperar 2 segundos'
 WebUI.delay(2)
-
-
-
 
 

@@ -29,4 +29,24 @@
       <initValue>'94L98adiAtm2zU4oGI/Uzw=='</initValue>
       <name>Contrasena_incorrecta</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'https://prueba1.admintotal.com'</initValue>
+      <name>Web4</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'RAIVpflpDOg='</initValue>
+      <name>Contrasena4</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'https://kaizen.admintotal.com'</initValue>
+      <name>Web3</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'x8YlipdcAoVPi3XP+4iP/A=='</initValue>
+      <name>Contrasena3</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

@@ -1,0 +1,29 @@
+{
+  "keywordFileContentHash": "2B0FD9E69DB9A486134B183B855CBB25",
+  "keywordClasses": [
+    {
+      "name": "login.login_exitoso",
+      "keywordMethods": [
+        {
+          "name": "object",
+          "parameters": [
+            {
+              "name": "elemento",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "javadocParsed": false
+}

@@ -22,7 +22,7 @@ import org.apache.commons.lang.RandomStringUtils as RandomStringUtils
 import internal.GlobalVariable
 
 
-public class data {
+public class data_aleatory {
 
 	@Keyword
 	def String getAleatotyData(String elemento){
@@ -33,11 +33,15 @@ public class data {
 
 		//Pueden cambiarse.
 		if (elemento == 'codigo_busqueda')
-			aleatoryData = '1'
+			aleatoryData = RandomStringUtils.randomAlphabetic(1)
+
+		//Input > Clave_prod_serv > Desde 0 a 9 >  Pueden cambiarse.
+		if (elemento == 'clave_prod_serv')
+			aleatoryData= RandomStringUtils.randomNumeric(1) //1 solo digito
 
 		//Input > Codigo aleatorio de 7 numeros > Max 100> Pueden cambiarse.
 		if (elemento == 'codigo')
-			aleatoryData= RandomStringUtils.randomNumeric(7)
+			aleatoryData= RandomStringUtils.randomAlphabetic(4)
 
 		//Select > Tipo de Producto del 0 al 10 excluyendo el 6
 		else if (elemento == 'tipo')
@@ -47,9 +51,28 @@ public class data {
 			aleatoryData = randomPath
 		}
 
+		//Check > En venta en
+		else if (elemento == 'tipoventa')
+		{
+			List randomObjects = Arrays.asList('1', '2', '3')
+			String randomPath = randomObjects.get(new Random().nextInt(randomObjects.size()))
+			aleatoryData = randomPath
+		}
+
 		//Input > Texto generico + 4 numeros Pueden cambiarse.
 		else if (elemento == 'textogenerico')
-			aleatoryData= "TextoGenerico "+ RandomStringUtils.randomNumeric(4)
+			aleatoryData= "Automatizacion "+ RandomStringUtils.randomNumeric(4)
+
+		//Input > Letra + 1 caracter > Pueden cambiarse.
+		else if (elemento == 'letra')
+		{
+			List randomObjects = Arrays.asList('a', 'e', 'i', 'o', 'u')
+			String randomPath = randomObjects.get(new Random().nextInt(randomObjects.size()))
+			aleatoryData = randomPath
+		}
+		//Input > Imagen URL
+		else if (elemento == 'imagenURL')
+			aleatoryData= "https://kaizen.admintotal.com/site_media_b/img/logo_azul_blanco.png"
 
 		//Select >  Margen del 0 al 2
 		else if (elemento == 'margen')
@@ -125,25 +148,37 @@ public class data {
 		else if (elemento == 'costo_reposicion')
 			aleatoryData= RandomStringUtils.randomNumeric(4)
 
-		//Input > MU > Max 12 > Pueden cambiarse  
+		//Input > MU > Max 12 > Pueden cambiarse
 		else if (elemento == 'margen_utilidad_porciento')
 			aleatoryData= RandomStringUtils.randomNumeric(5)
 
-		//Input > Precio > Max 14 > Pueden cambiarse  
+		//Input > Precio > Max 14 > Pueden cambiarse
 		else if (elemento == 'precio')
 			aleatoryData= RandomStringUtils.randomNumeric(5)
-			
-		//Input > Factor > Max 16 > Pueden cambiarse  
+
+		//Input > Factor > Max 16 > Pueden cambiarse
 		else if (elemento == 'factor')
 			aleatoryData= RandomStringUtils.randomNumeric(1)
-			
-		//Input > Codigo de barra > Max 50 >  Pueden cambiarse  
+
+		//Input > Codigo de barra > Max 50 >  Pueden cambiarse
 		else if (elemento == 'codigo_barra')
 			aleatoryData= RandomStringUtils.randomNumeric(13)
-			
+
 		//Input > Base Altura Peso Profundidad > Max 14 > Pueden cambiarse
 		else if (elemento == 'medidas')
 			aleatoryData= RandomStringUtils.randomNumeric(2)
+
+		//Input > Tab Relacionados > Conceptos relacionados, Productos complemntarios, Alternativos > Pueden cambiarse
+		else if (elemento == 'relacionados')
+			aleatoryData= 'Relacionados' + RandomStringUtils.randomNumeric(5)
+
+		//Input > Tab Consumibles > Consumibles > Pueden cambiarse
+		else if (elemento == 'consumibles')
+			aleatoryData= 'Consumibles' + RandomStringUtils.randomNumeric(5)
+
+		//Input > Tab Refacciones > Refacciones > Pueden cambiarse
+		else if (elemento == 'refacciones')
+			aleatoryData= 'Refacciones' + RandomStringUtils.randomNumeric(5)
 
 		return aleatoryData
 	}
