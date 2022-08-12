@@ -15,7 +15,7 @@
       <name>Usuario</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
-      <description>Contraseña incorrecta para el login</description>
+      <description>Contraseña correcta para el login</description>
       <initValue>'x8YlipdcAoVPi3XP+4iP/A=='</initValue>
       <name>Contrasena</name>
    </GlobalVariableEntity>

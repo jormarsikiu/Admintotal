@@ -104,23 +104,11 @@ public class xpath_dynamic {
 		else if (elemento == 'input_sublinea')
 			xpath = '//input[@id="id_sublinea"]'
 
-		else if (elemento == 'validate_not_sublinea')
-			xpath = "//input[@id='id_sublinea']//preceding-sibling::span[contains(.,'No search results.')]"
-
-		else if (elemento == 'validate_yes_sublinea')
-			xpath = "//input[@id='id_sublinea']//preceding-sibling::span[contains(.,'available')]"
-			
 		else if (elemento == 'input_lastsublinea')
 			xpath = "(//div[@id='lightbox']/following-sibling::*[1])/li[last()]/a"
 
 		else if (elemento == 'input_subsublinea')
 			xpath = '//input[@id="id_subsublinea"]'
-
-		else if (elemento == 'validate_not_sublinea')
-			xpath = "//input[@id='id_subsublinea']//preceding-sibling::span[contains(.,'No search results.')]"
-			
-		else if (elemento == 'validate_yes_sublinea')
-			xpath = "//input[@id='id_subsublinea']//preceding-sibling::span[contains(.,'available')]"
 
 		else if (elemento == 'input_firstsubsublinea')
 			xpath = "//div[@id='lightbox']/following-sibling::*[2]/li[last()]/a"
@@ -325,19 +313,19 @@ public class xpath_dynamic {
 
 		else if (elemento == 'input_productos_complementarios')
 			xpath = "//input[@id='id_complementario-0-complemento']"
-				
+
 		else if (elemento == 'validate_productos_complementarios')
 			xpath = "//input[@id='id_complementario-0-complemento']//preceding-sibling::span[contains(.,'No search results.')]"
-	
+
 		else if (elemento == 'last_productos_complementarios')
 			xpath = "//input[@id='id_complementario-0-complemento']/following-sibling::*[1]/li[last()]/a"
 
 		else if (elemento == 'input_alternativos')
 			xpath = "//input[@id='id_alternativos-0-producto_alt']"
-			
+
 		else if (elemento == 'validate_alternativos')
 			xpath = "//input[@id='id_alternativos-0-producto_alt']//preceding-sibling::span[contains(.,'No search results.')]"
-		
+
 		else if (elemento == 'last_alternativos')
 			xpath = "//input[@id='id_alternativos-0-producto_alt']/following-sibling::*[1]/li[last()]/a"
 
@@ -346,10 +334,10 @@ public class xpath_dynamic {
 
 		else if (elemento == 'input_tag')
 			xpath = "//input[@id='id_tags-0-tag']"
-			
+
 		else if (elemento == 'validate_tag')
 			xpath = "//input[@id='id_tags-0-tag']//preceding-sibling::span[contains(.,'No search results.')]"
-			
+
 		else if (elemento == 'last_tag')
 			xpath = "//input[@id='id_tags-0-tag']/following-sibling::*[1]/li[last()]/a"
 
@@ -358,10 +346,10 @@ public class xpath_dynamic {
 
 		else if (elemento == 'input_consumibles')
 			xpath = "//input[@id='id_consumibles-0-producto_txt']"
-			
+
 		else if (elemento == 'validate_consumibles')
 			xpath = "//input[@id='id_consumibles-0-producto_txt']//preceding-sibling::span[contains(.,'No search results.')]"
-				
+
 		else if (elemento == 'last_consumibles')
 			xpath = "//input[@id='id_consumibles-0-producto_txt']/following-sibling::*[1]/li[last()]/a"
 
@@ -370,10 +358,10 @@ public class xpath_dynamic {
 
 		else if (elemento == 'input_refacciones')
 			xpath = "//input[@id='id_refacciones-0-producto_txt']"
-			
+
 		else if (elemento == 'validate_input_refacciones')
 			xpath = "//input[@id='id_refacciones-0-producto_txt']//preceding-sibling::span[contains(.,'No search results.')]"
-					
+
 		else if (elemento == 'last_input_refacciones')
 			xpath = "//input[@id='id_refacciones-0-producto_txt']/following-sibling::*[1]/li[last()]/a"
 

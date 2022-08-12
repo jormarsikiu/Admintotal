@@ -69,27 +69,37 @@ WebUI.uploadFile(CustomKeywords.'productos.xpath_dynamic.object'('input_imagenUp
 'Scroll'
 WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('check_restringir_descuento'), 1)
 
-'Check laterales'
+'Check laterales - check_restringir_descuento'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_restringir_descuento'))
+
+'Check laterales - check_restringir_decimales '
+WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_restringir_decimales'))
+
 'Check laterales'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_restringir_decimales'))
-'Check laterales'
-WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_restringir_decimales'))
-'Check laterales'
+
+'Check laterales - check_habilitar_webhook'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_habilitar_webhook'))
-'Check laterales'
+
+'Check laterales - check_integracion_rappi'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_integracion_rappi'))
-'Check laterales'
+
+'Check laterales - check_pedidos_especiales'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_pedidos_especiales'))
-'Check laterales'
+
+'Check laterales - check_venta_cd_cod_barras'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_venta_cd_cod_barras'))
-'Check laterales'
+
+'Check laterales - check_habilitar_bascula'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_habilitar_bascula'))
-'Check laterales'
+
+'Check laterales - check_congelar_precios_venta'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_congelar_precios_venta'))
-'Check laterales'
+
+'Check laterales - check_no_generar_comision'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_no_generar_comision'))
-'Check laterales'
+
+'Check laterales - check_usa_doble_unidad'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_usa_doble_unidad'))
 
 'Scroll Cabecera'
@@ -144,58 +154,22 @@ WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('descripcionecomme
 'Insertar en linea'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_linea'), CustomKeywords.'productos.data_aleatory.getAleatotyData'('codigo_busqueda'))
 
-'Selecionar el primero > Linea'
-'Si el select Esta vacio?'
+'Selecionar> Linea, Sublinea Subsublinea'
 if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('validate_linea'), 3, FailureHandling.OPTIONAL))
 {	
-	'Si no hay valores dejar vacio'
+	'No hay valores dejar vacio'
 	WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_linea'), '')
+	WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_sublinea'), '')
+	WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_subsublinea'), '')
+	
 }
 else{
 	'Si hay valores darle click al primero'
 	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_firstlinea'))
-}
-
-'Insertar en input > SubLinea'
-WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_sublinea'))
-
-WebUI.delay(2)
-
-'Valida si existen valores en el select'	
-if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('validate_not_sublinea'), 3, FailureHandling.OPTIONAL))
-{
-	'Si no hay valores dejar vacio'
-	WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_sublinea'), '')
-}
-else if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('validate_yes_sublinea'), 3, FailureHandling.OPTIONAL)){
-	
-	'Si hay valores darle click al primero'
+	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_sublinea'))
 	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_lastsublinea'))
-}
-else {
-	'Si no esta el elemento dejar vacio'
-	WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_sublinea'), '')
-}
-
-'Insertar en input > SubsubLinea'
-WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_subsublinea'))
-
-WebUI.delay(1)
-
-'Valida si existen valores en el select'
-if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('validate_not_sublinea'), 1, FailureHandling.OPTIONAL))
-	{
-		'Si no hay valores dejar vacio'
-		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_subsublinea'), '')
-	}
-else if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('validate_yes_sublinea'), 1, FailureHandling.OPTIONAL)){
-	
-		'Si hay valores darle click al primero'
-		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_firstsubsublinea'))
-	}
-else {
-		'Si no esta el elemento dejar vacio'
-		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_subsublinea'), '')
+	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_subsublinea'))
+	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_firstsubsublinea'))
 }
 
 'Insertar en input > Marca'

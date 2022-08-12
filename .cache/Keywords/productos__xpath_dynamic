@@ -1,5 +1,5 @@
 {
-  "keywordFileContentHash": "02C22DD5DA879B276A1235F750A74F3A",
+  "keywordFileContentHash": "1FAC79A27225886D9CFB42E7DC709FF4",
   "keywordClasses": [
     {
       "name": "productos.xpath_dynamic",
@@ -20,10 +20,11 @@
                 "errorOnParsing": false
               }
             }
-          ]
+          ],
+          "javadoc": ""
         }
       ]
     }
   ],
-  "javadocParsed": false
+  "javadocParsed": true
 }
