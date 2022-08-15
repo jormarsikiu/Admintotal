@@ -96,7 +96,7 @@ public class xpath_dynamic {
 			xpath = '//input[@id="id_linea"]'
 
 		else if (elemento == 'validate_linea')
-			xpath = "//input[@id='id_linea']//preceding-sibling::span[contains(.,'No search results.')]"
+			xpath = "//input[@id='id_linea']//preceding-sibling::span"
 
 		else if (elemento == 'input_firstlinea')
 			xpath = "//input[@id='id_linea']/following-sibling::*[2]/li[1]/a"
@@ -117,7 +117,7 @@ public class xpath_dynamic {
 			xpath = '//input[@id="id_marca"]'
 
 		else if (elemento == 'validate_marca')
-			xpath = "//input[@id='id_marca']//preceding-sibling::span[contains(.,'No search results.')]"
+			xpath = "//input[@id='id_marca']//preceding-sibling::span"
 
 		else if (elemento == 'input_firstmarca')
 			xpath = "//input[@id='id_marca']/following-sibling::*[2]/li/a"
@@ -210,7 +210,7 @@ public class xpath_dynamic {
 			xpath = "//input[@id='id_um-0-um']"
 
 		else if (elemento == 'validate_unidad_medida')
-			xpath = "//input[@id='id_um-0-um']//preceding-sibling::span[contains(.,'No search results.')]"
+			xpath = "//input[@id='id_um-0-um']//preceding-sibling::span"
 
 		else if (elemento == 'first_unidad_medida')
 			xpath = "//input[@id='id_um-0-um']/following-sibling::*[1]/li/a"
@@ -258,7 +258,7 @@ public class xpath_dynamic {
 			xpath = "//input[@id='id_monedas-0-proveedor']"
 
 		else if (elemento == 'validate_proveedor')
-			xpath = "//input[@id='id_monedas-0-proveedor']//preceding-sibling::span[contains(.,'No search results.')]"
+			xpath = "//input[@id='id_monedas-0-proveedor']//preceding-sibling::span"
 
 		else if (elemento == 'input_lista_precios_firstcod_proveedor')
 			xpath = "//input[@id='id_monedas-0-proveedor']/following-sibling::*[1]/li/a"
@@ -288,10 +288,10 @@ public class xpath_dynamic {
 			xpath = "//input[@id='id_ensambles-0-parte']"
 
 		else if (elemento == 'validate_ensamble_producto')
-			xpath = "//input[@id='id_ensambles-0-parte']//preceding-sibling::span[contains(.,'No search results.')]"
+			xpath = "//input[@id='id_ensambles-0-parte']//preceding-sibling::span"
 
 		else if (elemento == 'last_ensamble_producto')
-			xpath = "//input[@id='id_ensambles-0-parte']/following-sibling::*[3]/li[last()]/a"
+			xpath = "//input[@id='id_ensambles-0-parte']/following-sibling::*[3]/li/a"
 
 		else if (elemento == 'input_ensamble_cantidad')
 			xpath = "//input[@id='id_ensambles-0-cantidad']"
@@ -300,7 +300,7 @@ public class xpath_dynamic {
 			xpath = "//input[@id='id_ensambles-0-um']"
 
 		else if (elemento == 'validate_ensamble_unidad')
-			xpath = "//input[@id='id_ensambles-0-um']//preceding-sibling::span[contains(.,'No search results.')]"
+			xpath = "//input[@id='id_ensambles-0-um']//preceding-sibling::span"
 
 		else if (elemento == 'first_ensamble_unidad')
 			xpath = "//input[@name='ensambles-0-um']/following-sibling::*[1]/li/a"
@@ -315,19 +315,19 @@ public class xpath_dynamic {
 			xpath = "//input[@id='id_complementario-0-complemento']"
 
 		else if (elemento == 'validate_productos_complementarios')
-			xpath = "//input[@id='id_complementario-0-complemento']//preceding-sibling::span[contains(.,'No search results.')]"
+			xpath = "//input[@id='id_complementario-0-complemento']//preceding-sibling::span"
 
 		else if (elemento == 'last_productos_complementarios')
-			xpath = "//input[@id='id_complementario-0-complemento']/following-sibling::*[1]/li[last()]/a"
+			xpath = "//input[@id='id_complementario-0-complemento']/following-sibling::*[1]/li/a"
 
 		else if (elemento == 'input_alternativos')
 			xpath = "//input[@id='id_alternativos-0-producto_alt']"
 
 		else if (elemento == 'validate_alternativos')
-			xpath = "//input[@id='id_alternativos-0-producto_alt']//preceding-sibling::span[contains(.,'No search results.')]"
+			xpath = "//input[@id='id_alternativos-0-producto_alt']//preceding-sibling::span"
 
 		else if (elemento == 'last_alternativos')
-			xpath = "//input[@id='id_alternativos-0-producto_alt']/following-sibling::*[1]/li[last()]/a"
+			xpath = "//input[@id='id_alternativos-0-producto_alt']/following-sibling::*[1]/li/a"
 
 		else if (elemento == 'tab_tags')
 			xpath = "//a[contains(@href, '#tagsTabContent')]"
@@ -336,10 +336,10 @@ public class xpath_dynamic {
 			xpath = "//input[@id='id_tags-0-tag']"
 
 		else if (elemento == 'validate_tag')
-			xpath = "//input[@id='id_tags-0-tag']//preceding-sibling::span[contains(.,'No search results.')]"
+			xpath = "//input[@id='id_tags-0-tag']//preceding-sibling::span"
 
 		else if (elemento == 'last_tag')
-			xpath = "//input[@id='id_tags-0-tag']/following-sibling::*[1]/li[last()]/a"
+			xpath = "//input[@id='id_tags-0-tag']/following-sibling::*[1]/li/a"
 
 		else if (elemento == 'tab_consumibles')
 			xpath = "//a[contains(@href, '#consumiblesTabContent')]"
@@ -348,10 +348,10 @@ public class xpath_dynamic {
 			xpath = "//input[@id='id_consumibles-0-producto_txt']"
 
 		else if (elemento == 'validate_consumibles')
-			xpath = "//input[@id='id_consumibles-0-producto_txt']//preceding-sibling::span[contains(.,'No search results.')]"
+			xpath = "//input[@id='id_consumibles-0-producto_txt']//preceding-sibling::span"
 
 		else if (elemento == 'last_consumibles')
-			xpath = "//input[@id='id_consumibles-0-producto_txt']/following-sibling::*[1]/li[last()]/a"
+			xpath = "//input[@id='id_consumibles-0-producto_txt']/following-sibling::*[1]/li/a"
 
 		else if (elemento == 'tab_refacciones')
 			xpath = "//a[contains(@href, '#refaccionesTabContent')]"
@@ -360,13 +360,24 @@ public class xpath_dynamic {
 			xpath = "//input[@id='id_refacciones-0-producto_txt']"
 
 		else if (elemento == 'validate_input_refacciones')
-			xpath = "//input[@id='id_refacciones-0-producto_txt']//preceding-sibling::span[contains(.,'No search results.')]"
+			xpath = "//input[@id='id_refacciones-0-producto_txt']//preceding-sibling::span"
 
 		else if (elemento == 'last_input_refacciones')
-			xpath = "//input[@id='id_refacciones-0-producto_txt']/following-sibling::*[1]/li[last()]/a"
+			xpath = "//input[@id='id_refacciones-0-producto_txt']/following-sibling::*[1]/li/a"
 
 		else if (elemento == 'guardar_form')
 			xpath = "(//button[@id='guardar'])[2]"
+
+		else if (elemento == 'input_buscar_texto')
+			xpath = "//input[@id='id_q']"
+
+		else if (elemento == 'button_buscar_texto')
+			xpath = "//button[@value='Buscar']"
+
+		else if (elemento == 'first_prod_table')
+			xpath = "(//a[contains(@href, '/admin/inventario/ver_producto')])[1]"
+
+
 
 
 		TestObject to = new TestObject().addProperty('xpath', ConditionType.EQUALS, xpath)

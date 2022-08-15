@@ -18,7 +18,8 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import com.kms.katalon.core.testobject.ConditionType as ConditionType
 import org.apache.commons.lang.RandomStringUtils as RandomStringUtils
-import com.kms.katalon.core.configuration.RunConfiguration
+import com.kms.katalon.core.configuration.RunConfiguration as RunConfiguration
+import com.kms.katalon.core.exception.StepFailedException as StepFailedException
 
 'Autenticacion del sistema'
 WebUI.callTestCase(findTestCase('Individual_Tests/Login_exitoso'), [:], FailureHandling.STOP_ON_FAILURE)
@@ -32,7 +33,7 @@ WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_catalogo'))
 'Click en boton > Menu-Productos'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_productos'))
 
-'Xpath para boton de agregar productos'
+'Click en boton -> Agregar Productos'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_agregar_productos'))
 
 'Tipo de venta aleatorio > Tienda, Web, Ambos'
@@ -40,42 +41,42 @@ String tipoventa = CustomKeywords.'productos.data_aleatory.getAleatotyData'('tip
 
 'Tienda'
 if (tipoventa == '1') {
-	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('radio_tienda'))
-	}
+    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('radio_tienda'))
+}
 
 'Web'
 if (tipoventa == '2') {
-	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('radio_web'))
-	}
-	
+    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('radio_web'))
+}
+
 'Ambos'
 if (tipoventa == '3') {
-	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('radio_ambos'))
-	}
-	
+    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('radio_ambos'))
+}
+
 'Insertar en input > Imagen URL'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_imagenURL'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
-			'imagenURL'))
+        'imagenURL'))
 
 'Ruta del archivo'
-def fileDir = RunConfiguration.getProjectDir()+"/Data Files/logo_azul_blanco.png"
+def fileDir = RunConfiguration.getProjectDir() + '/Data Files/logo_azul_blanco.png'
 
 'Sustituir barras dependiendo del navegador'
-fileDir = fileDir.replace("/", "\\")	
-	
+fileDir = fileDir.replace('/', '\\')
+
 'Insertar en input > Imagen URL'
 WebUI.uploadFile(CustomKeywords.'productos.xpath_dynamic.object'('input_imagenUpload'), fileDir)
-	
+
 'Scroll'
 WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('check_restringir_descuento'), 1)
 
 'Check laterales - check_restringir_descuento'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_restringir_descuento'))
 
-'Check laterales - check_restringir_decimales '
+'Check laterales - quitar check_restringir_decimales'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_restringir_decimales'))
 
-'Check laterales'
+'Check laterales - check_restringir_decimales'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_restringir_decimales'))
 
 'Check laterales - check_habilitar_webhook'
@@ -114,13 +115,12 @@ WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_clave_prod_
         'clave_prod_serv'))
 
 'Valida si existen valores en el select'
-if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('first_clave_prod_serv'), 1))
-{
-	'Si hay valores darle click al primero'
-	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_clave_prod_serv'))
+if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('first_clave_prod_serv'), 1)) {
+    'Si hay valores darle click al primero'
+    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_clave_prod_serv'))
 }
 
-'Valor del Tipo producto'
+'Guardar valor del Tipo producto'
 String tipo_producto = CustomKeywords.'productos.data_aleatory.getAleatotyData'('tipo')
 
 'Abrir select > Tipo'
@@ -132,62 +132,77 @@ WebUI.selectOptionByValue(CustomKeywords.'productos.xpath_dynamic.object'('selec
 'Espera de 2 segundos'
 WebUI.delay(2)
 
+'Guardar valor del Texto Generico'
+String Texto_generico = CustomKeywords.'productos.data_aleatory.getAleatotyData'('textogenerico')
+
 'Insertar en input > Descripcion Espanol'
-WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('descripcion'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
-        'textogenerico'))
+WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('descripcion'), Texto_generico)
 
 'Insertar en input > Descripcion Ingles'
-WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('descripcioningles'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
-        'textogenerico'))
+WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('descripcioningles'), Texto_generico)
 
 'Insertar en input > Descripcion Adicional'
-WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('descripcionadicional'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
-        'textogenerico'))
+WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('descripcionadicional'), Texto_generico)
 
 'Scroll'
 WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('descripcionecommerce'), 1)
 
 'Insertar en input > Descripcion ecommerce'
-WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('descripcionecommerce'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
-        'textogenerico'))
+WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('descripcionecommerce'), Texto_generico)
 
-'Insertar en linea'
-WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_linea'), CustomKeywords.'productos.data_aleatory.getAleatotyData'('codigo_busqueda'))
+'Buscar en linea'
+WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_linea'), CustomKeywords.'productos.data_aleatory.getAleatotyData'('letra')) 
+	//'codigo_busqueda'))
 
-'Selecionar> Linea, Sublinea Subsublinea'
-if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('validate_linea'), 3, FailureHandling.OPTIONAL))
-{	
-	'No hay valores dejar vacio'
-	WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_linea'), '')
-	WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_sublinea'), '')
-	WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_subsublinea'), '')
-	
-}
-else{
-	'Si hay valores darle click al primero'
-	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_firstlinea'))
-	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_sublinea'))
-	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_lastsublinea'))
-	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_subsublinea'))
-	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_firstsubsublinea'))
-}
-
-'Insertar en input > Marca'
-WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_marca'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
-        'codigo_busqueda'))
-
+'Espera de 2 segundos'
 WebUI.delay(2)
 
-'Valida si existen valores en el select'
-if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('validate_marca'), 1, FailureHandling.OPTIONAL))
-	{
-		'Si no hay valores escribir uno'
-		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_marca'), '')
-	}
-else{
-		'Si hay valores darle click al primero'
-		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_firstmarca'))
-	}
+'Validar si existen valores en > Linea'
+String textl = WebUI.getText(CustomKeywords.'productos.xpath_dynamic.object'('validate_linea'))
+
+print(textl)
+
+'Sino hay valores dejar vacio y de lo contrario hay valores darle click al primero'
+if (textl == 'No search results.') {
+    'No hay valores dejar vacio'
+    WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_linea'), '')
+
+    WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_sublinea'), '')
+
+    WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_subsublinea'), '')
+} else {
+    'Si hay valores darle click al primero'
+    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_firstlinea'))
+
+    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_sublinea'))
+
+    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_lastsublinea'))
+
+    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_subsublinea'))
+
+    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_firstsubsublinea'))
+}
+
+'Buscar en input > Marca'
+WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_marca'), CustomKeywords.'productos.data_aleatory.getAleatotyData'('letra'))
+        //'codigo_busqueda'))
+
+'Espera de 2 segundos'
+WebUI.delay(2)
+
+'Validar si existen valores en > Marca'
+String textmarca = WebUI.getText(CustomKeywords.'productos.xpath_dynamic.object'('validate_marca'))
+
+print(textmarca)
+
+'Sino hay valores dejar vacio y de lo contrario hay valores darle click al primero'
+if (textmarca == 'No search results.') {
+    'Si no hay valores escribir uno'
+    WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_marca'), '')
+} else {
+    'Si hay valores darle click al primero'
+    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_firstmarca'))
+}
 
 'Esperar 1 segundos'
 WebUI.delay(1)
@@ -246,7 +261,7 @@ WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_retencion_i
 print(tipo_producto)
 
 'Opciones de Articulo, Materia Prima, Embalaje y Embalaje Dinamico'
-if ((tipo_producto == '0') || (tipo_producto == '1') || (tipo_producto == '2') || (tipo_producto == '7') || (tipo_producto == 
+if (((((tipo_producto == '0') || (tipo_producto == '1')) || (tipo_producto == '2')) || (tipo_producto == '7')) || (tipo_producto == 
 '8')) {
     'Insertar en input > Factor_conversion'
     WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_factor_conversion'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
@@ -269,12 +284,12 @@ if (tipo_producto == '3') {
         WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_cuenta_servicio_personalizado'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
                 'clave_prod_serv'))
 
-		'Valida si existen valores en el select'
-		if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('first_cuenta_servicio_personalizado'), 1))
-			{
-				'Si hay valores darle click al primero'
-				WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_cuenta_servicio_personalizado'))
-			}
+        'Valida si existen valores en el select'
+        if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('first_cuenta_servicio_personalizado'), 
+            1)) {
+            'Si hay valores darle click al primero'
+            WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_cuenta_servicio_personalizado'))
+        }
     }
 }
 
@@ -294,12 +309,12 @@ if (tipo_producto == '5') {
         WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_cuenta_servicio_personalizado'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
                 'clave_prod_serv'))
 
-		'Valida si existen valores en el select'
-		if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('first_cuenta_servicio_personalizado'), 1))
-			{
-				'Si hay valores darle click al primero'
-				WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_cuenta_servicio_personalizado'))
-			}
+        'Valida si existen valores en el select'
+        if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('first_cuenta_servicio_personalizado'), 
+            1)) {
+            'Si hay valores darle click al primero'
+            WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_cuenta_servicio_personalizado'))
+        }
     }
     
     'Insertar en input > Factor de conversión'
@@ -323,12 +338,12 @@ if (tipo_producto == '9') {
     WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_cuenta_servicio_personalizado'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
             'clave_prod_serv'))
 
-	'Valida si existen valores en el select'
-	if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('first_cuenta_servicio_personalizado'), 1))
-		{
-			'Si hay valores darle click al primero'
-			WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_cuenta_servicio_personalizado'))
-		}
+    'Valida si existen valores en el select'
+    if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('first_cuenta_servicio_personalizado'), 
+        1)) {
+        'Si hay valores darle click al primero'
+        WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_cuenta_servicio_personalizado'))
+    }
 }
 
 'Insertar en input > Número de predial'
@@ -378,8 +393,7 @@ WebUI.selectOptionByIndex(CustomKeywords.'productos.xpath_dynamic.object'('selec
 WebUI.delay(2)
 
 'Insertar en input > Comentarios'
-WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_comentarios'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
-        'textogenerico'))
+WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_comentarios'), Texto_generico)
 
 'Insertar en input > M.U.'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_MU'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
@@ -393,22 +407,24 @@ WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_precio'), C
 WebUI.selectOptionByIndex(CustomKeywords.'productos.xpath_dynamic.object'('select_moneda'), 1)
 
 'Insertar en input > Unidad de medida'
-WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_unidad_medida'), CustomKeywords.'productos.data_aleatory.getAleatotyData'('letra'))
+WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_unidad_medida'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
+        'letra'))
+
+WebUI.delay(2)
 
 'Valida si existen valores en el select'
-if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('validate_unidad_medida'), 1, FailureHandling.OPTIONAL))
-		{
-		'Si no hay valores escribir uno'
-		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_unidad_medida'), 'Pieza' + CustomKeywords.'productos.data_aleatory.getAleatotyData'('clave_prod_serv'))
-		}
-else{
-		'Si hay valores darle click al primero'
-		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_unidad_medida'))
-		}
-	
-	
-'Esperar 2 segundos'
-WebUI.delay(2)
+String textm = WebUI.getText(CustomKeywords.'productos.xpath_dynamic.object'('validate_unidad_medida'))
+
+print(textm)
+
+if (textm == 'No search results.') {
+    'Si no hay valores escribir uno'
+    WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_unidad_medida'), 'Pieza' + CustomKeywords.'productos.data_aleatory.getAleatotyData'(
+            'clave_prod_serv'))
+} else {
+    'Si hay valores darle click al primero'
+    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_unidad_medida'))
+}
 
 'Insertar en input > Factor'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_factor'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
@@ -458,27 +474,29 @@ if ((((((tipo_producto == '0') || (tipo_producto == '1')) || (tipo_producto == '
     'Insertar en input > Lista_precios > Proveedor'
     WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_lista_precios_proveedor'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
             'letra'))
-		
-	'Valida si existen valores en el select'
-	if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('validate_proveedor'), 1, FailureHandling.OPTIONAL))
-			{
-			'Si no hay valores escribir uno'
-			WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_lista_precios_proveedor'), 'Proveedor' + CustomKeywords.'productos.data_aleatory.getAleatotyData'('clave_prod_serv'))
-			}
-	else{
-			'Si hay valores darle click al primero'
-			WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_lista_precios_firstcod_proveedor'))
-			}
-			
-	
-	'Esperar 2 segundos'
-	WebUI.delay(2)
-	
-	'Crear tipo de dato fecha'
-	Date todaysDate = new Date();
-	
+
+    'Valida si existen valores en el select'
+    String textp = WebUI.getText(CustomKeywords.'productos.xpath_dynamic.object'('validate_proveedor'))
+
+    WebUI.delay(2)
+
+    if (textp == 'No search results.') {
+        'Si no hay valores escribir uno'
+        WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_lista_precios_proveedor'), 'Proveedor' + CustomKeywords.'productos.data_aleatory.getAleatotyData'(
+                'clave_prod_serv'))
+    } else {
+        'Si hay valores darle click al primero'
+        WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_lista_precios_firstcod_proveedor'))
+    }
+    
+    'Esperar 2 segundos'
+    WebUI.delay(2)
+
+    'Crear tipo de dato fecha'
+    Date todaysDate = new Date()
+
     'Insertar en input > Lista_precios > Fecha'
-    WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_lista_precios_fecha'), todaysDate.format("dd/MM/yy"))
+    WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_lista_precios_fecha'), todaysDate.format('dd/MM/yy'))
 
     'Insertar en input > Lista_precios > Lista_proveedor'
     WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_lista_precios_lista_proveedor'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
@@ -507,35 +525,42 @@ if (((tipo_producto == '2') || (tipo_producto == '8')) || (tipo_producto == '7')
     'Insertar en input > Ensamble > Producto'
     WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_ensamble_producto'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
             'letra'))
-	
-	'Valida si existen valores en el select'
-	if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('validate_ensamble_producto'), 3, FailureHandling.OPTIONAL))
-	{
-		'Si no hay valores no escribir uno'
-		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_ensamble_producto'), '')
-	}
-	else{
-		'Si hay valores darle click al primero'
-		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_ensamble_producto'))
-	}
-	
+
+    'Espera de 2 segundos'
+    WebUI.delay(2)
+
+    'Valida si existen valores en el select'
+    String texte = WebUI.getText(CustomKeywords.'productos.xpath_dynamic.object'('validate_ensamble_producto'))
+
+    if (texte == 'No search results.') {
+        'Si no hay valores no escribir uno'
+        WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_ensamble_producto'), '')
+    } else {
+        'Si hay valores darle click al primero'
+        WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_ensamble_producto'))
+    }
+    
     'Insertar en input > Ensamble > Cantidad'
     WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_ensamble_cantidad'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
             'medidas'))
 
     'Seleccionar Tab > Ensamble > Unidad'
-    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_ensamble_unidad'))		
-		
-	'Valida si existen valores en el select'
-	if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('validate_ensamble_unidad'), 3, FailureHandling.OPTIONAL))
-		{
-			'Si no hay valores escribir uno'
-			WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_ensamble_unidad'), 'Caja'+CustomKeywords.'productos.data_aleatory.getAleatotyData'('codigo'))
-		}
-	else{
-			'Si hay valores darle click al primero'
-			WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_ensamble_unidad'))
-		}
+    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_ensamble_unidad'))
+
+    'Espera de 2 segundos'
+    WebUI.delay(2)
+
+    'Valida si existen valores en el select'
+    String texteu = WebUI.getText(CustomKeywords.'productos.xpath_dynamic.object'('validate_ensamble_unidad'))
+
+    if (texteu == 'No search results.') {
+        'Si no hay valores escribir uno'
+        WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_ensamble_unidad'), 'Caja' + CustomKeywords.'productos.data_aleatory.getAleatotyData'(
+                'codigo'))
+    } else {
+        'Si hay valores darle click al primero'
+        WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_ensamble_unidad'))
+    }
 }
 
 'Seleccionar Tab > Relacionados'
@@ -549,36 +574,41 @@ WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_conceptos_r
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_productos_complementarios'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
         'letra'))
 
+'Espera de 2 segundos'
+WebUI.delay(2)
+
 'Valida si existen valores en el select'
-if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('validate_productos_complementarios'), 3, FailureHandling.OPTIONAL))
-	{
-		'Si no hay valores escribir uno'
-		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_productos_complementarios'), '')
-	}
-else{
-		'Si hay valores darle click al primero'
-		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_productos_complementarios'))
-	}
+String textpc = WebUI.getText(CustomKeywords.'productos.xpath_dynamic.object'('validate_productos_complementarios'))
+
+if (textpc == 'No search results.') {
+    'Si no hay valores escribir uno'
+    WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_productos_complementarios'), '')
+} else {
+    'Si hay valores darle click al primero'
+    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_productos_complementarios'))
+}
 
 'Opciones de Articulo, Materia Prima, Embalaje Dinamico, Servicios Subcontratados, Mano de Obra, Activo fijo'
-if ((tipo_producto == '0') || (tipo_producto == '1') || (tipo_producto == '8') || (tipo_producto == '5')) {
+if ((((tipo_producto == '0') || (tipo_producto == '1')) || (tipo_producto == '8')) || (tipo_producto == '5')) {
+    'Insertar en input > Relacionados > Alternativos'
+    WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_alternativos'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
+            'letra'))
 
-	'Insertar en input > Relacionados > Alternativos'
-	WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_alternativos'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
-        'letra'))
-	
-	'Valida si existen valores en el select'
-	if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('validate_alternativos'), 3, FailureHandling.OPTIONAL))
-		{
-			'Si no hay valores escribir uno'
-			WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_alternativos'), '')
-		}
-	else{
-			'Si hay valores darle click al primero'
-			WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_alternativos'))
-		}
-	
+    'Espera de 2 segundos'
+    WebUI.delay(2)
+
+    'Valida si existen valores en el select'
+    String texttag = WebUI.getText(CustomKeywords.'productos.xpath_dynamic.object'('validate_alternativos'))
+
+    if (texttag == 'No search results.') {
+        'Si no hay valores escribir uno'
+        WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_alternativos'), '')
+    } else {
+        'Si hay valores darle click al primero'
+        WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_alternativos'))
+    }
 }
+
 'Seleccionar Tab > Tags'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('tab_tags'))
 
@@ -586,35 +616,40 @@ WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('tab_tags'))
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_tag'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
         'codigo_busqueda'))
 
+'Espera de 2 segundos'
+WebUI.delay(2)
+
 'Valida si existen valores en el select'
-if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('validate_tag'), 3, FailureHandling.OPTIONAL))
-	{
-		'Si no hay valores escribir uno'
-		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_tag'), '')
-	}
-else{
-		'Si hay valores darle click al primero'
-		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_tag'))
-	}
+String texttag = WebUI.getText(CustomKeywords.'productos.xpath_dynamic.object'('validate_tag'))
+
+if (texttag == 'No search results.') {
+    'Si no hay valores escribir uno'
+    WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_tag'), '')
+} else {
+    'Si hay valores darle click al primero'
+    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_tag'))
+}
 
 'Seleccionar Tab > Consumibles'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('tab_consumibles'))
-
 
 'Insertar en input > Consumibles'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_consumibles'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
         'letra'))
 
+'Espera de 2 segundos'
+WebUI.delay(2)
+
 'Valida si existen valores en el select'
-if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('validate_consumibles'), 3, FailureHandling.OPTIONAL))
-	{
-		'Si no hay valores escribir uno'
-		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_consumibles'), '')
-	}
-else{
-		'Si hay valores darle click al primero'
-		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_consumibles'))
-	}
+String textcon = WebUI.getText(CustomKeywords.'productos.xpath_dynamic.object'('validate_consumibles'))
+
+if (textcon == 'No search results.') {
+    'Si no hay valores escribir uno'
+    WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_consumibles'), '')
+} else {
+    'Si hay valores darle click al primero'
+    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_consumibles'))
+}
 
 'Seleccionar Tab > Refacciones'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('tab_refacciones'))
@@ -623,16 +658,19 @@ WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('tab_refacciones'))
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_refacciones'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
         'letra'))
 
+'Espera de 2 segundos'
+WebUI.delay(2)
+
 'Valida si existen valores en el select'
-if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('validate_input_refacciones'), 3, FailureHandling.OPTIONAL))
-	{
-		'Si no hay valores escribir uno'
-		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_refacciones'), '')
-	}
-else{
-		'Si hay valores darle click al primero'
-		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_input_refacciones'))
-	}
+String textrefa = WebUI.getText(CustomKeywords.'productos.xpath_dynamic.object'('validate_input_refacciones'))
+
+if (textrefa == 'No search results.') {
+    'Si no hay valores escribir uno'
+    WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_refacciones'), '')
+} else {
+    'Si hay valores darle click al primero'
+    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_input_refacciones'))
+}
 
 'Guardar formulario'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('guardar_form'))
@@ -640,6 +678,25 @@ WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('guardar_form'))
 'Espera de 5 segundos'
 WebUI.delay(10)
 
-'Cierre del navegador'
-//WebUI.closeBrowser()
+'Validar la URl del filtro'
+String Url_new = GlobalVariable.Web + '/admin/inventario/catalogos/productos/'
+
+'Obtener la URl'
+currentUrl = WebUI.getUrl()
+
+'Validar la URL correcta'
+if (currentUrl != Url_new) {
+	'Mostrar error si no esta en la URL'
+	throw new StepFailedException('Bad URL')
+}
+
+'Insertar descripcion en el filtro'
+WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_buscar_texto'), Texto_generico)
+
+'Click en el boton de buscar'
+WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('button_buscar_texto'))
+
+'Abrir el producto'
+WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_prod_table'))
+
 
