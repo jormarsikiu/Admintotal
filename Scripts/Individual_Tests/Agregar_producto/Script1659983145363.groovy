@@ -21,9 +21,6 @@ import org.apache.commons.lang.RandomStringUtils as RandomStringUtils
 import com.kms.katalon.core.configuration.RunConfiguration as RunConfiguration
 import com.kms.katalon.core.exception.StepFailedException as StepFailedException
 
-'Autenticacion del sistema'
-WebUI.callTestCase(findTestCase('Individual_Tests/Login_exitoso'), [:], FailureHandling.STOP_ON_FAILURE)
-
 'Click en boton > Menu-Inventario'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_inventario'))
 
@@ -129,6 +126,11 @@ WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_tipo'))
 'Selecionar > Primer elemento > Tipo'
 WebUI.selectOptionByValue(CustomKeywords.'productos.xpath_dynamic.object'('select_tipo'), tipo_producto, true)
 
+'Crear el tipo de producto como variable global'
+CustomKeywords.'variableGlobal.generateVariable.addGlobalVariable'('tipoproducto', tipo_producto)
+
+println GlobalVariable.tipoproducto
+
 'Espera de 2 segundos'
 WebUI.delay(2)
 
@@ -151,9 +153,10 @@ WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('descripci
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('descripcionecommerce'), Texto_generico)
 
 'Buscar en linea'
-WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_linea'), CustomKeywords.'productos.data_aleatory.getAleatotyData'('letra')) 
-	//'codigo_busqueda'))
+WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_linea'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
+        'letra'))
 
+//'codigo_busqueda'))
 'Espera de 2 segundos'
 WebUI.delay(2)
 
@@ -170,6 +173,11 @@ if (textl == 'No search results.') {
     WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_sublinea'), '')
 
     WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_subsublinea'), '')
+	
+	//String lineaValue = ''
+	
+	//CustomKeywords.'variableGlobal.generateVariable.addGlobalVariable'('lineaglobal', lineaValue)
+	
 } else {
     'Si hay valores darle click al primero'
     WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_firstlinea'))
@@ -181,12 +189,19 @@ if (textl == 'No search results.') {
     WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_subsublinea'))
 
     WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_firstsubsublinea'))
+	
+	//String lineaValue = WebUI.getAttribute(CustomKeywords.'productos.xpath_dynamic.object'('input_firstlinea'), "value")
+	
+	//CustomKeywords.'variableGlobal.generateVariable.addGlobalVariable'('lineaglobal', lineaValue)
 }
 
-'Buscar en input > Marca'
-WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_marca'), CustomKeywords.'productos.data_aleatory.getAleatotyData'('letra'))
-        //'codigo_busqueda'))
+//println GlobalVariable.lineaglobal
 
+'Buscar en input > Marca'
+WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_marca'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
+        'letra'))
+
+//'codigo_busqueda'))
 'Espera de 2 segundos'
 WebUI.delay(2)
 
@@ -676,27 +691,8 @@ if (textrefa == 'No search results.') {
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('guardar_form'))
 
 'Espera de 5 segundos'
-WebUI.delay(10)
+WebUI.delay(5)
 
-'Validar la URl del filtro'
-String Url_new = GlobalVariable.Web + '/admin/inventario/catalogos/productos/'
-
-'Obtener la URl'
-currentUrl = WebUI.getUrl()
-
-'Validar la URL correcta'
-if (currentUrl != Url_new) {
-	'Mostrar error si no esta en la URL'
-	throw new StepFailedException('Bad URL')
-}
-
-'Insertar descripcion en el filtro'
-WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_buscar_texto'), Texto_generico)
-
-'Click en el boton de buscar'
-WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('button_buscar_texto'))
-
-'Abrir el producto'
-WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_prod_table'))
-
+'Guardar producto'
+CustomKeywords.'variableGlobal.generateVariable.addGlobalVariable'('descripcionproducto', Texto_generico)
 

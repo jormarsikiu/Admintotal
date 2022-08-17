@@ -377,6 +377,11 @@ public class xpath_dynamic {
 		else if (elemento == 'first_prod_table')
 			xpath = "(//a[contains(@href, '/admin/inventario/ver_producto')])[1]"
 
+		else if (elemento == 'edit_producto')
+			xpath = "//a[contains(@href, '/admin/producto/edit/')]"
+
+		else if (elemento == 'input_buscar_tipoproducto')
+			xpath = "//select[@id='id_tipo_producto']"
 
 
 

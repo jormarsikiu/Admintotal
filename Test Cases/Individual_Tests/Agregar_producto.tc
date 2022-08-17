@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
-   <description></description>
+   <description>Llena el formulario de agregar producto</description>
    <name>Agregar_producto</name>
    <tag></tag>
    <comment></comment>

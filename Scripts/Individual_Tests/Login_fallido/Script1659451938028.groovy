@@ -71,7 +71,7 @@ WebUI.maximizeWindow()
 WebUI.setText(CustomKeywords.'login.xpath_dynamic.object'('input_username'), GlobalVariable.Usuario_incorrecto)
 
 'Insertar contraseña'
-WebUI.setEncryptedText(CustomKeywords.'login.xpath_dynamic.object'('input_password'), GlobalVariable.Contrasena4)
+WebUI.setEncryptedText(CustomKeywords.'login.xpath_dynamic.object'('input_password'), GlobalVariable.Contrasena)
 
 'Click en el boton entrar'
 WebUI.click(CustomKeywords.'login.xpath_dynamic.object'('button_entrar'))
