@@ -22,20 +22,20 @@ import com.kms.katalon.core.configuration.RunConfiguration as RunConfiguration
 import com.kms.katalon.core.exception.StepFailedException as StepFailedException
 
 String openBrowser = CustomKeywords.'navegador.validateNavegador.browser'()
+
 String closeBrowser = ''
 
 'Si el navegador esta abierto'
-if (openBrowser == '1')
-	{
-		'Que el navegador no se cierre para que continue el flujo'
-		closeBrowser = '0'
-	}
-else {
-		'Si el navegador no esta abierto, se abrio para prueba individual y se cerrara al final del test'
-		closeBrowser = '1'
+if (openBrowser == '1') {
+    'Que el navegador no se cierre para que continue el flujo'
+    closeBrowser = '0'
+} else {
+    'Si el navegador no esta abierto, se abrio para prueba individual y se cerrara al final del test'
+    closeBrowser = '1'
 }
 
-println (closeBrowser)
+println(closeBrowser)
+
 'Click en boton > Menu-Inventario'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_inventario'))
 
@@ -695,6 +695,9 @@ if (textrefa == 'No search results.') {
 'Guardar formulario'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('guardar_form'))
 
+'Creamos la variable global con el Keyword para buscar el producto'
+CustomKeywords.'variableGlobal.generateVariable.addGlobalVariable'('descripcionproducto', Texto_generico)
+
 'Espera de 5 segundos'
 WebUI.delay(5)
 
@@ -709,14 +712,16 @@ if (currentUrl != Url_new) {
     'Mostrar error si no esta en la URL'
     throw new StepFailedException('Bad URL')
 }
-/*
-if (closeBrowser == '1')
-{
-	'Cerrar navegador'
-	WebUI.closeBrowser()
+
+println(closeBrowser)
+
+if (closeBrowser == '1') {
+    'Cerrar navegador'
+    WebUI.closeBrowser()
+} else if (closeBrowser == '0') {
+    'Espera de 1 segundos'
+    WebUI.delay(1)
+
+    
 }
-else {
-	
-	//No se cierra el navegador
-}
-*/
+

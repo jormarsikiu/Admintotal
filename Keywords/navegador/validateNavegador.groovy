@@ -31,17 +31,6 @@ public class validateNavegador {
 			def x = DriverFactory.getCurrentWindowIndex()
 			if ( ( x != null ) && ( x >= 0 ) ) {
 				println ( 'El navegador está abierto...' )
-
-				'Obtener la URl'
-				String currentUrl = WebUI.getUrl()
-
-				String Url_new = GlobalVariable.Web + '/admin/index/'
-
-				'Validar la URL correcta'
-				if (currentUrl != Url_new) {
-					'Mostrar error si no esta en la URL'
-					throw new StepFailedException('Bad URL')
-				}
 				return '1'
 			}
 		}

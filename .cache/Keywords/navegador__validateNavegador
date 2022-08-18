@@ -1,16 +1,15 @@
 {
-  "keywordFileContentHash": "A430F3A2245ABE29DFA79140214D5B5D",
+  "keywordFileContentHash": "FD0F88893F436FEEBD8ED390A9E376C0",
   "keywordClasses": [
     {
       "name": "navegador.validateNavegador",
       "keywordMethods": [
         {
           "name": "browser",
-          "parameters": [],
-          "javadoc": ""
+          "parameters": []
         }
       ]
     }
   ],
-  "javadocParsed": true
+  "javadocParsed": false
 }

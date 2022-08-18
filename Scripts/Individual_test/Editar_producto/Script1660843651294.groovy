@@ -21,6 +21,8 @@ import com.kms.katalon.core.exception.StepFailedException as StepFailedException
 String openBrowser = CustomKeywords.'navegador.validateNavegador.browser'()
 String closeBrowser = ''
 
+println(openBrowser)
+
 'Si el navegador esta abierto'
 if (openBrowser == '1')
 	{
@@ -90,8 +92,8 @@ if (closeBrowser == '1')
 	'Cerrar navegador'
 	WebUI.closeBrowser()
 }
-else {
-
-//No se cierra el navegador
+else if (closeBrowser == '0'){
+	
+	'Espera de 1 segundos'
+	WebUI.delay(1)
 }
-
