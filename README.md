@@ -12,7 +12,7 @@ https://docs.katalon.com/docs/katalon-studio-enterprise/set-up-katalon-studio/in
 - Creación del archivo Test Cases/Individual_Test/Agregar_producto
 - Creación del archivo Test Suites/FlujoAdminTotal para ejecutar el pull de pruebas
 - Creación del archivo Keywords/variableGlobal/generateVariable.groovy para generar variables globales en la ejecucion: 
-Ej. Descripcion del producto
+Ej. Descripcion del producto para buscarlo o editarlo
 - Creación del archivo Test Cases/Individual_Test/Editar_producto
 - 18/02/2022 Creación del archivo Keywords/navegador/validateNavegador.groovy para validar si se ha abierto el navegador 
 En un test individual se debe abrir el navegador y cerrarlo

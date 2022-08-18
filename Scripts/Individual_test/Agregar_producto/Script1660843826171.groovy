@@ -35,7 +35,7 @@ else {
 		closeBrowser = '1'
 }
 
-
+println (closeBrowser)
 'Click en boton > Menu-Inventario'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_inventario'))
 
@@ -709,7 +709,7 @@ if (currentUrl != Url_new) {
     'Mostrar error si no esta en la URL'
     throw new StepFailedException('Bad URL')
 }
-
+/*
 if (closeBrowser == '1')
 {
 	'Cerrar navegador'
@@ -719,4 +719,4 @@ else {
 	
 	//No se cierra el navegador
 }
-
+*/
