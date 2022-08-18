@@ -20,6 +20,7 @@ import com.kms.katalon.core.exception.StepFailedException as StepFailedException
 import com.kms.katalon.core.testobject.ConditionType as ConditionType
 
 '****PRUEBA 1 > CONTRASEÑA INCORRECTA****'
+
 'Abrir navegador'
 WebUI.openBrowser(GlobalVariable.Web)
 
@@ -45,12 +46,11 @@ WebUI.verifyElementPresent(CustomKeywords.'login.xpath_dynamic.object'('error_ms
 currentUrl = WebUI.getUrl()
 
 'Generar la URl completa'
-String Url_retorno = GlobalVariable.Web+'/admin/login/?next=/admin/index/'
+String Url_retorno = GlobalVariable.Web + '/admin/login/?next=/admin/index/'
 
 'Validar la URL correcta'
 if (currentUrl != Url_retorno) {
-	
-	'Mostrar error si no esta en la URL'
+    'Mostrar error si no esta en la URL'
     throw new StepFailedException('Bad URL')
 }
 
@@ -61,6 +61,7 @@ WebUI.delay(2)
 WebUI.closeBrowser()
 
 '****PRUEBA 2 > USUARIO INCORRECTO****'
+
 'Abrir navegador'
 WebUI.openBrowser(GlobalVariable.Web)
 
@@ -87,9 +88,8 @@ currentUrl = WebUI.getUrl()
 
 'Validar la URL correcta'
 if (currentUrl != Url_retorno) {
-	
-	'Mostrar error si no esta en la URL'
-	throw new StepFailedException('Bad URL')
+    'Mostrar error si no esta en la URL'
+    throw new StepFailedException('Bad URL')
 }
 
 'Esperar 2 segundos'
@@ -97,6 +97,4 @@ WebUI.delay(2)
 
 'Cerrar navegador'
 WebUI.closeBrowser()
-
-
 

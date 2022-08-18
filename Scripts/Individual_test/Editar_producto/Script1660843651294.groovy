@@ -18,24 +18,42 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import com.kms.katalon.core.exception.StepFailedException as StepFailedException
 
-String descripcionproduct = GlobalVariable.descripcionproducto
+String openBrowser = CustomKeywords.'navegador.validateNavegador.browser'()
+String closeBrowser = ''
 
-String tipoproduct = GlobalVariable.tipoproducto
-
-'Validar la URl del filtro'
-String Url_new = GlobalVariable.Web + '/admin/inventario/catalogos/productos/'
-
-'Obtener la URl'
-currentUrl = WebUI.getUrl()
-
-'Validar la URL correcta'
-if (currentUrl != Url_new) {
-    'Mostrar error si no esta en la URL'
-    throw new StepFailedException('Bad URL')
+'Si el navegador esta abierto'
+if (openBrowser == '1')
+	{
+		String descripcionproduct = GlobalVariable.descripcionproducto
+		
+		'Insertar descripcion en el filtro'
+		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_buscar_texto'), descripcionproduct)
+		
+		'Indicador para no cerrar el navegador y continuar el flujo'
+		closeBrowser = '0'
+		
+	}
+else {
+		
+		'Agregar el producto a Editar que exista'
+		String descripcionproduct = 'Automatizacion 2741'
+		
+		'Click en boton > Menu-Inventario'
+		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_inventario'))
+		
+		'Click en boton > Menu - Catalogos'
+		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_catalogo'))
+		
+		'Click en boton > Menu-Productos'
+		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_productos'))
+		
+		'Insertar descripcion en el filtro'
+		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_buscar_texto'), descripcionproduct)
+		
+		'Indicador para cerrar el navegador'
+		closeBrowser = '1'
 }
 
-'Insertar descripcion en el filtro'
-WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_buscar_texto'), descripcionproduct)
 
 'Click en el boton de buscar'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('button_buscar_texto'))
@@ -58,11 +76,22 @@ WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('input_uni
 'Guardar formulario'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('guardar_form'))
 
+'Espera de 2 segundos'
+WebUI.delay(2)
+
 'Ir al filtro'
 WebUI.navigateToUrl(GlobalVariable.Web +'/admin/inventario/catalogos/productos/')
 
 'Espera de 5 segundos'
 WebUI.delay(5)
 
-'Cerrar navegador'
-WebUI.closeBrowser()
+if (closeBrowser == '1')
+{
+	'Cerrar navegador'
+	WebUI.closeBrowser()
+}
+else {
+
+//No se cierra el navegador
+}
+

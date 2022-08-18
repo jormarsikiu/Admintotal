@@ -8,8 +8,6 @@ String tipoproductt = 'Automatizacion 2741'
 
 //String tipoproductt = GlobalVariable.tipoproducto
 
-WebUI.callTestCase(findTestCase('Flujo_Tests/Login_exitoso'), [:], FailureHandling.STOP_ON_FAILURE)
-
 'Click en boton > Menu-Inventario'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_inventario'))
 

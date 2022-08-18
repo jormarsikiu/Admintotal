@@ -5,17 +5,4 @@
    <tag></tag>
    <comment></comment>
    <testCaseGuid>e650fe17-4ce9-4f8e-a527-72dd6d672ae1</testCaseGuid>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>529b5e3a-2758-47d0-88dc-c073a8d32768</variableId>
-   </variableLinks>
-   <variable>
-      <defaultValue>'1'</defaultValue>
-      <description></description>
-      <id>529b5e3a-2758-47d0-88dc-c073a8d32768</id>
-      <masked>false</masked>
-      <name>codigo_busqueda</name>
-   </variable>
 </TestCaseEntity>

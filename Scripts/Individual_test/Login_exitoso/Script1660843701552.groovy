@@ -52,8 +52,5 @@ if (currentUrl != Url_new) {
 'Esperar 2 segundos'
 WebUI.delay(2)
 
-'Cerrar navegador'
-WebUI.closeBrowser()
-
 
 
