@@ -1,0 +1,30 @@
+{
+  "keywordFileContentHash": "BFC77E9D94B99D5278063264ABE9F3C8",
+  "keywordClasses": [
+    {
+      "name": "productos.data_aleatory",
+      "keywordMethods": [
+        {
+          "name": "getAleatotyData",
+          "parameters": [
+            {
+              "name": "elemento",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

@@ -21,6 +21,8 @@ import org.apache.commons.lang.RandomStringUtils as RandomStringUtils
 import com.kms.katalon.core.configuration.RunConfiguration as RunConfiguration
 import com.kms.katalon.core.exception.StepFailedException as StepFailedException
 
+WebUI.callTestCase(findTestCase('Flujo_Tests/Login_exitoso'), [:], FailureHandling.STOP_ON_FAILURE)
+
 'Click en boton > Menu-Inventario'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_inventario'))
 
@@ -693,6 +695,5 @@ WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('guardar_form'))
 'Espera de 5 segundos'
 WebUI.delay(5)
 
-'Guardar producto'
-CustomKeywords.'variableGlobal.generateVariable.addGlobalVariable'('descripcionproducto', Texto_generico)
-
+'Cerrar navegador'
+WebUI.closeBrowser()

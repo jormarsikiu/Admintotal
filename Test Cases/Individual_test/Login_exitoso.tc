@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Validación de la autenticación si es exitosa</description>
+   <name>Login_exitoso</name>
+   <tag>Login</tag>
+   <comment></comment>
+   <testCaseGuid>ef8a3f53-bdac-49bc-ab29-2a0dca796ce0</testCaseGuid>
+</TestCaseEntity>

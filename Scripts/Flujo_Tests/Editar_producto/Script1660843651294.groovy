@@ -17,18 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import com.kms.katalon.core.exception.StepFailedException as StepFailedException
-/*
-WebUI.callTestCase(findTestCase('Individual_Tests/Login_exitoso'), [:], FailureHandling.STOP_ON_FAILURE)
 
-'Click en boton > Menu-Inventario'
-WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_inventario'))
-
-'Click en boton > Menu - Catalogos'
-WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_catalogo'))
-
-'Click en boton > Menu-Productos'
-WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_productos'))
-*/
 String descripcionproduct = GlobalVariable.descripcionproducto
 
 String tipoproduct = GlobalVariable.tipoproducto
@@ -44,41 +33,7 @@ if (currentUrl != Url_new) {
     'Mostrar error si no esta en la URL'
     throw new StepFailedException('Bad URL')
 }
-/*
-String tipo = ''
 
-'Insertar tipo de producto en el filtro'
-if (tipoproduct == '0')
-	 tipo = 'Artículo'
-else if (tipoproduct == '1')
-	 tipo = 'Materia Prima'
-else if (tipoproduct == '2')
-	 tipo = 'Ensamble'
-else if (tipoproduct == '3')
-	 tipo = 'Servicio'
-else if (tipoproduct == '4')
-	 tipo = 'Activo Fijo'
-else if (tipoproduct == '5')
-	 tipo = 'Servicios subcontratados'
-else if (tipoproduct == '7')
-	 tipo = 'Producción'
-else if (tipoproduct == '8')
-	 tipo = 'Ensamble dinámico'
-else if (tipoproduct == '9')
-	 tipo = 'Mano de obra'
-else if (tipoproduct == '10')
-	 tipo = 'Artículo para arrendamiento' 
-	 
-'Espera de 5 segundos'
-WebUI.delay(5)
-	 
-println tipo
-'Insertar el tipo de producto'	
-WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_buscar_tipoproducto'))
-
-WebUI.selectOptionByValue(CustomKeywords.'productos.xpath_dynamic.object'('input_buscar_tipoproducto'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
-	'tipoproduct'), true)
-*/
 'Insertar descripcion en el filtro'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_buscar_texto'), descripcionproduct)
 
@@ -97,14 +52,17 @@ assert WebUI.getUrl().contains('/admin/producto/edit/')
 'Insertar en input > Comentarios'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_comentarios'), 'Producto Actualizado')
 
+'Scroll'
+WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('input_unidad_medida'), 1)
+
 'Guardar formulario'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('guardar_form'))
 
-'Espera de 2 segundos'
-WebUI.delay(2)
-
 'Ir al filtro'
 WebUI.navigateToUrl(GlobalVariable.Web +'/admin/inventario/catalogos/productos/')
+
+'Espera de 5 segundos'
+WebUI.delay(5)
 
 'Cerrar navegador'
 WebUI.closeBrowser()
