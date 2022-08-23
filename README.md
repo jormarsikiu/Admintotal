@@ -14,13 +14,13 @@ https://docs.katalon.com/docs/katalon-studio-enterprise/set-up-katalon-studio/in
 - Creación del archivo Keywords/variableGlobal/generateVariable.groovy para generar variables globales en la ejecucion: 
 Ej. Descripcion del producto para buscarlo o editarlo
 - Creación del archivo Test Cases/Individual_Test/Editar_producto
-18/02/2022 
-Creación del archivo Keywords/navegador/validateNavegador.groovy para validar si se ha abierto el navegador 
-En un test individual se debe abrir el navegador y cerrarlo
-En un test en flujo de procesos si esta abierto el navegador continua la ejecución ya que el navegador esta abierto
-23/08/22 
-Creacion del archivo Keywords/selets/selectsAleatory.groovy permite tomar de un select cualquier valor para selects personalizados o fijos
-Creación del archivo Individual test/Orden_Compra 
+- 18/02/2022 
+- Creación del archivo Keywords/navegador/validateNavegador.groovy para validar si se ha abierto el navegador 
+- En un test individual se debe abrir el navegador y cerrarlo
+- En un test en flujo de procesos si esta abierto el navegador continua la ejecución ya que el navegador esta abierto
+- 23/08/22 
+- Creación del archivo Keywords/selets/selectsAleatory.groovy permite tomar de un select cualquier valor para selects personalizados o fijos
+- Creación del archivo Individual test/Orden_Compra 
 
 
 
