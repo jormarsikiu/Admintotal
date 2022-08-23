@@ -38,7 +38,7 @@ if (openBrowser == '1')
 else {
 		
 		'Agregar el producto a Editar que exista'
-		String descripcionproduct = 'Automatizacion 2741'
+		String descripcionproduct = GlobalVariable.Producto
 		
 		'Click en boton > Menu-Inventario'
 		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_inventario'))
@@ -78,8 +78,8 @@ WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('input_uni
 'Guardar formulario'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('guardar_form'))
 
-'Espera de 2 segundos'
-WebUI.delay(2)
+'Espera de 5 segundos'
+WebUI.delay(5)
 
 'Ir al filtro'
 WebUI.navigateToUrl(GlobalVariable.Web +'/admin/inventario/catalogos/productos/')

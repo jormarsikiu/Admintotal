@@ -29,4 +29,9 @@
       <initValue>'94L98adiAtm2zU4oGI/Uzw=='</initValue>
       <name>Contrasena_incorrecta</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Producto para pruebas individuales</description>
+      <initValue>'Automatizacion 2741'</initValue>
+      <name>Producto</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

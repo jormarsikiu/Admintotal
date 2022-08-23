@@ -25,18 +25,6 @@ public class data_aleatory {
 		else if (elemento == 'codigo')
 			aleatoryData= RandomStringUtils.randomAlphabetic(4)
 
-		else if (elemento == 'tipo') {
-			List randomObjects = Arrays.asList('0', '1', '2', '3', '4', '5', '7', '8', '9', '10')
-			String randomPath = randomObjects.get(new Random().nextInt(randomObjects.size()))
-			aleatoryData = randomPath
-		}
-
-		else if (elemento == 'tipoventa') {
-			List randomObjects = Arrays.asList('1', '2', '3')
-			String randomPath = randomObjects.get(new Random().nextInt(randomObjects.size()))
-			aleatoryData = randomPath
-		}
-
 		else if (elemento == 'textogenerico')
 			aleatoryData= "Automatizacion "+ RandomStringUtils.randomNumeric(4)
 
@@ -49,32 +37,8 @@ public class data_aleatory {
 		else if (elemento == 'imagenURL')
 			aleatoryData= "https://kaizen.admintotal.com/site_media_b/img/logo_azul_blanco.png"
 
-		else if (elemento == 'margen')
-			aleatoryData= String.valueOf(new Random().nextInt(2 - 0))
-
-		else if (elemento == 'iva')
-			aleatoryData= String.valueOf(new Random().nextInt(2 - 0))
-
-		else if (elemento == 'ieps') {
-			List randomObjects = Arrays.asList('3.00', '6.00', '7.00', '8.00', '9.00', '25.00', '26.50', '30.00', '30.40', '50.00', '53.00', '160.00', '9999.00')
-			String randomPath = randomObjects.get(new Random().nextInt(randomObjects.size()))
-			aleatoryData = randomPath
-		}
-
 		else if (elemento == 'cuota')
 			aleatoryData= RandomStringUtils.randomNumeric(4)
-
-		else if (elemento == 'tipoieps') {
-			List randomObjects = Arrays.asList('1', '2')
-			String randomPath = randomObjects.get(new Random().nextInt(randomObjects.size()))
-			aleatoryData = randomPath
-		}
-
-		else if (elemento == 'retencioniva') {
-			List randomObjects = Arrays.asList('0.000000', '18.750000', '25.000000', '37.500000', '50.000000', '66.666670', '100.000000')
-			String randomPath = randomObjects.get(new Random().nextInt(randomObjects.size()))
-			aleatoryData = randomPath
-		}
 
 		else if (elemento == 'retencionisr') {
 			List randomObjects = Arrays.asList('0.1', '0.2', '0.3', '0.4', '0.5')
@@ -90,18 +54,6 @@ public class data_aleatory {
 
 		else if (elemento == 'codigo_origen')
 			aleatoryData= RandomStringUtils.randomNumeric(4)
-
-		else if (elemento == 'tipo_servicio') {
-			List randomObjects = Arrays.asList('3', '4', '5', '6', '7','8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '99')
-			String randomPath = randomObjects.get(new Random().nextInt(randomObjects.size()))
-			aleatoryData = randomPath
-		}
-
-		else if (elemento == 'grupo_activo') {
-			List randomObjects = Arrays.asList('1', '2', '3')
-			String randomPath = randomObjects.get(new Random().nextInt(randomObjects.size()))
-			aleatoryData = randomPath
-		}
 
 		else if (elemento == 'costo_reposicion')
 			aleatoryData= RandomStringUtils.randomNumeric(4)

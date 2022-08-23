@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
-   <description></description>
+   <description>Crea una orden con el producto creado anteriormente</description>
    <name>Orden_compra</name>
    <tag></tag>
    <comment></comment>

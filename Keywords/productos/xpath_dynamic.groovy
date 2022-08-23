@@ -59,11 +59,14 @@ public class xpath_dynamic {
 		else if (elemento == 'input_clave_prod_serv')
 			xpath = "//input[@id='id_clave_prod_serv']"
 
-		else if (elemento == 'first_clave_prod_serv')
-			xpath = "(//li[@class='ui-menu-item'])[1]/a"
+		else if (elemento == 'opcion_clave_prod_serv')
+			xpath = "(//li[@class='ui-menu-item'])"
 
 		else if (elemento == 'select_tipo')
 			xpath = "//select[@id='id_tipo']"
+
+		else if (elemento == 'options_tipo')
+			xpath = "//select[@id='id_tipo']/option"
 
 		else if (elemento == 'radio_tienda')
 			xpath = "//input[@id='id_medio_distribucion_0']"
@@ -125,11 +128,20 @@ public class xpath_dynamic {
 		else if (elemento == 'select_margen_utilidad')
 			xpath = '//select[@id="id_vender_menos_margen_utilidad"]'
 
+		else if (elemento == 'options_margen_utilidad')
+			xpath = '//select[@id="id_vender_menos_margen_utilidad"]/option'
+
 		else if (elemento == 'select_tasa_IVA')
 			xpath = '//select[@id="id_exento_de_impuesto"]'
 
+		else if (elemento == 'options_tasa_IVA')
+			xpath = '//select[@id="id_exento_de_impuesto"]/option'
+
 		else if (elemento == 'select_ieps')
 			xpath = '//select[@id="id_porcentaje_ieps"]'
+
+		else if (elemento == 'options_ieps')
+			xpath = '//select[@id="id_porcentaje_ieps"]/option'
 
 		else if (elemento == 'input_cuota')
 			xpath = '//input[@id="id_cuota_ieps"]'
@@ -137,11 +149,17 @@ public class xpath_dynamic {
 		else if (elemento == 'select_tipo_ieps')
 			xpath = '//select[@id="id_tipo_ieps"]'
 
+		else if (elemento == 'options_tipo_ieps')
+			xpath = '//select[@id="id_tipo_ieps"]/option'
+
 		else if (elemento == 'check_no_generar_ieps')
 			xpath = "//input[@id='id_deshabilitar_ieps_ventas']/following-sibling::*[1]"
 
 		else if (elemento == 'select_retencion_iva')
 			xpath = '//select[@id="id_retencion_iva"]'
+
+		else if (elemento == 'options_retencion_iva')
+			xpath = '//select[@id="id_retencion_iva"]/option'
 
 		else if (elemento == 'input_retencion_isr')
 			xpath = '//input[@id="id_retencion_isr"]'
@@ -155,6 +173,9 @@ public class xpath_dynamic {
 		else if (elemento == 'input_tipo_servicio')
 			xpath = "//select[@id='id_tipo_servicio']"
 
+		else if (elemento == 'option_tipo_servicio')
+			xpath = "//select[@id='id_tipo_servicio']/option"
+
 		else if (elemento == 'input_cuenta_servicio_personalizado')
 			xpath = "//input[@id='id_cuenta_servicio_personalizado']"
 
@@ -164,26 +185,35 @@ public class xpath_dynamic {
 		else if (elemento == 'input_grupo_activo')
 			xpath = "//select[@id='id_grupo_activo']"
 
+		else if (elemento == 'options_grupo_activo')
+			xpath = "//select[@id='id_grupo_activo']/option"
+
 		else if (elemento == 'input_costo_reposicion')
 			xpath = "//input[@id='id_costo']"
 
 		else if (elemento == 'select_nivel_comision')
 			xpath = "//select[@id='id_nivel_comision']"
 
+		else if (elemento == 'opcion_nivel_comision')
+			xpath = "//select[@id='id_nivel_comision']/option"
+
 		else if (elemento == 'input_consumo_interno')
 			xpath = "//input[@id='id_cuenta_consumo_interno']"
 
-		else if (elemento == 'first_consumo_interno')
+		else if (elemento == 'options_consumo_interno')
 			xpath = "//input[@id='id_cuenta_consumo_interno']/following-sibling::*[3]/li/a"
 
 		else if (elemento == 'input_clave_material_peligroso')
 			xpath = "//input[@id='id_clave_material_peligroso_txt']"
 
-		else if (elemento == 'first_clave_material_peligroso')
-			xpath = "(//ul[@id='ui-id-3']/li/a)[1]"
+		else if (elemento == 'options_clave_material_peligroso')
+			xpath = "(//ul[@id='ui-id-3']/li/a)"
 
 		else if (elemento == 'select_clave_embalaje_material_peligroso')
 			xpath = "//select[@id='id_clave_embalaje_material_peligroso']"
+
+		else if (elemento == 'options_clave_embalaje_material_peligroso')
+			xpath = "//select[@id='id_clave_embalaje_material_peligroso']/option"
 
 		else if (elemento == 'input_comentarios')
 			xpath = "//textarea[@id='id_comentarios']"
@@ -197,8 +227,8 @@ public class xpath_dynamic {
 		else if (elemento == 'select_moneda')
 			xpath = "//select[@id='id_pls_moneda']"
 
-		else if (elemento == 'select_moneda')
-			xpath = "//select[@id='id_pls_moneda']"
+		else if (elemento == 'options_moneda')
+			xpath = "//select[@id='id_pls_moneda']/option"
 
 		else if (elemento == 'cerrar_unidad_medida')
 			xpath = "//div[@id='UmsTabContent']//a"
@@ -212,7 +242,7 @@ public class xpath_dynamic {
 		else if (elemento == 'validate_unidad_medida')
 			xpath = "//input[@id='id_um-0-um']//preceding-sibling::span"
 
-		else if (elemento == 'first_unidad_medida')
+		else if (elemento == 'opcion_unidad_medida')
 			xpath = "//input[@id='id_um-0-um']/following-sibling::*[1]/li/a"
 
 		else if (elemento == 'input_factor')
@@ -260,7 +290,7 @@ public class xpath_dynamic {
 		else if (elemento == 'validate_proveedor')
 			xpath = "//input[@id='id_monedas-0-proveedor']//preceding-sibling::span"
 
-		else if (elemento == 'input_lista_precios_firstcod_proveedor')
+		else if (elemento == 'opcion_lista_precios_proveedor')
 			xpath = "//input[@id='id_monedas-0-proveedor']/following-sibling::*[1]/li/a"
 
 		else if (elemento == 'input_lista_precios_fecha')
@@ -290,7 +320,7 @@ public class xpath_dynamic {
 		else if (elemento == 'validate_ensamble_producto')
 			xpath = "//input[@id='id_ensambles-0-parte']//preceding-sibling::span"
 
-		else if (elemento == 'last_ensamble_producto')
+		else if (elemento == 'option_ensamble_producto')
 			xpath = "//input[@id='id_ensambles-0-parte']/following-sibling::*[3]/li/a"
 
 		else if (elemento == 'input_ensamble_cantidad')
@@ -302,7 +332,7 @@ public class xpath_dynamic {
 		else if (elemento == 'validate_ensamble_unidad')
 			xpath = "//input[@id='id_ensambles-0-um']//preceding-sibling::span"
 
-		else if (elemento == 'first_ensamble_unidad')
+		else if (elemento == 'opcion_ensamble_unidad')
 			xpath = "//input[@name='ensambles-0-um']/following-sibling::*[1]/li/a"
 
 		else if (elemento == 'tab_relacionados')
@@ -317,7 +347,7 @@ public class xpath_dynamic {
 		else if (elemento == 'validate_productos_complementarios')
 			xpath = "//input[@id='id_complementario-0-complemento']//preceding-sibling::span"
 
-		else if (elemento == 'last_productos_complementarios')
+		else if (elemento == 'option_productos_complementarios')
 			xpath = "//input[@id='id_complementario-0-complemento']/following-sibling::*[1]/li/a"
 
 		else if (elemento == 'input_alternativos')
@@ -326,7 +356,7 @@ public class xpath_dynamic {
 		else if (elemento == 'validate_alternativos')
 			xpath = "//input[@id='id_alternativos-0-producto_alt']//preceding-sibling::span"
 
-		else if (elemento == 'last_alternativos')
+		else if (elemento == 'option_alternativos')
 			xpath = "//input[@id='id_alternativos-0-producto_alt']/following-sibling::*[1]/li/a"
 
 		else if (elemento == 'tab_tags')
@@ -338,7 +368,7 @@ public class xpath_dynamic {
 		else if (elemento == 'validate_tag')
 			xpath = "//input[@id='id_tags-0-tag']//preceding-sibling::span"
 
-		else if (elemento == 'last_tag')
+		else if (elemento == 'option_tag')
 			xpath = "//input[@id='id_tags-0-tag']/following-sibling::*[1]/li/a"
 
 		else if (elemento == 'tab_consumibles')
@@ -350,7 +380,7 @@ public class xpath_dynamic {
 		else if (elemento == 'validate_consumibles')
 			xpath = "//input[@id='id_consumibles-0-producto_txt']//preceding-sibling::span"
 
-		else if (elemento == 'last_consumibles')
+		else if (elemento == 'options_consumibles')
 			xpath = "//input[@id='id_consumibles-0-producto_txt']/following-sibling::*[1]/li/a"
 
 		else if (elemento == 'tab_refacciones')
@@ -362,7 +392,7 @@ public class xpath_dynamic {
 		else if (elemento == 'validate_input_refacciones')
 			xpath = "//input[@id='id_refacciones-0-producto_txt']//preceding-sibling::span"
 
-		else if (elemento == 'last_input_refacciones')
+		else if (elemento == 'options_input_refacciones')
 			xpath = "//input[@id='id_refacciones-0-producto_txt']/following-sibling::*[1]/li/a"
 
 		else if (elemento == 'guardar_form')

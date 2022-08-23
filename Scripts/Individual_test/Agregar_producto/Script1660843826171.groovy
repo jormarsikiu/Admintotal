@@ -20,6 +20,7 @@ import com.kms.katalon.core.testobject.ConditionType as ConditionType
 import org.apache.commons.lang.RandomStringUtils as RandomStringUtils
 import com.kms.katalon.core.configuration.RunConfiguration as RunConfiguration
 import com.kms.katalon.core.exception.StepFailedException as StepFailedException
+import org.apache.commons.lang.RandomStringUtils as RandomStringUtils
 
 String openBrowser = CustomKeywords.'navegador.validateNavegador.browser'()
 
@@ -49,20 +50,21 @@ WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_productos'))
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_agregar_productos'))
 
 'Tipo de venta aleatorio > Tienda, Web, Ambos'
-String tipoventa = CustomKeywords.'productos.data_aleatory.getAleatotyData'('tipoventa')
+List randomObjects = Arrays.asList('1', '2', '3')
+String randomPath = randomObjects.get(new Random().nextInt(randomObjects.size()))
 
 'Tienda'
-if (tipoventa == '1') {
+if (randomPath == '1') {
     WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('radio_tienda'))
 }
 
 'Web'
-if (tipoventa == '2') {
+if (randomPath == '2') {
     WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('radio_web'))
 }
 
 'Ambos'
-if (tipoventa == '3') {
+if (randomPath == '3') {
     WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('radio_ambos'))
 }
 
@@ -127,19 +129,21 @@ WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_clave_prod_
         'clave_prod_serv'))
 
 'Valida si existen valores en el select'
-if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('first_clave_prod_serv'), 1)) {
-    'Si hay valores darle click al primero'
-    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_clave_prod_serv'))
+if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('opcion_clave_prod_serv'), 1)) {
+	
+	'Si hay valores seleccionar uno aleatorio'
+	CustomKeywords.'selects.selectAleatory.aleatoryobject'('opcion_clave_prod_serv', '1')
 }
-
-'Guardar valor del Tipo producto'
-String tipo_producto = CustomKeywords.'productos.data_aleatory.getAleatotyData'('tipo')
 
 'Abrir select > Tipo'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_tipo'))
 
-'Selecionar > Primer elemento > Tipo'
-WebUI.selectOptionByValue(CustomKeywords.'productos.xpath_dynamic.object'('select_tipo'), tipo_producto, true)
+'Selecionar opcion > Tipo'
+CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_tipo', '1')
+
+'Guardar valor del Tipo producto'
+String tipo_producto = WebUI.getAttribute(CustomKeywords.'productos.xpath_dynamic.object'('select_tipo'), 'value')
+println(tipo_producto)
 
 'Crear el tipo de producto como variable global'
 CustomKeywords.'variableGlobal.generateVariable.addGlobalVariable'('tipoproducto', tipo_producto)
@@ -227,25 +231,24 @@ WebUI.delay(1)
 'Abrir select > Vender_menos_margen_utilidad'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_margen_utilidad'))
 
-'Seleccionar > Primer Elemento > Vender_menos_margen_utilidad'
-WebUI.selectOptionByValue(CustomKeywords.'productos.xpath_dynamic.object'('select_margen_utilidad'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
-        'margen'), true)
-
+'Seleccionar opcion > Vender_menos_margen_utilidad'
+CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_margen_utilidad', '1')
+	
 'Abrir select > Tasa IVA'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_tasa_IVA'))
 
-'Seleccionar > Primer Elemento > Tasa IVA'
-WebUI.selectOptionByValue(CustomKeywords.'productos.xpath_dynamic.object'('select_tasa_IVA'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
-        'iva'), true)
+'Seleccionar opcion > Tasa IVA'
+CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_tasa_IVA', '1')
 
 'Abrir select > IEPS'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_ieps'))
 
-'Valor del IEPS'
-String ieps = CustomKeywords.'productos.data_aleatory.getAleatotyData'('ieps')
+'Seleccionar opcion> IEPS'
+CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_ieps', '1')
 
-'Seleccionar > Primer Elemento > IEPS'
-WebUI.selectOptionByValue(CustomKeywords.'productos.xpath_dynamic.object'('select_ieps'), ieps, true)
+'Valor del IEPS'
+String ieps = WebUI.getAttribute(CustomKeywords.'productos.xpath_dynamic.object'('select_ieps'), 'value')
+println(ieps)
 
 'Si se selecciona cuota'
 if (ieps == '9999.00') {
@@ -257,9 +260,8 @@ if (ieps == '9999.00') {
 'Abrir select > Tipo IEPS'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_tipo_ieps'))
 
-'Seleccionar > Primer Elemento > Tipo IEPS'
-WebUI.selectOptionByValue(CustomKeywords.'productos.xpath_dynamic.object'('select_tipo_ieps'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
-        'tipoieps'), true)
+'Seleccionar > Tipo IEPS'
+CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_tipo_ieps', '1')
 
 'Seleccionar Check > No generar IEPS en la venta de este producto'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_no_generar_ieps'))
@@ -267,9 +269,8 @@ WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_no_generar_ie
 'Abrir select > Retencion IVA'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_retencion_iva'))
 
-'Seleccionar > Primer Elemento > Retencion IVA'
-WebUI.selectOptionByValue(CustomKeywords.'productos.xpath_dynamic.object'('select_retencion_iva'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
-        'retencioniva'), true)
+'Seleccionar opcion > Retencion IVA'
+CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_retencion_iva', '1')
 
 'Insertar en input > Retención ISR'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_retencion_isr'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
@@ -290,11 +291,11 @@ if (tipo_producto == '3') {
     'Click al tipo de servicio'
     WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_tipo_servicio'))
 
-    'Valor del tipo de servicio'
-    String tiposervicio = CustomKeywords.'productos.data_aleatory.getAleatotyData'('tipo_servicio')
-
     'Select el tipo de servicio'
-    WebUI.selectOptionByValue(CustomKeywords.'productos.xpath_dynamic.object'('input_tipo_servicio'), tiposervicio, true)
+	CustomKeywords.'selects.selectAleatory.aleatoryobject'('option_tipo_servicio', '1')
+	
+	'Valor del tipo de servicio'
+	String tiposervicio = WebUI.getAttribute(CustomKeywords.'productos.xpath_dynamic.object'('input_tipo_servicio'), 'value')
 
     if (tiposervicio == '99') {
         'Insertar en input > Cuenta servicio personalizado'
@@ -312,14 +313,15 @@ if (tipo_producto == '3') {
 
 'Opciones Servicios subcontratados'
 if (tipo_producto == '5') {
-    'Click al tipo de servicio'
+    
+	'Click al tipo de servicio'
     WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_tipo_servicio'))
 
-    'Valor del tipo de servicio'
-    String tiposervicio = CustomKeywords.'productos.data_aleatory.getAleatotyData'('tipo_servicio')
-
     'Select el tipo de servicio'
-    WebUI.selectOptionByValue(CustomKeywords.'productos.xpath_dynamic.object'('input_tipo_servicio'), tiposervicio, true)
+	CustomKeywords.'selects.selectAleatory.aleatoryobject'('option_tipo_servicio', '1')
+	
+	'Valor del tipo de servicio'
+	String tiposervicio = WebUI.getAttribute(CustomKeywords.'productos.xpath_dynamic.object'('input_tipo_servicio'), 'value')
 
     if (tiposervicio == '99') {
         'Insertar en input > Cuenta servicio personalizado'
@@ -345,8 +347,7 @@ if (tipo_producto == '4') {
     WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_grupo_activo'))
 
     'Insertar en input > Grupo activo'
-    WebUI.selectOptionByValue(CustomKeywords.'productos.xpath_dynamic.object'('input_grupo_activo'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
-            'grupo_activo'), true)
+    CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_grupo_activo', '1')
 }
 
 'Opciones Mano de obra'
@@ -374,15 +375,15 @@ WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_costo_repos
 'Seleccionar > Nivel comisión'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_nivel_comision'))
 
-'Seleccionar > Primer Elemento > Nivel comisión'
-WebUI.selectOptionByIndex(CustomKeywords.'productos.xpath_dynamic.object'('select_nivel_comision'), 1)
+'Seleccionar opcion > Nivel comisión'
+CustomKeywords.'selects.selectAleatory.aleatoryobject'('opcion_nivel_comision', '1')
 
 'Insertar en input > Cuenta para consumo interno'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_consumo_interno'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
         'clave_prod_serv'))
 
-'Seleccionar > Primer Elemento > Cuenta para consumo interno'
-WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_consumo_interno'))
+'Seleccionar opcion > Cuenta para consumo interno'
+CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_consumo_interno', '1')
 
 'Scroll'
 WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('input_consumo_interno'), 1)
@@ -391,8 +392,8 @@ WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('input_con
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_clave_material_peligroso'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
         'clave_prod_serv'))
 
-'Seleccionar > Primer Elemento > Clave material peligroso'
-WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_clave_material_peligroso'))
+'Seleccionar opcion > Clave material peligroso'
+CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_clave_material_peligroso', '1')
 
 'Esperar 2 segundos'
 WebUI.delay(2)
@@ -403,8 +404,8 @@ WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_clave_embala
 'Esperar 2 segundos'
 WebUI.delay(2)
 
-'Seleccionar > Primer Elemento > Clave material peligroso'
-WebUI.selectOptionByIndex(CustomKeywords.'productos.xpath_dynamic.object'('select_clave_embalaje_material_peligroso'), 1)
+'Seleccionar opcion > Clave material peligroso'
+CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_clave_embalaje_material_peligroso', '1')
 
 'Esperar 2 segundos'
 WebUI.delay(2)
@@ -420,8 +421,11 @@ WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_MU'), Custo
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_precio'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
         'precio'))
 
-'Seleccionar > Primer Elemento > T.Moneda'
-WebUI.selectOptionByIndex(CustomKeywords.'productos.xpath_dynamic.object'('select_moneda'), 1)
+'Abrir select > Moneda'
+WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_moneda'))
+
+'Select opcion > Moneda'
+CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_moneda', '1')
 
 'Scroll'
 WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('input_unidad_medida'), 1)
@@ -443,7 +447,8 @@ if (textm == 'No search results.') {
             'clave_prod_serv'))
 } else {
     'Si hay valores darle click al primero'
-    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_unidad_medida'))
+	CustomKeywords.'selects.selectAleatory.aleatoryobject'('opcion_unidad_medida', '1')
+   
 }
 
 'Insertar en input > Factor'
@@ -505,8 +510,9 @@ if ((((((tipo_producto == '0') || (tipo_producto == '1')) || (tipo_producto == '
         WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_lista_precios_proveedor'), 'Proveedor' + CustomKeywords.'productos.data_aleatory.getAleatotyData'(
                 'clave_prod_serv'))
     } else {
-        'Si hay valores darle click al primero'
-        WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_lista_precios_firstcod_proveedor'))
+		'Si hay valores darle a una opcion'
+		CustomKeywords.'selects.selectAleatory.aleatoryobject'('opcion_lista_precios_proveedor', '1')
+		
     }
     
     'Esperar 2 segundos'
@@ -556,8 +562,9 @@ if (((tipo_producto == '2') || (tipo_producto == '8')) || (tipo_producto == '7')
         'Si no hay valores no escribir uno'
         WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_ensamble_producto'), '')
     } else {
-        'Si hay valores darle click al primero'
-        WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_ensamble_producto'))
+		'Si hay valores darle a una opcion'
+		CustomKeywords.'selects.selectAleatory.aleatoryobject'('option_ensamble_producto', '1')
+		
     }
     
     'Insertar en input > Ensamble > Cantidad'
@@ -578,8 +585,9 @@ if (((tipo_producto == '2') || (tipo_producto == '8')) || (tipo_producto == '7')
         WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_ensamble_unidad'), 'Caja' + CustomKeywords.'productos.data_aleatory.getAleatotyData'(
                 'codigo'))
     } else {
-        'Si hay valores darle click al primero'
-        WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_ensamble_unidad'))
+		'Si hay valores darle a una opcion'
+		CustomKeywords.'selects.selectAleatory.aleatoryobject'('opcion_ensamble_unidad', '1')
+		
     }
 }
 
@@ -604,8 +612,8 @@ if (textpc == 'No search results.') {
     'Si no hay valores escribir uno'
     WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_productos_complementarios'), '')
 } else {
-    'Si hay valores darle click al primero'
-    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_productos_complementarios'))
+    'Si hay valores darle a una opcion'
+	CustomKeywords.'selects.selectAleatory.aleatoryobject'('option_productos_complementarios', '1')
 }
 
 'Opciones de Articulo, Materia Prima, Embalaje Dinamico, Servicios Subcontratados, Mano de Obra, Activo fijo'
@@ -624,8 +632,8 @@ if ((((tipo_producto == '0') || (tipo_producto == '1')) || (tipo_producto == '8'
         'Si no hay valores escribir uno'
         WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_alternativos'), '')
     } else {
-        'Si hay valores darle click al primero'
-        WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_alternativos'))
+        'Si hay valores darle a una opcion'
+		CustomKeywords.'selects.selectAleatory.aleatoryobject'('option_alternativos', '1')
     }
 }
 
@@ -646,8 +654,9 @@ if (texttag == 'No search results.') {
     'Si no hay valores escribir uno'
     WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_tag'), '')
 } else {
-    'Si hay valores darle click al primero'
-    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_tag'))
+    'Si hay valores darle a una opcion'
+	CustomKeywords.'selects.selectAleatory.aleatoryobject'('option_tag', '1')
+	
 }
 
 'Seleccionar Tab > Consumibles'
@@ -667,8 +676,9 @@ if (textcon == 'No search results.') {
     'Si no hay valores escribir uno'
     WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_consumibles'), '')
 } else {
-    'Si hay valores darle click al primero'
-    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_consumibles'))
+    'Si hay valores darle a una opcion'
+	CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_consumibles', '1')
+	
 }
 
 'Seleccionar Tab > Refacciones'
@@ -688,8 +698,9 @@ if (textrefa == 'No search results.') {
     'Si no hay valores escribir uno'
     WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_refacciones'), '')
 } else {
-    'Si hay valores darle click al primero'
-    WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('last_input_refacciones'))
+    'Si hay valores darle a una opcion'
+	CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_input_refacciones', '1')
+    
 }
 
 'Guardar formulario'
@@ -715,10 +726,14 @@ if (currentUrl != Url_new) {
 
 println(closeBrowser)
 
+'Validar para cerrar el navegador'
 if (closeBrowser == '1') {
+	
     'Cerrar navegador'
     WebUI.closeBrowser()
+	
 } else if (closeBrowser == '0') {
+	
     'Espera de 1 segundos'
     WebUI.delay(1)
 
