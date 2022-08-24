@@ -18,6 +18,8 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import com.kms.katalon.core.exception.StepFailedException as StepFailedException
 
+/*Para ejecutar este archivo individualmente se debe agregar en 'variables globales' la descripcion de un producto valido*/
+
 String openBrowser = CustomKeywords.'navegador.validateNavegador.browser'()
 String closeBrowser = ''
 
@@ -49,6 +51,8 @@ else {
 		'Click en boton > Menu-Productos'
 		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_productos'))
 		
+		WebUI.comment('Si se genera un error es porque el producto no existe, debe agregarse en variables globales')
+		
 		'Insertar descripcion en el filtro'
 		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_buscar_texto'), descripcionproduct)
 		
@@ -70,7 +74,7 @@ WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('edit_producto'))
 assert WebUI.getUrl().contains('/admin/producto/edit/')
 
 'Insertar en input > Comentarios'
-WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_comentarios'), 'Producto Actualizado')
+WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_comentarios'), 'Automatizacion > Producto Actualizado')
 
 'Scroll'
 WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('input_unidad_medida'), 1)
@@ -78,8 +82,8 @@ WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('input_uni
 'Guardar formulario'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('guardar_form'))
 
-'Espera de 5 segundos'
-WebUI.delay(5)
+'Espera de 8 segundos'
+WebUI.delay(8)
 
 'Ir al filtro'
 WebUI.navigateToUrl(GlobalVariable.Web +'/admin/inventario/catalogos/productos/')

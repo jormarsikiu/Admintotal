@@ -250,18 +250,27 @@ CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_ieps', '1')
 String ieps = WebUI.getAttribute(CustomKeywords.'productos.xpath_dynamic.object'('select_ieps'), 'value')
 println(ieps)
 
+'Si selecciona un IEPS diferente a vacio'
+if ((ieps != '') || (ieps != '9999.00')) {
+	'Abrir select > Tipo IEPS'
+	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_tipo_ieps'))
+	
+	'Seleccionar > Tipo IEPS'
+	CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_tipo_ieps', '1')
+}
+
 'Si se selecciona cuota'
 if (ieps == '9999.00') {
     'Agregar un valor de cuota aleatoria'
     WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_cuota'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
             'cuota'))
+	
+	'Abrir select > Tipo IEPS'
+	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_tipo_ieps'))
+	
+	'Seleccionar > Tipo IEPS'
+	CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_tipo_ieps', '1')
 }
-
-'Abrir select > Tipo IEPS'
-WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_tipo_ieps'))
-
-'Seleccionar > Tipo IEPS'
-CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_tipo_ieps', '1')
 
 'Seleccionar Check > No generar IEPS en la venta de este producto'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_no_generar_ieps'))
@@ -702,12 +711,11 @@ if (textrefa == 'No search results.') {
 	CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_input_refacciones', '1')
     
 }
+'Creamos la variable global con el Keyword para buscar el producto'
+CustomKeywords.'variableGlobal.generateVariable.addGlobalVariable'('descripcionproducto', Texto_generico)
 
 'Guardar formulario'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('guardar_form'))
-
-'Creamos la variable global con el Keyword para buscar el producto'
-CustomKeywords.'variableGlobal.generateVariable.addGlobalVariable'('descripcionproducto', Texto_generico)
 
 'Espera de 5 segundos'
 WebUI.delay(5)

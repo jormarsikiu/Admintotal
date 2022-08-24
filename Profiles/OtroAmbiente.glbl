@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalVariableEntities>
+   <description></description>
+   <name>OtroAmbiente</name>
+   <tag></tag>
+   <defaultProfile>false</defaultProfile>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'https://prueba1.admintotal.com'</initValue>
+      <name>Web</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'admin'</initValue>
+      <name>Usuario</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'RAIVpflpDOg='</initValue>
+      <name>Contrasena</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'administrador'</initValue>
+      <name>Usuario_incorrecto</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'94L98adiAtm2zU4oGI/Uzw=='</initValue>
+      <name>Contrasena_incorrecta</name>
+   </GlobalVariableEntity>
+</GlobalVariableEntities>

@@ -413,8 +413,6 @@ public class xpath_dynamic {
 		else if (elemento == 'input_buscar_tipoproducto')
 			xpath = "//select[@id='id_tipo_producto']"
 
-
-
 		TestObject to = new TestObject().addProperty('xpath', ConditionType.EQUALS, xpath)
 		return to
 	}

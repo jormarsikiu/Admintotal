@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Busca y Edita la orden de compra creada</description>
+   <name>Editar_ordenCompra</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>b85a3bd9-40ee-420f-a747-85fde154b9b3</testCaseGuid>
+</TestCaseEntity>

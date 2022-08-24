@@ -1,7 +1,9 @@
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.exception.StepFailedException as StepFailedException
 import internal.GlobalVariable as GlobalVariable
+
 
 'Keyword para abrir el navegador'
 String openBrowser = CustomKeywords.'navegador.validateNavegador.browser'()
@@ -52,6 +54,15 @@ WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('input_proveedor
 
 'Seleccionar >  Proveedor'
 CustomKeywords.'selects.selectAleatory.aleatoryobject'('opcions_proveedor', '2')
+
+'Guardar valor del Proveedor'
+String nombre_proveedor = WebUI.getAttribute(CustomKeywords.'ordenCompra.xpath_dynamic.object'('input_proveedor'), 'value')
+println(nombre_proveedor)
+
+'Crear el Proveedor como variable global'
+CustomKeywords.'variableGlobal.generateVariable.addGlobalVariable'('nombreProveedor', nombre_proveedor)
+
+println(GlobalVariable.nombreProveedor)
 
 'Insertar letra para buscar > Entregar a'
 WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('input_entregar_a'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
@@ -117,22 +128,29 @@ CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_producto', '2')
 WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('input_cantidad'), CustomKeywords.'ordenCompra.data_aleatory.getAleatotyData'(
 		'cantidad'))
 
-'Crear tipo de dato fecha'
-Date todaysDate = new Date()
-
 'Insertar en input > Fecha Entrega'
 WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('input_fecha'), CustomKeywords.'ordenCompra.data_aleatory.getAleatotyData'(
         'fecha_entrega'))
 
 'Insertar en input > Comentario'
 WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('textarea_comentario'), CustomKeywords.'ordenCompra.data_aleatory.getAleatotyData'(
-        'comentario'))
+        'comentarioCrear'))
 
 'Guardar formulario'
 WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('guardar_form'))
 
-'Espera de 5 segundos'
-WebUI.delay(5)
+
+'Guardar valor del Folio'
+String folio = WebUI.getText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('id_folio'))
+println(folio)
+
+'Crear el folio como variable global'
+CustomKeywords.'variableGlobal.generateVariable.addGlobalVariable'('idfolio', folio)
+
+println(GlobalVariable.idfolio)
+
+'Espera de 8 segundos'
+WebUI.delay(8)
 
 println(closeBrowser)
 

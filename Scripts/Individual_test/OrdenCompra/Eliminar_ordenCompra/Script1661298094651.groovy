@@ -1,0 +1,107 @@
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
+import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
+import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
+import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
+import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.testcase.TestCase as TestCase
+import com.kms.katalon.core.testdata.TestData as TestData
+import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
+import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
+import internal.GlobalVariable as GlobalVariable
+import org.openqa.selenium.Keys as Keys
+
+/*Para ejecutar este archivo individualmente se debe agregar en 'variables globales' un numero de folio valido de la orden de compra*/
+
+String openBrowser = CustomKeywords.'navegador.validateNavegador.browser'()
+String closeBrowser = ''
+
+println(openBrowser)
+
+'Si el navegador esta abierto'
+if (openBrowser == '1')
+	{
+		'Guarda el no. de folio de la orden de compra'
+		String id_folio = GlobalVariable.idfolio
+		
+		'Insertar fecha desde en el filtro'
+		WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('fecha_desde'), new Date().format('dd/MM/yy'))
+		
+		'Insertar fecha hasta en el filtro'
+		WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('fecha_hasta'), new Date().format('dd/MM/yy'))
+		
+		'Insertar folio en el filtro'
+		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_buscar_texto'), id_folio)
+		
+		'Click en boton > Boton buscar'
+		WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('button_buscar'))
+		
+		'Eliminar la primera orden de compra encontrada'
+		WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('eliminar_ocr'))
+		
+		'Indicador para no cerrar el navegador y continuar el flujo'
+		closeBrowser = '0'
+		
+	}
+else {
+		
+		'Guarda el no. de folio de la orden de compra'
+		String id_folio = GlobalVariable.Folio
+		
+		'Click en boton > Menu-Inventario'
+		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_inventario'))
+		
+		'Click en boton > Menu - Entradas Almacen'
+		WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('boton_entradas_almacen'))
+		
+		'Click en boton > Menu-Orden Compra'
+		WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('boton_orden_compra'))
+		
+		WebUI.comment('Si se genera un error es porque el no de folio no existe ni las fechas, debe agregarse en variables globales')
+		
+		'Insertar fecha desde en el filtro'
+		WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('fecha_desde'), GlobalVariable.FechaFolio)
+		
+		'Insertar fecha hasta en el filtro'
+		WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('fecha_hasta'), GlobalVariable.FechaFolio)
+		
+		'Insertar folio en el filtro'
+		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_buscar_texto'), id_folio)
+		
+		'Click en boton > Boton buscar'
+		WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('button_buscar'))
+		
+		'Eliminar la primera orden de compra encontrada'
+		WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('eliminar_ocr'))
+		
+		'Indicador para cerrar el navegador'
+		closeBrowser = '1'
+}
+
+'Insertar en input > Motivo de Eliminacion'
+WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('input_motivo_eliminar'), CustomKeywords.'ordenCompra.data_aleatory.getAleatotyData'(
+        'comentarioEliminar'))
+
+'Aceptar modal'
+WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('button_aceptar'))
+
+'Espera de 5 segundos'
+WebUI.delay(5)
+
+if (closeBrowser == '1')
+{
+	'Cerrar navegador'
+	WebUI.closeBrowser()
+}
+else if (closeBrowser == '0'){
+	
+	'Espera de 1 segundos'
+	WebUI.delay(1)
+}
+

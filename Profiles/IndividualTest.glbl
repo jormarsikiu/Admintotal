@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GlobalVariableEntities>
    <description></description>
-   <name>ambiente2</name>
+   <name>IndividualTest</name>
    <tag></tag>
    <defaultProfile>false</defaultProfile>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'https://prueba1.admintotal.com'</initValue>
+      <initValue>'https://kaizen.admintotal.com'</initValue>
       <name>Web</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -16,7 +16,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'RAIVpflpDOg='</initValue>
+      <initValue>'x8YlipdcAoVPi3XP+4iP/A=='</initValue>
       <name>Contrasena</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -28,5 +28,20 @@
       <description></description>
       <initValue>'94L98adiAtm2zU4oGI/Uzw=='</initValue>
       <name>Contrasena_incorrecta</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Editar_producto</description>
+      <initValue>'Automatizacion 2741'</initValue>
+      <name>Producto</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Editar_ordenCompra</description>
+      <initValue>'2'</initValue>
+      <name>Folio</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Editar ordenCompra</description>
+      <initValue>'23/08/22'</initValue>
+      <name>FechaFolio</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

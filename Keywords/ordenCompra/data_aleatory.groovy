@@ -28,8 +28,14 @@ public class data_aleatory {
 			aleatoryData= dayPart.toString()
 		}
 
-		else if (elemento == 'comentario')
+		else if (elemento == 'comentarioCrear')
 			aleatoryData= 'Automatizacion > Comentario de Orden de Compra'
+
+		else if (elemento == 'comentarioEditar')
+			aleatoryData= 'Automatizacion > Orden de Compra Actualizado'
+
+		else if (elemento == 'comentarioEliminar')
+			aleatoryData= 'Prueba Automatizada'
 
 		return aleatoryData
 	}

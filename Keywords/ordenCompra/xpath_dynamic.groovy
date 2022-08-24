@@ -97,6 +97,39 @@ public class xpath_dynamic {
 		else if (elemento == 'guardar_form')
 			xpath = "(//input[@value='Guardar'])[2]"
 
+		else if (elemento == 'id_folio')
+			xpath = "(//div[@class='col-md-12'])[2]/table/tbody/tr/td"
+
+		else if (elemento == 'fecha_desde')
+			xpath = "//input[@id='id_desde']"
+
+		else if (elemento == 'fecha_hasta')
+			xpath = "//input[@id='id_hasta']"
+
+		else if (elemento == 'button_buscar')
+			xpath = "(//button[@class='btn btn-primary'])[1]"
+
+		else if (elemento == 'first_oc_table')
+			xpath = "(//a[contains(@href, 'admin/ver_orden_compra')])[1]"
+
+		else if (elemento == 'edit_oc')
+			xpath = "//a[contains(@href, '/admin/inventario/editar_orden_compra/')]"
+
+		else if (elemento == 'guardar_editar')
+			xpath = "(//input[@value='Guardar'])"
+
+		else if (elemento == 'eliminar_ocr')
+			xpath = "(//a[contains(@onclick, '/admin/delete/movimiento/orden_compra/')])[1]"
+
+		else if (elemento == 'input_motivo_eliminar')
+			xpath = "//input[@id='id_cancelacion-motivo_cancelacion']"
+
+		else if (elemento == 'button_aceptar')
+			xpath = "//button[contains(@onclick, 'enviarCancelacion')]"
+
+
+
+
 		TestObject to = new TestObject().addProperty('xpath', ConditionType.EQUALS, xpath)
 		return to
 	}

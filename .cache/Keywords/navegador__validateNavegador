@@ -1,0 +1,16 @@
+{
+  "keywordFileContentHash": "E92834846151663B2F3A45CE7AB105D0",
+  "keywordClasses": [
+    {
+      "name": "navegador.validateNavegador",
+      "keywordMethods": [
+        {
+          "name": "browser",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

@@ -1,0 +1,30 @@
+{
+  "keywordFileContentHash": "966707F864D18641DCFFA975BB6A8F52",
+  "keywordClasses": [
+    {
+      "name": "productos.xpath_dynamic",
+      "keywordMethods": [
+        {
+          "name": "object",
+          "parameters": [
+            {
+              "name": "elemento",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}
