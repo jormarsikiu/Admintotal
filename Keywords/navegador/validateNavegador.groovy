@@ -36,7 +36,7 @@ public class validateNavegador {
 		}
 		catch(Exception e) {
 			println( 'El navegador NO está abierto')
-			WebUI.callTestCase(findTestCase('Individual_test/Login/Login_exitoso'), [:], FailureHandling.STOP_ON_FAILURE)
+			WebUI.callTestCase(findTestCase('Individual_test/1-Login/Login_exitoso'), [:], FailureHandling.STOP_ON_FAILURE)
 			return '0'
 		}
 	}

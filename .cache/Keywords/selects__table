@@ -1,14 +1,14 @@
 {
-  "keywordFileContentHash": "D46B009D4AEB9F1C908F41020C027896",
+  "keywordFileContentHash": "3075A3C11D2784AC2C8F3475CB7D2D4C",
   "keywordClasses": [
     {
-      "name": "selects.selectAleatory",
+      "name": "selects.table",
       "keywordMethods": [
         {
-          "name": "aleatoryobject",
+          "name": "findtextintable",
           "parameters": [
             {
-              "name": "elemento",
+              "name": "xpath",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -21,7 +21,7 @@
               }
             },
             {
-              "name": "num",
+              "name": "ExpectedValue",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",

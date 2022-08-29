@@ -43,13 +43,13 @@ else {
 		String descripcionproduct = GlobalVariable.Producto
 		
 		'Click en boton > Menu-Inventario'
-		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_inventario'))
+		WebUI.click(CustomKeywords.'menu.xpath_dynamic.object'('boton_inventario'))
 		
 		'Click en boton > Menu - Catalogos'
-		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_catalogo'))
+		WebUI.click(CustomKeywords.'menu.xpath_dynamic.object'('boton_catalogo'))
 		
 		'Click en boton > Menu-Productos'
-		WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_productos'))
+		WebUI.click(CustomKeywords.'menu.xpath_dynamic.object'('boton_productos'))
 		
 		WebUI.comment('Si se genera un error es porque el producto no existe, debe agregarse en variables globales')
 		

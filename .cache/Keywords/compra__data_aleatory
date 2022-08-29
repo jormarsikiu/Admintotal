@@ -1,27 +1,14 @@
 {
-  "keywordFileContentHash": "D46B009D4AEB9F1C908F41020C027896",
+  "keywordFileContentHash": "0AABA6E30798B92BE24808B3EEFD8F03",
   "keywordClasses": [
     {
-      "name": "selects.selectAleatory",
+      "name": "compra.data_aleatory",
       "keywordMethods": [
         {
-          "name": "aleatoryobject",
+          "name": "getAleatotyData",
           "parameters": [
             {
               "name": "elemento",
-              "initialExpression": "",
-              "type": {
-                "fullClassName": "java.lang.String",
-                "unresolvedClassName": "String",
-                "isArray": false,
-                "isGnericsPlaceHolder": false,
-                "hasImmutableClassName": false,
-                "genericsTypes": [],
-                "errorOnParsing": false
-              }
-            },
-            {
-              "name": "num",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",

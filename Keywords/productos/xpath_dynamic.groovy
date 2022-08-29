@@ -11,16 +11,7 @@ public class xpath_dynamic {
 
 		String xpath = ''
 
-		if (elemento == 'boton_inventario')
-			xpath = "//a[@class='singleclick link-inventario']"
-
-		else if (elemento == 'boton_catalogo')
-			xpath = "//a[@class='singleclick link-catalogos submenu']"
-
-		else if (elemento == 'boton_productos')
-			xpath = "//a[@class='singleclick link-productos menu_option']"
-
-		else if (elemento == 'boton_agregar_productos')
+		if (elemento == 'boton_agregar_productos')
 			xpath = "//a[contains(@href, '/admin/agregar_producto/')]"
 
 		else if (elemento == 'check_restringir_descuento')
@@ -58,6 +49,9 @@ public class xpath_dynamic {
 
 		else if (elemento == 'input_clave_prod_serv')
 			xpath = "//input[@id='id_clave_prod_serv']"
+
+		else if (elemento == 'validar_clave_prod_serv')
+			xpath = "//input[@id='id_clave_prod_serv']/following-sibling::*[2]"
 
 		else if (elemento == 'opcion_clave_prod_serv')
 			xpath = "(//li[@class='ui-menu-item'])"
@@ -200,11 +194,17 @@ public class xpath_dynamic {
 		else if (elemento == 'input_consumo_interno')
 			xpath = "//input[@id='id_cuenta_consumo_interno']"
 
+		else if (elemento == 'validar_consumo')
+			xpath = "//input[@id='id_cuenta_consumo_interno']/following-sibling::*[3]"
+
 		else if (elemento == 'options_consumo_interno')
 			xpath = "//input[@id='id_cuenta_consumo_interno']/following-sibling::*[3]/li/a"
 
 		else if (elemento == 'input_clave_material_peligroso')
 			xpath = "//input[@id='id_clave_material_peligroso_txt']"
+
+		else if (elemento == 'validar_peligroso')
+			xpath = "//input[@id='id_clave_material_peligroso_txt']/following-sibling::*[4]"
 
 		else if (elemento == 'options_clave_material_peligroso')
 			xpath = "(//ul[@id='ui-id-3']/li/a)"

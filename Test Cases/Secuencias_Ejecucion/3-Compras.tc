@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Agrega y Edita una compra</description>
+   <name>3-Compras</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>a045145e-be8e-47f7-aa20-567714facd87</testCaseGuid>
+</TestCaseEntity>

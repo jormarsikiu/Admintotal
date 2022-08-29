@@ -13,13 +13,7 @@ public class xpath_dynamic {
 
 		String xpath = ''
 
-		if (elemento == 'boton_entradas_almacen')
-			xpath = "//a[@class='singleclick link-entradas submenu']"
-
-		else if (elemento == 'boton_orden_compra')
-			xpath = "//a[@class='singleclick link-ordenes_compra menu_option']"
-
-		else if (elemento == 'boton_agregar_orden_compra')
+		if (elemento == 'boton_agregar_orden_compra')
 			xpath = "//a[contains(@href, '/admin/inventario/agregar_orden_compra/')]"
 
 		else if (elemento == 'input_fecha_entrega')
@@ -126,8 +120,6 @@ public class xpath_dynamic {
 
 		else if (elemento == 'button_aceptar')
 			xpath = "//button[contains(@onclick, 'enviarCancelacion')]"
-
-
 
 
 		TestObject to = new TestObject().addProperty('xpath', ConditionType.EQUALS, xpath)

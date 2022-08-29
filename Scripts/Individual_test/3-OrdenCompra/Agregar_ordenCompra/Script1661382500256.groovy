@@ -17,10 +17,8 @@ String descripcionproduct = ''
 'Si el navegador esta abierto usar el producto creado, sino usar un producto ingresado manualmente en Variables Locales'
 if (openBrowser == '1')
 	{
+		'Producto del flujo anterior'
 		descripcionproduct = GlobalVariable.descripcionproducto
-		
-		'Insertar descripcion en el filtro'
-		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_buscar_texto'), descripcionproduct)
 		
 		'Indicador para no cerrar el navegador y continuar el flujo'
 		closeBrowser = '0'
@@ -29,7 +27,7 @@ if (openBrowser == '1')
 
 else {
 		
-		'Agregar un producto que ya exista'
+		'Producto de las variables globales'
 		descripcionproduct = GlobalVariable.Producto
 		
 		'Indicador para cerrar el navegador'
@@ -37,13 +35,13 @@ else {
 }
 
 'Click en boton > Menu-Inventario'
-WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_inventario'))
+WebUI.click(CustomKeywords.'menu.xpath_dynamic.object'('boton_inventario'))
 
 'Click en boton > Menu - Entradas Almacen'
-WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('boton_entradas_almacen'))
+WebUI.click(CustomKeywords.'menu.xpath_dynamic.object'('boton_entradas_almacen'))
 
 'Click en boton > Menu-Orden Compra'
-WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('boton_orden_compra'))
+WebUI.click(CustomKeywords.'menu.xpath_dynamic.object'('boton_orden_compra'))
 
 'Click en boton > Agregar Orden Compra'
 WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('boton_agregar_orden_compra'))

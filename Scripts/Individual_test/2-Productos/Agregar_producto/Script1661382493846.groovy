@@ -38,13 +38,13 @@ if (openBrowser == '1') {
 println(closeBrowser)
 
 'Click en boton > Menu-Inventario'
-WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_inventario'))
+WebUI.click(CustomKeywords.'menu.xpath_dynamic.object'('boton_inventario'))
 
 'Click en boton > Menu - Catalogos'
-WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_catalogo'))
+WebUI.click(CustomKeywords.'menu.xpath_dynamic.object'('boton_catalogo'))
 
 'Click en boton > Menu-Productos'
-WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_productos'))
+WebUI.click(CustomKeywords.'menu.xpath_dynamic.object'('boton_productos'))
 
 'Click en boton -> Agregar Productos'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('boton_agregar_productos'))
@@ -128,12 +128,27 @@ WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_codigo'), C
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_clave_prod_serv'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
         'clave_prod_serv'))
 
-'Valida si existen valores en el select'
-if (WebUI.verifyElementPresent(CustomKeywords.'productos.xpath_dynamic.object'('opcion_clave_prod_serv'), 1)) {
+'Espera de 2 segundos'
+WebUI.delay(2)
 	
-	'Si hay valores seleccionar uno aleatorio'
-	CustomKeywords.'selects.selectAleatory.aleatoryobject'('opcion_clave_prod_serv', '1')
+'Buscar elementos en el select'
+String claveprod = WebUI.getAttribute(CustomKeywords.'productos.xpath_dynamic.object'('validar_clave_prod_serv'), 'style')
+println(claveprod)
+
+'Si hay valores seleccionar uno aleatorio'
+if (claveprod.contains('block')) {
+
+	String validarclave = CustomKeywords.'selects.selectAleatory.aleatoryobject'('opcion_clave_prod_serv', '1')
+	
 }
+else {
+		
+	WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_clave_prod_serv'), '')
+		
+	WebUI.comment("El select no tiene elementos")
+	
+}
+
 
 'Abrir select > Tipo'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_tipo'))
@@ -166,10 +181,13 @@ WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('descripcioningles
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('descripcionadicional'), Texto_generico)
 
 'Scroll'
-WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('descripcionecommerce'), 1)
+WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('descripcionadicional'), 1)
 
 'Insertar en input > Descripcion ecommerce'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('descripcionecommerce'), Texto_generico)
+
+'Scroll'
+WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('descripcionecommerce'), 1)
 
 'Buscar en linea'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_linea'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
@@ -204,6 +222,9 @@ if (textl == 'No search results.') {
     WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_firstsubsublinea'))
 }
 
+'Scroll'
+WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('input_marca'), 1)
+
 'Buscar en input > Marca'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_marca'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
         'letra'))
@@ -233,7 +254,10 @@ WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_margen_utili
 
 'Seleccionar opcion > Vender_menos_margen_utilidad'
 CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_margen_utilidad', '1')
-	
+
+'Scroll'
+WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('input_marca'), 1)
+
 'Abrir select > Tasa IVA'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_tasa_IVA'))
 
@@ -251,16 +275,14 @@ String ieps = WebUI.getAttribute(CustomKeywords.'productos.xpath_dynamic.object'
 println(ieps)
 
 'Si selecciona un IEPS diferente a vacio'
-if ((ieps != '') || (ieps != '9999.00')) {
+if ((ieps != '9999.00')) {
 	'Abrir select > Tipo IEPS'
 	WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_tipo_ieps'))
 	
 	'Seleccionar > Tipo IEPS'
 	CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_tipo_ieps', '1')
-}
 
-'Si se selecciona cuota'
-if (ieps == '9999.00') {
+} else if  (ieps == '9999.00') {
     'Agregar un valor de cuota aleatoria'
     WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_cuota'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
             'cuota'))
@@ -270,7 +292,8 @@ if (ieps == '9999.00') {
 	
 	'Seleccionar > Tipo IEPS'
 	CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_tipo_ieps', '1')
-}
+	
+} else if (ieps == '') {}
 
 'Seleccionar Check > No generar IEPS en la venta de este producto'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('check_no_generar_ieps'))
@@ -387,22 +410,59 @@ WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_nivel_comisi
 'Seleccionar opcion > Nivel comisión'
 CustomKeywords.'selects.selectAleatory.aleatoryobject'('opcion_nivel_comision', '1')
 
+'Scroll'
+WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('input_costo_reposicion'), 1)
+
 'Insertar en input > Cuenta para consumo interno'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_consumo_interno'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
         'clave_prod_serv'))
 
-'Seleccionar opcion > Cuenta para consumo interno'
-CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_consumo_interno', '1')
+'Espera de 2 segundos'
+WebUI.delay(2)
+
+'Buscar elementos en el select'
+String claveconsumo = WebUI.getAttribute(CustomKeywords.'productos.xpath_dynamic.object'('validar_consumo'), 'style')
+println(claveprod)
+
+'Si hay valores seleccionar uno aleatorio'
+if (claveconsumo.contains('block')) {
+
+	CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_consumo_interno', '1')
+}
+else {
+		
+	WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_consumo_interno'), '')
+		
+	WebUI.comment("El select no tiene elementos")
+	
+}
 
 'Scroll'
-WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('input_consumo_interno'), 1)
+WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('input_costo_reposicion'), 1)
 
 'Insertar en input > Clave material peligroso'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_clave_material_peligroso'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
         'clave_prod_serv'))
 
-'Seleccionar opcion > Clave material peligroso'
-CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_clave_material_peligroso', '1')
+'Espera de 2 segundos'
+WebUI.delay(2)
+
+'Buscar elementos en el select'
+String clavepeligroso = WebUI.getAttribute(CustomKeywords.'productos.xpath_dynamic.object'('validar_peligroso'), 'style')
+println(clavepeligroso)
+
+'Si hay valores seleccionar uno aleatorio'
+if (clavepeligroso.contains('block')) {
+
+	CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_clave_material_peligroso', '1')
+}
+else {
+		
+	WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_clave_material_peligroso'), '')
+		
+	WebUI.comment("El select no tiene elementos")
+	
+}
 
 'Esperar 2 segundos'
 WebUI.delay(2)
@@ -606,7 +666,7 @@ WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('tab_relacionados'))
 'Insertar en input > Relacionados > Conceptos relacionados'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_conceptos_relacionados'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
         'relacionados'))
-
+/*
 'Insertar en input > Relacionados > Productos complementarios'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_productos_complementarios'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
         'letra'))
@@ -645,7 +705,7 @@ if ((((tipo_producto == '0') || (tipo_producto == '1')) || (tipo_producto == '8'
 		CustomKeywords.'selects.selectAleatory.aleatoryobject'('option_alternativos', '1')
     }
 }
-
+*/
 'Seleccionar Tab > Tags'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('tab_tags'))
 
@@ -670,7 +730,7 @@ if (texttag == 'No search results.') {
 
 'Seleccionar Tab > Consumibles'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('tab_consumibles'))
-
+/*
 'Insertar en input > Consumibles'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_consumibles'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
         'letra'))
@@ -689,10 +749,10 @@ if (textcon == 'No search results.') {
 	CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_consumibles', '1')
 	
 }
-
+*/
 'Seleccionar Tab > Refacciones'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('tab_refacciones'))
-
+/*
 'Insertar en input > Refacciones'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_refacciones'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
         'letra'))
@@ -710,7 +770,7 @@ if (textrefa == 'No search results.') {
     'Si hay valores darle a una opcion'
 	CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_input_refacciones', '1')
     
-}
+}*/
 'Creamos la variable global con el Keyword para buscar el producto'
 CustomKeywords.'variableGlobal.generateVariable.addGlobalVariable'('descripcionproducto', Texto_generico)
 

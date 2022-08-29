@@ -30,18 +30,23 @@
       <name>Contrasena_incorrecta</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
-      <description>Editar_producto</description>
-      <initValue>'Automatizacion 2741'</initValue>
+      <description>Agregar/Editar_producto. No puede ser producto Ensamble, Ni emsamble dinamico</description>
+      <initValue>'Automatizacion 1886'</initValue>
       <name>Producto</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
-      <description>Editar_ordenCompra</description>
-      <initValue>'2'</initValue>
+      <description>Editar_ordenCompra/Agregar compra</description>
+      <initValue>'8'</initValue>
       <name>Folio</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>Editar ordenCompra</description>
       <initValue>'23/08/22'</initValue>
       <name>FechaFolio</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Agregar Compra</description>
+      <initValue>'ADMINTOTAL DEVELOPMENT'</initValue>
+      <name>Proveedor</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>
