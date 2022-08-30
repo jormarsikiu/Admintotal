@@ -46,10 +46,10 @@ public class table {
 			}
 		}
 	}
-	
+
 	@Keyword
 	def findheaderintable(String xpath, String ExpectedValue) {
-		
+
 		'Guarda las filas de la tabla - tr'
 		List<WebElement> rows_table =  WebUiCommonHelper.findWebElements(new compra.xpath_dynamic().object(xpath), 30)
 
@@ -78,9 +78,10 @@ public class table {
 					'Luego de encontrar el elemento cerrar el Loop'
 					break Loop;
 				}
-				else {return false;}
+				else {
+					return false;
+				}
 			}
 		}
 	}
-	
 }
