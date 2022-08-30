@@ -209,7 +209,26 @@ WebUI.scrollToElement(CustomKeywords.'compra.xpath_dynamic.object'('check_increm
 'Check > Incremental_sin_iva'
 WebUI.click(CustomKeywords.'compra.xpath_dynamic.object'('check_incremental_sin_iva'))
 
-WebUI.waitForElementPresent(CustomKeywords.'compra.xpath_dynamic.object'('input_no_unidades'), 3)
+'Espera de 3 segundos'
+WebUI.delay(3)
+
+'Scroll'
+WebUI.scrollToElement(CustomKeywords.'compra.xpath_dynamic.object'('check_incremental_sin_iva'), 1)
+
+'Insertar unidades de medida'
+boolean validar_unidades = CustomKeywords.'selects.table.findheaderintable'('table_unidades', 'N° de unidades')
+
+if (validar_unidades == true)
+{
+	WebUI.setText(CustomKeywords.'compra.xpath_dynamic.object'('input_no_unidades'), CustomKeywords.'compra.data_aleatory.getAleatotyData'('no_unidades'))
+	
+	'Espera de 3 segundos'
+	WebUI.delay(3)
+	
+}else {
+	println ('El producto no tiene unidades de medida')
+	
+}
 
 'Insertar no de descuento'
 WebUI.setText(CustomKeywords.'compra.xpath_dynamic.object'('input_descuento'), CustomKeywords.'compra.data_aleatory.getAleatotyData'(
@@ -218,19 +237,6 @@ WebUI.setText(CustomKeywords.'compra.xpath_dynamic.object'('input_descuento'), C
 'Insertar no de flete'
 WebUI.setText(CustomKeywords.'compra.xpath_dynamic.object'('input_flete'), CustomKeywords.'compra.data_aleatory.getAleatotyData'(
 		'fletes'))
-
-'Insertar no de unidades'
-String unidades1 = WebUI.getAttribute(CustomKeywords.'compra.xpath_dynamic.object'('input_no_unidades'), 'style')
-println(unidades1)
-
-'Espera de 3 segundos'
-WebUI.delay(3)
-
-if (unidades1.contains('block')) {
-
-	WebUI.setText(CustomKeywords.'compra.xpath_dynamic.object'('input_no_unidades'), CustomKeywords.'compra.data_aleatory.getAleatotyData'(
-			'no_unidades'))
-}
 
 'Scroll'
 WebUI.scrollToElement(CustomKeywords.'compra.xpath_dynamic.object'('input_descuento'), 1)

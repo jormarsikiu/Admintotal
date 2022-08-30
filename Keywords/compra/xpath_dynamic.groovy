@@ -36,6 +36,9 @@ public class xpath_dynamic {
 		else if (elemento == 'table_orden_compra')
 			xpath = "//div[@id='ordenes_dialog']/table/tbody/tr"
 
+		else if (elemento == 'table_unidades')
+			xpath = "//table[@id='tabla_detalles']/tbody/tr/th"
+
 		else if (elemento == 'input_no_factura')
 			xpath = "//input[@id='id_folio_factura']"
 

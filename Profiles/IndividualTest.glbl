@@ -31,7 +31,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>Agregar/Editar_producto. No puede ser producto Ensamble, Ni emsamble dinamico</description>
-      <initValue>'Automatizacion 4654'</initValue>
+      <initValue>'Comisión tarjeta'</initValue>
       <name>Producto</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>

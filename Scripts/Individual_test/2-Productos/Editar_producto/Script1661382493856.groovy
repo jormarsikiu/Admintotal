@@ -89,7 +89,7 @@ WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('guardar_form'))
 WebUI.delay(8)
 
 'Ir al filtro'
-WebUI.navigateToUrl(GlobalVariable.Web +'/admin/inventario/catalogos/productos/')
+//WebUI.navigateToUrl(GlobalVariable.Web +'/admin/inventario/catalogos/productos/')
 
 'Espera de 5 segundos'
 WebUI.delay(5)

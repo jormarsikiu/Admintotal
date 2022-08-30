@@ -90,7 +90,7 @@ WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('guardar_editar'))
 WebUI.delay(5)
 
 'Ir al filtro'
-WebUI.navigateToUrl(GlobalVariable.Web +'/admin/inventario/entradas/ordenes_compra/')
+//WebUI.navigateToUrl(GlobalVariable.Web +'/admin/inventario/entradas/ordenes_compra/')
 
 'Espera de 5 segundos'
 WebUI.delay(5)

@@ -46,4 +46,41 @@ public class table {
 			}
 		}
 	}
+	
+	@Keyword
+	def findheaderintable(String xpath, String ExpectedValue) {
+		
+		'Guarda las filas de la tabla - tr'
+		List<WebElement> rows_table =  WebUiCommonHelper.findWebElements(new compra.xpath_dynamic().object(xpath), 30)
+
+		'Guarda el tamano de las filas'
+		int rows_count = rows_table.size()
+
+		'Loop para recorrer las filas de la tabla'
+		Loop:
+		for (int row = 0; row < rows_count; row++) {
+			'Guarda las columnas de la tabla - th'
+			List<WebElement> Columns_row = rows_table.get(row).findElements(By.tagName('span'))
+
+			'Guarda el tamano de las columnas'
+			int columns_count = Columns_row.size()
+
+			'Loop para recorrer las columnas '
+			for (int column = 0; column < columns_count; column++) {
+				'Guarda el texto de cada celda'
+				String celltext = Columns_row.get(column).getText()
+
+				'Comprueba de el valor de la celda es el valor esperado'
+				if (celltext == ExpectedValue) {
+					'Da click en la celda correspondiente'
+					return true;
+
+					'Luego de encontrar el elemento cerrar el Loop'
+					break Loop;
+				}
+				else {return false;}
+			}
+		}
+	}
+	
 }
