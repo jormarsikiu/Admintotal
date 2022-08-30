@@ -31,12 +31,12 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>Agregar/Editar_producto. No puede ser producto Ensamble, Ni emsamble dinamico</description>
-      <initValue>'Automatizacion 1886'</initValue>
+      <initValue>'Automatizacion 4654'</initValue>
       <name>Producto</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>Editar_ordenCompra/Agregar compra</description>
-      <initValue>'8'</initValue>
+      <initValue>'11'</initValue>
       <name>Folio</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -48,5 +48,15 @@
       <description>Agregar Compra</description>
       <initValue>'ADMINTOTAL DEVELOPMENT'</initValue>
       <name>Proveedor</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Editar Compra</description>
+      <initValue>'13'</initValue>
+      <name>FolioCompra</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Editar Compra</description>
+      <initValue>'29/08/22'</initValue>
+      <name>FechaFolioCompra</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

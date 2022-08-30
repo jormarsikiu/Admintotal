@@ -31,6 +31,9 @@ public class data_aleatory {
 		else if (elemento == 'comentarios')
 			aleatoryData= 'Automatizacion > Agregar Compra'
 
+		else if (elemento == 'comentarioEditar')
+			aleatoryData= 'Automatizacion > Compra Actualizado'
+
 		return aleatoryData
 	}
 }

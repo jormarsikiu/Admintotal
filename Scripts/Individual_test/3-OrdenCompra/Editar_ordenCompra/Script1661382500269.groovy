@@ -67,6 +67,9 @@ else {
 		closeBrowser = '1'
 }
 
+'Scroll'
+WebUI.scrollToElement(CustomKeywords.'ordenCompra.xpath_dynamic.object'('first_oc_table'), 1)
+
 'Abrir el orden de compra la primera'
 WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('first_oc_table'))
 

@@ -64,6 +64,9 @@ else {
 'Click en el boton de buscar'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('button_buscar_texto'))
 
+'Scroll'
+WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('first_prod_table'), 1)
+
 'Abrir el producto'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('first_prod_table'))
 

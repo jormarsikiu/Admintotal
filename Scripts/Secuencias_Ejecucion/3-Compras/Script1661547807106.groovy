@@ -19,3 +19,5 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.callTestCase(findTestCase('Individual_test/4-Compra/Agregar_compra'), [:], FailureHandling.STOP_ON_FAILURE)
 
+WebUI.callTestCase(findTestCase('Individual_test/4-Compra/Editar_compra'), [:], FailureHandling.STOP_ON_FAILURE)
+

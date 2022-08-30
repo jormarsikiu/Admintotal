@@ -134,6 +134,9 @@ WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('input_fecha'), 
 WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('textarea_comentario'), CustomKeywords.'ordenCompra.data_aleatory.getAleatotyData'(
         'comentarioCrear'))
 
+'Scroll'
+WebUI.scrollToElement(CustomKeywords.'ordenCompra.xpath_dynamic.object'('guardar_form'), 1)
+
 'Guardar formulario'
 WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('guardar_form'))
 

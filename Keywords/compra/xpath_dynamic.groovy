@@ -23,7 +23,12 @@ public class xpath_dynamic {
 			xpath = "//input[@id='id_proveedor']"
 
 		else if (elemento == 'modal')
-			xpath = "//div[@aria-describedby='ordenes_dialog']"
+			xpath = "//div[@id='ordenes_dialog']"
+
+		//"//div[@aria-describedby='ordenes_dialog']"
+
+		else if (elemento == 'cancel_modal')
+			xpath = "//div[@class='ui-dialog-buttonset']/button"
 
 		else if (elemento == 'input_entregar_a')
 			xpath = "//input[@id='id_direccion_entrega_txt']"
@@ -33,6 +38,15 @@ public class xpath_dynamic {
 
 		else if (elemento == 'input_no_factura')
 			xpath = "//input[@id='id_folio_factura']"
+
+		else if (elemento == 'input_producto')
+			xpath = "//input[@id='id_form-0-producto']"
+
+		else if (elemento == 'validar_producto')
+			xpath = "//input[@id='id_form-0-producto']/following-sibling::*[2]"
+
+		else if (elemento == 'opcion_producto')
+			xpath = "//div[@class='dialog_descripcion_adicional']/following-sibling::*[1]/li/a"
 
 		else if (elemento == 'guardar_form')
 			xpath = "(//input[@value='Guardar'])"
@@ -45,6 +59,9 @@ public class xpath_dynamic {
 
 		else if (elemento == 'check_incremental_sin_iva')
 			xpath = "//input[@id='id_incremental_sin_iva']/following-sibling::*[1]"
+
+		else if (elemento == 'validate_no_unidades')
+			xpath = "//span[@class='doble_unidad']"
 
 		else if (elemento == 'input_no_unidades')
 			xpath = "//input[@id='id_form-0-numero_unidades']"
@@ -61,6 +78,20 @@ public class xpath_dynamic {
 		else if (elemento == 'button_guardar')
 			xpath = "//button[@value='Guardar']"
 
+		else if (elemento == 'first_c_table')
+			xpath = "(//a[contains(@href, 'admin/ver_entrada')])[1]"
+
+		else if (elemento == 'edit_compra')
+			xpath = "(//a[contains(@onclick, 'editarCompra')])[1]"
+
+		else if (elemento == 'edit_entrada')
+			xpath = "//a[contains(@href, '/admin/inventario/editar_compra/')]"
+
+		else if (elemento == 'guardar_compra')
+			xpath = "(//button[contains(@onclick, 'guardarCompra')])"
+
+		else if (elemento == 'id_folio')
+			xpath = "(//div[@class='col-md-12'])[3]/table/tbody/tr/td/b"
 
 		TestObject to = new TestObject().addProperty('xpath', ConditionType.EQUALS, xpath)
 		return to

@@ -154,7 +154,12 @@ else {
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('select_tipo'))
 
 'Selecionar opcion > Tipo'
-CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_tipo', '1')
+//CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_tipo', '1')
+
+List randomObjects2 = Arrays.asList('0', '1', '3', '5', '4', '7', '9', '10')
+String randomPath2 = randomObjects2.get(new Random().nextInt(randomObjects2.size()))
+WebUI.selectOptionByValue(CustomKeywords.'productos.xpath_dynamic.object'('select_tipo'), randomPath2, false)
+
 
 'Guardar valor del Tipo producto'
 String tipo_producto = WebUI.getAttribute(CustomKeywords.'productos.xpath_dynamic.object'('select_tipo'), 'value')
@@ -377,9 +382,9 @@ if (tipo_producto == '5') {
 if (tipo_producto == '4') {
     'Click en Grupo activo'
     WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('input_grupo_activo'))
-
+	
     'Insertar en input > Grupo activo'
-    CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_grupo_activo', '1')
+	CustomKeywords.'selects.selectAleatory.aleatoryobject'('options_grupo_activo', '1')
 }
 
 'Opciones Mano de obra'
@@ -481,6 +486,9 @@ WebUI.delay(2)
 
 'Insertar en input > Comentarios'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_comentarios'), Texto_generico)
+
+'Scroll'
+WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('input_comentarios'), 1)
 
 'Insertar en input > M.U.'
 WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_MU'), CustomKeywords.'productos.data_aleatory.getAleatotyData'(
@@ -773,6 +781,9 @@ if (textrefa == 'No search results.') {
 }*/
 'Creamos la variable global con el Keyword para buscar el producto'
 CustomKeywords.'variableGlobal.generateVariable.addGlobalVariable'('descripcionproducto', Texto_generico)
+
+'Scroll'
+WebUI.scrollToElement(CustomKeywords.'productos.xpath_dynamic.object'('guardar_form'), 1)
 
 'Guardar formulario'
 WebUI.click(CustomKeywords.'productos.xpath_dynamic.object'('guardar_form'))
