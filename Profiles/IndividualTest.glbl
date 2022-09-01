@@ -51,12 +51,12 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>Editar Compra</description>
-      <initValue>'13'</initValue>
+      <initValue>'34'</initValue>
       <name>FolioCompra</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>Editar Compra</description>
-      <initValue>'29/08/22'</initValue>
+      <initValue>'30/08/22'</initValue>
       <name>FechaFolioCompra</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

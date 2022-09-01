@@ -25,6 +25,7 @@ println(openBrowser)
 'Si el navegador esta abierto'
 if (openBrowser == '1')
 	{
+		
 		'Ir al filtro'
 		WebUI.navigateToUrl(GlobalVariable.Web +'/admin/inventario/entradas/compras/')
 		
@@ -43,6 +44,12 @@ if (openBrowser == '1')
 		'Click en boton > Boton buscar'
 		WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('button_buscar'))
 		
+		'Scroll'
+		WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('button_eliminar_compra'), 1)
+		
+		'Click en el boton eliminar compra, la primera encontrada'
+		WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('button_eliminar_compra'))
+		
 		'Indicador para no cerrar el navegador y continuar el flujo'
 		closeBrowser = '0'
 		
@@ -60,14 +67,14 @@ else {
 		
 		'Click en boton > Menu-Compras'
 		WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_compras'))
-		
-		WebUI.comment('Si se genera un error es porque el no de folio no existe ni las fechas, debe agregarse en variables globales')
-		
+				
 		'Insertar fecha desde en el filtro'
 		WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('fecha_desde'), GlobalVariable.FechaFolioCompra)
 		
 		'Insertar fecha hasta en el filtro'
 		WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('fecha_hasta'), GlobalVariable.FechaFolioCompra)
+		
+		WebUI.comment('Si se genera un error es porque el no de folio no existe ni las fechas, debe agregarse en variables globales')
 		
 		'Insertar folio en el filtro'
 		WebUI.setText(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('input_buscar_texto'), id_folio)
@@ -75,36 +82,22 @@ else {
 		'Click en boton > Boton buscar'
 		WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('button_buscar'))
 		
+		'Scroll'
+		WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('button_eliminar_compra'), 1)
+		
+		'Click en el boton eliminar compra, la primera encontrada'
+		WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('button_eliminar_compra'))
+		
 		'Indicador para cerrar el navegador'
 		closeBrowser = '1'
 }
 
+'Insertar en input > Motivo de Eliminacion'
+WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('input_motivo_eliminar'), CustomKeywords.'keyword_ordenCompra.data_aleatory.getAleatotyData'(
+		'comentarioEliminar'))
 
-'Scroll'
-WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('first_c_table'), 1)
-
-'Abrir la primera compra la primera'
-WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('first_c_table'))
-
-'Editar la compra'
-WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('edit_compra'))
-WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('edit_entrada'))
-
-'Scroll al comentario'
-WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_comentarios'), 1)
-
-'Insertar en input > Comentario'
-WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_comentarios'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'(
-		'comentarioEditar'))
-
-'Guardar orden de compra'
-WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('guardar_compra'))
-
-'Espera de 5 segundos'
-WebUI.delay(5)
-
-//'Ir al filtro'
-//WebUI.navigateToUrl(GlobalVariable.Web +'/admin/inventario/entradas/compras/')
+'Aceptar modal'
+WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('button_aceptar'))
 
 'Espera de 5 segundos'
 WebUI.delay(5)
@@ -112,11 +105,10 @@ WebUI.delay(5)
 if (closeBrowser == '1')
 {
 	'Cerrar navegador'
-	WebUI.closeBrowser()
+	//WebUI.closeBrowser()
 }
 else if (closeBrowser == '0'){
 	
 	'Espera de 1 segundos'
 	WebUI.delay(1)
 }
-

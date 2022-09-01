@@ -16,9 +16,6 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
-import com.kms.katalon.core.exception.StepFailedException as StepFailedException
-
-/*Para ejecutar este archivo individualmente se debe agregar en 'variables globales' la descripcion de un producto valido*/
 
 String openBrowser = CustomKeywords.'keyword_navegador.validateNavegador.browser'()
 String closeBrowser = ''
@@ -28,10 +25,23 @@ println(openBrowser)
 'Si el navegador esta abierto'
 if (openBrowser == '1')
 	{
-		String descripcionproduct = GlobalVariable.descripcionproducto
+String descripcionproduct = GlobalVariable.descripcionproducto
+
+		'Ir al filtro'
+		WebUI.navigateToUrl(GlobalVariable.Web +'/admin/inventario/catalogos/productos/')
 		
 		'Insertar descripcion en el filtro'
 		WebUI.setText(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('input_buscar_texto'), descripcionproduct)
+		
+		'Indicador para no cerrar el navegador y continuar el flujo'
+		closeBrowser = '0'
+		
+		'Click en el boton de buscar'
+		WebUI.click(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('button_buscar_texto'))
+	
+		
+		'Click en boton eliminar producto'
+		WebUI.click(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('boton_eliminar_prod'))
 		
 		'Indicador para no cerrar el navegador y continuar el flujo'
 		closeBrowser = '0'
@@ -58,38 +68,20 @@ else {
 		
 		'Indicador para cerrar el navegador'
 		closeBrowser = '1'
+		
+		'Click en boton eliminar producto'
+		WebUI.click(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('boton_eliminar_prod'))
+		
+		'Indicador para cerrar el navegador'
+		closeBrowser = '1'
 }
 
+'Insertar en input > Motivo de Eliminacion'
+WebUI.setText(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('input_motivo_eliminar'), CustomKeywords.'keyword_ordenCompra.data_aleatory.getAleatotyData'(
+		'comentarioEliminar'))
 
-'Click en el boton de buscar'
-WebUI.click(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('button_buscar_texto'))
-
-'Scroll'
-WebUI.scrollToElement(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('first_prod_table'), 1)
-
-'Abrir el producto'
-WebUI.click(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('first_prod_table'))
-
-'Editar el producto'
-WebUI.click(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('edit_producto'))
-
-'Validar la URl'
-assert WebUI.getUrl().contains('/admin/producto/edit/')
-
-'Insertar en input > Comentarios'
-WebUI.setText(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('input_comentarios'), 'Automatizacion > Producto Actualizado')
-
-'Scroll'
-WebUI.scrollToElement(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('input_unidad_medida'), 1)
-
-'Guardar formulario'
-WebUI.click(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('guardar_form'))
-
-'Espera de 8 segundos'
-WebUI.delay(8)
-
-'Ir al filtro'
-//WebUI.navigateToUrl(GlobalVariable.Web +'/admin/inventario/catalogos/productos/')
+'Aceptar modal'
+WebUI.click(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('button_aceptar'))
 
 'Espera de 5 segundos'
 WebUI.delay(5)

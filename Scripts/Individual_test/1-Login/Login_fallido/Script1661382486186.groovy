@@ -19,6 +19,19 @@ import org.openqa.selenium.Keys as Keys
 import com.kms.katalon.core.exception.StepFailedException as StepFailedException
 import com.kms.katalon.core.testobject.ConditionType as ConditionType
 
+/**
+ *Este es un Test Case para la autenticación del login con un usuario y contraseña invalido
+ *Realiza dos validaciones: 
+ *Prueba 1 Contraseña incorrecta
+ *Prueba 2 Contraseña correcta
+ *Usa variables Globales de la sección Profiles
+ *Es usada en la siguiente ruta:
+ *@linkplain https://kaizen.admintotal.com/admin/login
+ *@see Usa el Keywords.keyword_login.xpath_dynamic.groovy para obtener los elementos web
+ *@author Grupo KAIZEN
+ *@since 2022
+ */
+
 '****PRUEBA 1 > CONTRASEÑA INCORRECTA****'
 
 'Abrir navegador'
@@ -28,19 +41,19 @@ WebUI.openBrowser(GlobalVariable.Web)
 WebUI.maximizeWindow()
 
 'Insertar usuario'
-WebUI.setText(CustomKeywords.'login.xpath_dynamic.object'('input_username'), GlobalVariable.Usuario)
+WebUI.setText(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('input_username'), GlobalVariable.Usuario)
 
 'Insertar contraseña incorrecta'
-WebUI.setEncryptedText(CustomKeywords.'login.xpath_dynamic.object'('input_password'), GlobalVariable.Contrasena_incorrecta)
+WebUI.setEncryptedText(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('input_password'), GlobalVariable.Contrasena_incorrecta)
 
 'Click en el boton entrar'
-WebUI.click(CustomKeywords.'login.xpath_dynamic.object'('button_entrar'))
+WebUI.click(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('button_entrar'))
 
 'Esperar 2 segundos'
 WebUI.delay(2)
 
 'Verificar si aparece la etiqueta de error'
-WebUI.verifyElementPresent(CustomKeywords.'login.xpath_dynamic.object'('error_msg'), 1)
+WebUI.verifyElementPresent(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('error_msg'), 1)
 
 'Obtener la URl'
 currentUrl = WebUI.getUrl()
@@ -69,19 +82,19 @@ WebUI.openBrowser(GlobalVariable.Web)
 WebUI.maximizeWindow()
 
 'Insertar usuario incorrecto'
-WebUI.setText(CustomKeywords.'login.xpath_dynamic.object'('input_username'), GlobalVariable.Usuario_incorrecto)
+WebUI.setText(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('input_username'), GlobalVariable.Usuario_incorrecto)
 
 'Insertar contraseña'
-WebUI.setEncryptedText(CustomKeywords.'login.xpath_dynamic.object'('input_password'), GlobalVariable.Contrasena)
+WebUI.setEncryptedText(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('input_password'), GlobalVariable.Contrasena)
 
 'Click en el boton entrar'
-WebUI.click(CustomKeywords.'login.xpath_dynamic.object'('button_entrar'))
+WebUI.click(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('button_entrar'))
 
 'Esperar 2 segundos'
 WebUI.delay(2)
 
 'Verificar si aparece la etiqueta de error'
-WebUI.verifyElementPresent(CustomKeywords.'login.xpath_dynamic.object'('error_msg'), 1)
+WebUI.verifyElementPresent(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('error_msg'), 1)
 
 'Obtener la URl'
 currentUrl = WebUI.getUrl()

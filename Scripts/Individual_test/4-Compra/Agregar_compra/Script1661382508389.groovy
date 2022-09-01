@@ -19,7 +19,7 @@ import org.openqa.selenium.Keys as Keys
 
 
 'Keyword para abrir el navegador'
-String openBrowser = CustomKeywords.'navegador.validateNavegador.browser'()
+String openBrowser = CustomKeywords.'keyword_navegador.validateNavegador.browser'()
 
 'Variable para cerrar o mantener abierto el navegador'
 String closeBrowser = ''
@@ -84,49 +84,49 @@ else {
 }
 
 'Click en boton > Menu-Inventario'
-WebUI.click(CustomKeywords.'menu.xpath_dynamic.object'('boton_inventario'))
+WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_inventario'))
 
 'Click en boton > Menu - Entradas Almacen'
-WebUI.click(CustomKeywords.'menu.xpath_dynamic.object'('boton_entradas_almacen'))
+WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_entradas_almacen'))
 
 'Click en boton > Menu-Compras'
-WebUI.click(CustomKeywords.'menu.xpath_dynamic.object'('boton_compras'))
+WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_compras'))
 
 'Click en boton > Agregar Compra'
-WebUI.click(CustomKeywords.'compra.xpath_dynamic.object'('boton_agregar_compra'))
+WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('boton_agregar_compra'))
 
 'Check > Usar fecha de ingreso anterior'
-WebUI.click(CustomKeywords.'compra.xpath_dynamic.object'('check_fecha_anterior'))
+WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('check_fecha_anterior'))
 
 'Insertar letra para buscar > Proveedor'
-WebUI.setText(CustomKeywords.'compra.xpath_dynamic.object'('input_proveedor'), proveedor)
+WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_proveedor'), proveedor)
 
 'Seleccionar >  Proveedor'
-CustomKeywords.'selects.selectAleatory.aleatoryobject'('opcions_proveedor', '2')
+CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'('opcions_proveedor', '2')
 
 if (ordenCompra == '1')
 {
 
-	String element = WebUI.getAttribute(CustomKeywords.'compra.xpath_dynamic.object'('modal'), 'style')
+	String element = WebUI.getAttribute(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('modal'), 'style')
 	println(element)
 
 	if (element.contains('block')) {
 	
 		'Seleccionar > Orden de Compra > Folio'
-		CustomKeywords.'selects.table.findtextintable'('table_orden_compra', id_folio)
+		CustomKeywords.'keyword_sharedElements.table.findtextintable'('table_orden_compra', id_folio)
 
 		'Espera de 2 segundos'
 		WebUI.delay(2)
 
 		'Insertar no de factura'
-		WebUI.setText(CustomKeywords.'compra.xpath_dynamic.object'('input_no_factura'), CustomKeywords.'compra.data_aleatory.getAleatotyData'(
+		WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_no_factura'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'(
 	        'no_factura'))
 	
 		'Scroll'
-		WebUI.scrollToElement(CustomKeywords.'compra.xpath_dynamic.object'('guardar_form'), 1)
+		WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('guardar_form'), 1)
 
 		'Guardar > Liquidar orden de compra'
-		WebUI.click(CustomKeywords.'compra.xpath_dynamic.object'('guardar_form'))
+		WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('guardar_form'))
 
 		'Espera de 2 segundos'
 		WebUI.delay(2)
@@ -135,54 +135,54 @@ if (ordenCompra == '1')
 
 else if (ordenCompra == '0'){
 	
-	String element = WebUI.getAttribute(CustomKeywords.'compra.xpath_dynamic.object'('modal'), 'style')
+	String element = WebUI.getAttribute(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('modal'), 'style')
 	println(element)
 
 	if (element.contains('block')) {
 		
-		/*CustomKeywords.'selects.table.findtextintable'('table_orden_compra', '16')
+		/*CustomKeywords.'keyword_sharedElements.table.findtextintable'('table_orden_compra', '16')
 		
 		'Insertar no de factura'
-		WebUI.setText(CustomKeywords.'compra.xpath_dynamic.object'('input_no_factura'), CustomKeywords.'compra.data_aleatory.getAleatotyData'(
+		WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_no_factura'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'(
 			'no_factura'))
 	
 		'Scroll'
-		WebUI.scrollToElement(CustomKeywords.'compra.xpath_dynamic.object'('guardar_form'), 1)
+		WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('guardar_form'), 1)
 
 		'Guardar > Liquidar orden de compra'
-		WebUI.click(CustomKeywords.'compra.xpath_dynamic.object'('guardar_form'))*/
+		WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('guardar_form'))*/
 		
-		WebUI.click(CustomKeywords.'compra.xpath_dynamic.object'('cancel_modal'))
+		WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('cancel_modal'))
 		}
 	
 		'Scroll'
-		WebUI.scrollToElement(CustomKeywords.'compra.xpath_dynamic.object'('input_no_factura'), 1)
+		WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_no_factura'), 1)
 
 		'Insertar no de factura'
-		WebUI.setText(CustomKeywords.'compra.xpath_dynamic.object'('input_no_factura'), CustomKeywords.'compra.data_aleatory.getAleatotyData'(
+		WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_no_factura'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'(
 		'no_factura'))
 		
 		descripcionproduct = GlobalVariable.Producto
 		
 		'Insertar producto'
-		WebUI.setText(CustomKeywords.'compra.xpath_dynamic.object'('input_producto'), descripcionproduct)
+		WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_producto'), descripcionproduct)
 		
 		'Espera de 3 segundos'
 		WebUI.delay(3)
 		
 		'Buscar elementos en el select'
-		String claveprod = WebUI.getAttribute(CustomKeywords.'compra.xpath_dynamic.object'('validar_producto'), 'style')
+		String claveprod = WebUI.getAttribute(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('validar_producto'), 'style')
 		println(claveprod)
 		
 		'Si hay valores seleccionar uno aleatorio'
 		if (claveprod.contains('block')) {
 		
-			String validarclave = CustomKeywords.'selects.selectAleatory.aleatoryobject'('opcion_producto', '3')
+			String validarclave = CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'('opcion_producto', '3')
 			
 		}
 		else {
 				
-			WebUI.setText(CustomKeywords.'compra.xpath_dynamic.object'('input_producto'), '')
+			WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_producto'), '')
 				
 			WebUI.comment("El select no tiene elementos")
 			
@@ -191,36 +191,36 @@ else if (ordenCompra == '0'){
 }
 
 'Insertar > Entregar a'
-WebUI.setText(CustomKeywords.'compra.xpath_dynamic.object'('input_entregar_a'), CustomKeywords.'compra.data_aleatory.getAleatotyData'(
+WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_entregar_a'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'(
 		'comentarios'))
 
 'Scroll'
-WebUI.scrollToElement(CustomKeywords.'compra.xpath_dynamic.object'('input_no_factura'), 1)
+WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_no_factura'), 1)
 
 'Seleccionar condicion aleatoria'
-CustomKeywords.'selects.selectAleatory.aleatoryobject'('select_condicion', '3')
+CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'('select_condicion', '3')
 
 'Seleccionar moneda aleatoria'
-CustomKeywords.'selects.selectAleatory.aleatoryobject'('select_moneda', '3')
+CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'('select_moneda', '3')
 
 'Scroll'
-WebUI.scrollToElement(CustomKeywords.'compra.xpath_dynamic.object'('check_incremental_sin_iva'), 1)
+WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('check_incremental_sin_iva'), 1)
 
 'Check > Incremental_sin_iva'
-WebUI.click(CustomKeywords.'compra.xpath_dynamic.object'('check_incremental_sin_iva'))
+WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('check_incremental_sin_iva'))
 
 'Espera de 3 segundos'
 WebUI.delay(3)
 
 'Scroll'
-WebUI.scrollToElement(CustomKeywords.'compra.xpath_dynamic.object'('check_incremental_sin_iva'), 1)
+WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('check_incremental_sin_iva'), 1)
 
 'Insertar unidades de medida'
-boolean validar_unidades = CustomKeywords.'selects.table.findheaderintable'('table_unidades', 'N° de unidades')
+boolean validar_unidades = CustomKeywords.'keyword_sharedElements.table.findheaderintable'('table_unidades', 'N° de unidades')
 
 if (validar_unidades == true)
 {
-	WebUI.setText(CustomKeywords.'compra.xpath_dynamic.object'('input_no_unidades'), CustomKeywords.'compra.data_aleatory.getAleatotyData'('no_unidades'))
+	WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_no_unidades'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'('no_unidades'))
 	
 	'Espera de 3 segundos'
 	WebUI.delay(3)
@@ -231,32 +231,32 @@ if (validar_unidades == true)
 }
 
 'Insertar no de descuento'
-WebUI.setText(CustomKeywords.'compra.xpath_dynamic.object'('input_descuento'), CustomKeywords.'compra.data_aleatory.getAleatotyData'(
+WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_descuento'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'(
 		'descuento'))
 
 'Insertar no de flete'
-WebUI.setText(CustomKeywords.'compra.xpath_dynamic.object'('input_flete'), CustomKeywords.'compra.data_aleatory.getAleatotyData'(
+WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_flete'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'(
 		'fletes'))
 
 'Scroll'
-WebUI.scrollToElement(CustomKeywords.'compra.xpath_dynamic.object'('input_descuento'), 1)
+WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_descuento'), 1)
 
 'Insertar comentarios'
-WebUI.setText(CustomKeywords.'compra.xpath_dynamic.object'('input_comentarios'), CustomKeywords.'compra.data_aleatory.getAleatotyData'(
+WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_comentarios'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'(
 		'comentarios'))
 
 'Scroll'
-WebUI.scrollToElement(CustomKeywords.'compra.xpath_dynamic.object'('button_guardar'), 1)
+WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('button_guardar'), 1)
 
 'Boton > Guardar'
-WebUI.click(CustomKeywords.'compra.xpath_dynamic.object'('button_guardar'))
+WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('button_guardar'))
 
 'Guardar valor del Folio de la compra'
-String folio_compra = WebUI.getText(CustomKeywords.'compra.xpath_dynamic.object'('id_folio'))
+String folio_compra = WebUI.getText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('id_folio'))
 println(folio_compra)
 
 'Crear el folio como variable global'
-CustomKeywords.'variableGlobal.generateVariable.addGlobalVariable'('idfolioCompra', folio_compra)
+CustomKeywords.'keyword_variableGlobal.generateVariable.addGlobalVariable'('idfolioCompra', folio_compra)
 
 println(GlobalVariable.idfolioCompra)
 

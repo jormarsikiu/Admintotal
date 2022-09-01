@@ -19,6 +19,16 @@ import org.openqa.selenium.Keys as Keys
 import com.kms.katalon.core.exception.StepFailedException as StepFailedException
 import com.kms.katalon.core.testobject.ConditionType as ConditionType
 
+/**
+ *Este es un Test Case para la autenticación del login con un usuario y contraseña válido
+ *Usa variables Globales de la sección Profiles
+ *Es usada en la siguiente ruta:
+ *@linkplain https://kaizen.admintotal.com/admin/login
+ *@see Usa el Keywords.keyword_login.xpath_dynamic.groovy para obtener los elementos web
+ *@author Grupo KAIZEN
+ *@since 2022
+ */
+
 'Abrir navegador'
 WebUI.openBrowser(GlobalVariable.Web)
 
@@ -26,13 +36,13 @@ WebUI.openBrowser(GlobalVariable.Web)
 WebUI.maximizeWindow()
 
 'Insertar usuario'
-WebUI.setText(CustomKeywords.'login.xpath_dynamic.object'('input_username'), GlobalVariable.Usuario)
+WebUI.setText(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('input_username'), GlobalVariable.Usuario)
 
 'Insertar contraseña'
-WebUI.setEncryptedText(CustomKeywords.'login.xpath_dynamic.object'('input_password'), GlobalVariable.Contrasena)
+WebUI.setEncryptedText(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('input_password'), GlobalVariable.Contrasena)
 
 'Click en el boton entrar'
-WebUI.click(CustomKeywords.'login.xpath_dynamic.object'('button_entrar'))
+WebUI.click(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('button_entrar'))
 
 'Esperar 2 segundos'
 WebUI.delay(2)

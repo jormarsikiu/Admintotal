@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description>Agrega, Edita una orden de compra</description>
-   <name>2-OrdenCompra</name>
-   <tag></tag>
-   <comment></comment>
-   <testCaseGuid>85cd2cf7-0b94-421c-aa84-85dc13f0cdd5</testCaseGuid>
-</TestCaseEntity>

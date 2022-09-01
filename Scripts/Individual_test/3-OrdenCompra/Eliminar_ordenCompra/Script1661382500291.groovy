@@ -17,9 +17,10 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-/*Para ejecutar este archivo individualmente se debe agregar en 'variables globales' un numero de folio valido de la orden de compra*/
+/*Para ejecutar este archivo individualmente se debe agregar en 'variables globales' 
+ * un numero de folio valido de la orden de compra*/
 
-String openBrowser = CustomKeywords.'navegador.validateNavegador.browser'()
+String openBrowser = CustomKeywords.'keyword_navegador.validateNavegador.browser'()
 String closeBrowser = ''
 
 println(openBrowser)
@@ -27,23 +28,27 @@ println(openBrowser)
 'Si el navegador esta abierto'
 if (openBrowser == '1')
 	{
+		
+		'Ir al filtro'
+		WebUI.navigateToUrl(GlobalVariable.Web +'/admin/inventario/entradas/ordenes_compra/')
+		
 		'Guarda el no. de folio de la orden de compra'
 		String id_folio = GlobalVariable.idfolio
 		
 		'Insertar fecha desde en el filtro'
-		WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('fecha_desde'), new Date().format('dd/MM/yy'))
+		WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('fecha_desde'), new Date().format('dd/MM/yy'))
 		
 		'Insertar fecha hasta en el filtro'
-		WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('fecha_hasta'), new Date().format('dd/MM/yy'))
+		WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('fecha_hasta'), new Date().format('dd/MM/yy'))
 		
 		'Insertar folio en el filtro'
-		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_buscar_texto'), id_folio)
+		WebUI.setText(CustomKeywords.'keyword_productos.xpath_dynamic.object'('input_buscar_texto'), id_folio)
 		
 		'Click en boton > Boton buscar'
-		WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('button_buscar'))
+		WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('button_buscar'))
 		
 		'Eliminar la primera orden de compra encontrada'
-		WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('eliminar_ocr'))
+		WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('eliminar_ocr'))
 		
 		'Indicador para no cerrar el navegador y continuar el flujo'
 		closeBrowser = '0'
@@ -55,41 +60,41 @@ else {
 		String id_folio = GlobalVariable.Folio
 		
 		'Click en boton > Menu-Inventario'
-		WebUI.click(CustomKeywords.'menu.xpath_dynamic.object'('boton_inventario'))
+		WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_inventario'))
 		
 		'Click en boton > Menu - Entradas Almacen'
-		WebUI.click(CustomKeywords.'menu.xpath_dynamic.object'('boton_entradas_almacen'))
+		WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_entradas_almacen'))
 		
 		'Click en boton > Menu-Orden Compra'
-		WebUI.click(CustomKeywords.'menu.xpath_dynamic.object'('boton_orden_compra'))
+		WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_orden_compra'))
 		
 		WebUI.comment('Si se genera un error es porque el no de folio no existe ni las fechas, debe agregarse en variables globales')
 		
 		'Insertar fecha desde en el filtro'
-		WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('fecha_desde'), GlobalVariable.FechaFolio)
+		WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('fecha_desde'), GlobalVariable.FechaFolio)
 		
 		'Insertar fecha hasta en el filtro'
-		WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('fecha_hasta'), GlobalVariable.FechaFolio)
+		WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('fecha_hasta'), GlobalVariable.FechaFolio)
 		
 		'Insertar folio en el filtro'
-		WebUI.setText(CustomKeywords.'productos.xpath_dynamic.object'('input_buscar_texto'), id_folio)
+		WebUI.setText(CustomKeywords.'keyword_productos.xpath_dynamic.object'('input_buscar_texto'), id_folio)
 		
 		'Click en boton > Boton buscar'
-		WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('button_buscar'))
+		WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('button_buscar'))
 		
 		'Eliminar la primera orden de compra encontrada'
-		WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('eliminar_ocr'))
+		WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('eliminar_ocr'))
 		
 		'Indicador para cerrar el navegador'
 		closeBrowser = '1'
 }
 
 'Insertar en input > Motivo de Eliminacion'
-WebUI.setText(CustomKeywords.'ordenCompra.xpath_dynamic.object'('input_motivo_eliminar'), CustomKeywords.'ordenCompra.data_aleatory.getAleatotyData'(
+WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('input_motivo_eliminar'), CustomKeywords.'keyword_ordenCompra.data_aleatory.getAleatotyData'(
         'comentarioEliminar'))
 
 'Aceptar modal'
-WebUI.click(CustomKeywords.'ordenCompra.xpath_dynamic.object'('button_aceptar'))
+WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('button_aceptar'))
 
 'Espera de 5 segundos'
 WebUI.delay(5)

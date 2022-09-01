@@ -1,10 +1,33 @@
 plugins {
-  id 'java'
-  id "com.katalon.gradle-plugin" version "0.0.7"
+//  id 'java'
+//  id "com.katalon.gradle-plugin" version "0.0.7"
+   id 'java-library'
+   id "com.katalon.gradle-plugin" version "0.1.1"
+
 }
 
 repositories {
   mavenCentral()
+}
+
+def pluginSources = [
+  'Keywords'
+  //'Scripts'
+]
+
+sourceSets {
+   main {
+    groovy {
+      srcDirs = pluginSources
+      srcDir 'Libs'
+    }
+  }
+}
+
+
+groovydoc {
+  source = pluginSources
+  docTitle = 'Documentación Admintotal - Keywords'
 }
 
 dependencies {
@@ -17,4 +40,19 @@ dependencies {
   // compile 'io.rest-assured:json-path:3.2.0'
   // JSON Schema Validation
   // compile 'io.rest-assured:json-schema-validator:3.2.0'
+  
+   // sample dependencies
+  // rest-assured
+  implementation 'io.rest-assured:rest-assured:3.2.0'
+  // JsonPath
+  implementation 'io.rest-assured:json-path:3.2.0'
+  // XmlPath
+  implementation 'io.rest-assured:json-path:3.2.0'
+  // JSON Schema Validation
+  implementation 'io.rest-assured:json-schema-validator:3.2.0'
+}
+
+
+tasks.named('wrapper') {
+    distributionType = Wrapper.DistributionType.ALL
 }
