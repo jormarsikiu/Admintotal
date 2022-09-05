@@ -32,16 +32,16 @@ if (openBrowser == '1')
 		String id_folio = GlobalVariable.idfolioCompra
 		
 		'Insertar fecha desde en el filtro'
-		WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('fecha_desde'), new Date().format('dd/MM/yy'))
+		WebUI.setText(findTestObject('Object Repository/buscador_objects/fecha_desde'), new Date().format('dd/MM/yy'))
 		
 		'Insertar fecha hasta en el filtro'
-		WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('fecha_hasta'), new Date().format('dd/MM/yy'))
+		WebUI.setText(findTestObject('Object Repository/buscador_objects/fecha_hasta'), new Date().format('dd/MM/yy'))
 		
 		'Insertar folio en el filtro'
-		WebUI.setText(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('input_buscar_texto'), id_folio)
+		WebUI.setText(findTestObject('Object Repository/buscador_objects/input_buscar_texto'), id_folio)
 		
 		'Click en boton > Boton buscar'
-		WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('button_buscar'))
+		WebUI.click(findTestObject('Object Repository/buscador_objects/button_buscar'))
 		
 		'Indicador para no cerrar el navegador y continuar el flujo'
 		closeBrowser = '0'
@@ -53,27 +53,27 @@ else {
 		String id_folio = GlobalVariable.FolioCompra
 		
 		'Click en boton > Menu-Inventario'
-		WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_inventario'))
+		WebUI.click(findTestObject('Object Repository/menu_objects/button_inventario'))
 		
 		'Click en boton > Menu - Entradas Almacen'
-		WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_entradas_almacen'))
+		WebUI.click(findTestObject('Object Repository/menu_objects/button_entradas_almacen'))
 		
 		'Click en boton > Menu-Compras'
-		WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_compras'))
+		WebUI.click(findTestObject('Object Repository/menu_objects/button_compras'))
 		
 		WebUI.comment('Si se genera un error es porque el no de folio no existe ni las fechas, debe agregarse en variables globales')
 		
 		'Insertar fecha desde en el filtro'
-		WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('fecha_desde'), GlobalVariable.FechaFolioCompra)
+		WebUI.setText(findTestObject('Object Repository/buscador_objects/fecha_desde'), GlobalVariable.FechaFolioCompra)
 		
 		'Insertar fecha hasta en el filtro'
-		WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('fecha_hasta'), GlobalVariable.FechaFolioCompra)
+		WebUI.setText(findTestObject('Object Repository/buscador_objects/fecha_hasta'), GlobalVariable.FechaFolioCompra)
 		
 		'Insertar folio en el filtro'
-		WebUI.setText(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('input_buscar_texto'), id_folio)
+		WebUI.setText(findTestObject('Object Repository/buscador_objects/input_buscar_texto'), id_folio)
 		
 		'Click en boton > Boton buscar'
-		WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('button_buscar'))
+		WebUI.click(findTestObject('Object Repository/buscador_objects/button_buscar'))
 		
 		'Indicador para cerrar el navegador'
 		closeBrowser = '1'
@@ -81,24 +81,24 @@ else {
 
 
 'Scroll'
-WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('first_c_table'), 1)
+WebUI.scrollToElement(findTestObject('Object Repository/buscador_objects/first_c_table'), 1)
 
 'Abrir la primera compra la primera'
-WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('first_c_table'))
+WebUI.click(findTestObject('Object Repository/buscador_objects/first_c_table'))
 
 'Editar la compra'
-WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('edit_compra'))
-WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('edit_entrada'))
+WebUI.click(findTestObject('Object Repository/buscador_objects/edit_compra'))
+WebUI.click(findTestObject('Object Repository/buscador_objects/edit_entrada'))
 
 'Scroll al comentario'
-WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_comentarios'), 1)
+WebUI.scrollToElement(findTestObject('Object Repository/compra_objects/input_comentarios'), 1)
 
 'Insertar en input > Comentario'
-WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_comentarios'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'(
+WebUI.setText(findTestObject('Object Repository/compra_objects/input_comentarios'), CustomKeywords.'keyword_compra.compra_data_aleatory.getAleatotyData'(
 		'comentarioEditar'))
 
 'Guardar orden de compra'
-WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('guardar_compra'))
+WebUI.click(findTestObject('Object Repository/compra_objects/guardar_compra'))
 
 'Espera de 5 segundos'
 WebUI.delay(5)

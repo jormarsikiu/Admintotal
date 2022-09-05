@@ -84,49 +84,50 @@ else {
 }
 
 'Click en boton > Menu-Inventario'
-WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_inventario'))
-
+WebUI.click(findTestObject('Object Repository/menu_objects/button_inventario'))
+		
 'Click en boton > Menu - Entradas Almacen'
-WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_entradas_almacen'))
-
+WebUI.click(findTestObject('Object Repository/menu_objects/button_entradas_almacen'))
+		
 'Click en boton > Menu-Compras'
-WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_compras'))
+WebUI.click(findTestObject('Object Repository/menu_objects/button_compras'))
 
 'Click en boton > Agregar Compra'
-WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('boton_agregar_compra'))
+WebUI.click(findTestObject('Object Repository/compra_objects/button_agregar_compra'))
 
 'Check > Usar fecha de ingreso anterior'
-WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('check_fecha_anterior'))
+WebUI.click(findTestObject('Object Repository/compra_objects/check_fecha_anterior'))
 
 'Insertar letra para buscar > Proveedor'
-WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_proveedor'), proveedor)
+WebUI.setText(findTestObject('Object Repository/compra_objects/input_proveedor'), proveedor)
 
 'Seleccionar >  Proveedor'
-CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'('opcions_proveedor', '2')
+CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'(findTestObject('Object Repository/compra_objects/options_proveedor'))
+
 
 if (ordenCompra == '1')
 {
 
-	String element = WebUI.getAttribute(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('modal'), 'style')
+	String element = WebUI.getAttribute(findTestObject('Object Repository/compra_objects/modal'), 'style')
 	println(element)
 
 	if (element.contains('block')) {
 	
 		'Seleccionar > Orden de Compra > Folio'
-		CustomKeywords.'keyword_sharedElements.table.findtextintable'('table_orden_compra', id_folio)
+		CustomKeywords.'keyword_sharedElements.table.findtextintable'(findTestObject('Object Repository/compra_objects/table_orden_compra'), id_folio)
 
 		'Espera de 2 segundos'
 		WebUI.delay(2)
 
 		'Insertar no de factura'
-		WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_no_factura'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'(
+		WebUI.setText(findTestObject('Object Repository/compra_objects/input_no_factura'), CustomKeywords.'keyword_compra.compra_data_aleatory.getAleatotyData'(
 	        'no_factura'))
 	
 		'Scroll'
-		WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('guardar_form'), 1)
+		WebUI.scrollToElement(findTestObject('Object Repository/compra_objects/guardar_form'), 1)
 
 		'Guardar > Liquidar orden de compra'
-		WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('guardar_form'))
+		WebUI.click(findTestObject('Object Repository/compra_objects/guardar_form'))
 
 		'Espera de 2 segundos'
 		WebUI.delay(2)
@@ -135,7 +136,7 @@ if (ordenCompra == '1')
 
 else if (ordenCompra == '0'){
 	
-	String element = WebUI.getAttribute(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('modal'), 'style')
+	String element = WebUI.getAttribute(findTestObject('Object Repository/compra_objects/modal'), 'style')
 	println(element)
 
 	if (element.contains('block')) {
@@ -143,46 +144,46 @@ else if (ordenCompra == '0'){
 		/*CustomKeywords.'keyword_sharedElements.table.findtextintable'('table_orden_compra', '16')
 		
 		'Insertar no de factura'
-		WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_no_factura'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'(
+		WebUI.setText(CustomKeywords.'borrar.c_xpath_dynamic.getObject'('input_no_factura'), CustomKeywords.'keyword_compra.compra_data_aleatory.getAleatotyData'(
 			'no_factura'))
 	
 		'Scroll'
-		WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('guardar_form'), 1)
+		WebUI.scrollToElement(CustomKeywords.'borrar.c_xpath_dynamic.getObject'('guardar_form'), 1)
 
 		'Guardar > Liquidar orden de compra'
-		WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('guardar_form'))*/
+		WebUI.click(CustomKeywords.'borrar.c_xpath_dynamic.getObject'('guardar_form'))*/
 		
-		WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('cancel_modal'))
+		WebUI.click(findTestObject('Object Repository/compra_objects/cancel_modal'))
 		}
 	
 		'Scroll'
-		WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_no_factura'), 1)
+		WebUI.scrollToElement(findTestObject('Object Repository/compra_objects/input_no_factura'), 1)
 
 		'Insertar no de factura'
-		WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_no_factura'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'(
+		WebUI.setText(findTestObject('Object Repository/compra_objects/input_no_factura'), CustomKeywords.'keyword_compra.compra_data_aleatory.getAleatotyData'(
 		'no_factura'))
 		
 		descripcionproduct = GlobalVariable.Producto
 		
 		'Insertar producto'
-		WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_producto'), descripcionproduct)
+		WebUI.setText(findTestObject('Object Repository/compra_objects/input_producto'), descripcionproduct)
 		
 		'Espera de 3 segundos'
 		WebUI.delay(3)
 		
 		'Buscar elementos en el select'
-		String claveprod = WebUI.getAttribute(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('validar_producto'), 'style')
+		String claveprod = WebUI.getAttribute(findTestObject('Object Repository/compra_objects/validate_producto'), 'style')
 		println(claveprod)
 		
 		'Si hay valores seleccionar uno aleatorio'
 		if (claveprod.contains('block')) {
 		
-			String validarclave = CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'('opcion_producto', '3')
+			String validarclave = CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'(findTestObject('Object Repository/compra_objects/opcion_producto'))
 			
 		}
 		else {
 				
-			WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_producto'), '')
+			WebUI.setText(findTestObject('Object Repository/compra_objects/input_producto'), '')
 				
 			WebUI.comment("El select no tiene elementos")
 			
@@ -191,36 +192,36 @@ else if (ordenCompra == '0'){
 }
 
 'Insertar > Entregar a'
-WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_entregar_a'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'(
+WebUI.setText(findTestObject('Object Repository/compra_objects/input_entregar_a'), CustomKeywords.'keyword_compra.compra_data_aleatory.getAleatotyData'(
 		'comentarios'))
 
 'Scroll'
-WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_no_factura'), 1)
+WebUI.scrollToElement(findTestObject('Object Repository/compra_objects/input_no_factura'), 1)
 
 'Seleccionar condicion aleatoria'
-CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'('select_condicion', '3')
+CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'(findTestObject('Object Repository/compra_objects/select_condicion'))
 
 'Seleccionar moneda aleatoria'
-CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'('select_moneda', '3')
+CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'(findTestObject('Object Repository/compra_objects/select_moneda'))
 
 'Scroll'
-WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('check_incremental_sin_iva'), 1)
+WebUI.scrollToElement(findTestObject('Object Repository/compra_objects/check_incremental_sin_iva'), 1)
 
 'Check > Incremental_sin_iva'
-WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('check_incremental_sin_iva'))
+WebUI.click(findTestObject('Object Repository/compra_objects/check_incremental_sin_iva'))
 
 'Espera de 3 segundos'
 WebUI.delay(3)
 
 'Scroll'
-WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('check_incremental_sin_iva'), 1)
+WebUI.scrollToElement(findTestObject('Object Repository/compra_objects/check_incremental_sin_iva'), 1)
 
 'Insertar unidades de medida'
-boolean validar_unidades = CustomKeywords.'keyword_sharedElements.table.findheaderintable'('table_unidades', 'N° de unidades')
+boolean validar_unidades = CustomKeywords.'keyword_sharedElements.table.findheaderintable'(findTestObject('Object Repository/compra_objects/table_unidades'), 'N° de unidades')
 
 if (validar_unidades == true)
 {
-	WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_no_unidades'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'('no_unidades'))
+	WebUI.setText(findTestObject('Object Repository/compra_objects/input_no_unidades'), CustomKeywords.'keyword_compra.compra_data_aleatory.getAleatotyData'('no_unidades'))
 	
 	'Espera de 3 segundos'
 	WebUI.delay(3)
@@ -231,28 +232,28 @@ if (validar_unidades == true)
 }
 
 'Insertar no de descuento'
-WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_descuento'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'(
+WebUI.setText(findTestObject('Object Repository/compra_objects/input_descuento'), CustomKeywords.'keyword_compra.compra_data_aleatory.getAleatotyData'(
 		'descuento'))
 
 'Insertar no de flete'
-WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_flete'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'(
+WebUI.setText(findTestObject('Object Repository/compra_objects/input_flete'), CustomKeywords.'keyword_compra.compra_data_aleatory.getAleatotyData'(
 		'fletes'))
 
 'Scroll'
-WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_descuento'), 1)
+WebUI.scrollToElement(findTestObject('Object Repository/compra_objects/input_descuento'), 1)
 
 'Insertar comentarios'
-WebUI.setText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('input_comentarios'), CustomKeywords.'keyword_compra.data_aleatory.getAleatotyData'(
+WebUI.setText(findTestObject('Object Repository/compra_objects/input_comentarios'), CustomKeywords.'keyword_compra.compra_data_aleatory.getAleatotyData'(
 		'comentarios'))
 
 'Scroll'
-WebUI.scrollToElement(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('button_guardar'), 1)
+WebUI.scrollToElement(findTestObject('Object Repository/compra_objects/button_guardar'), 1)
 
 'Boton > Guardar'
-WebUI.click(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('button_guardar'))
+WebUI.click(findTestObject('Object Repository/compra_objects/button_guardar'))
 
 'Guardar valor del Folio de la compra'
-String folio_compra = WebUI.getText(CustomKeywords.'keyword_compra.xpath_dynamic.getObject'('id_folio'))
+String folio_compra = WebUI.getText(findTestObject('Object Repository/compra_objects/id_folio'))
 println(folio_compra)
 
 'Crear el folio como variable global'

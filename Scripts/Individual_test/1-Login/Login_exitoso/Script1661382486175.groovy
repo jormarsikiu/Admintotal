@@ -36,13 +36,13 @@ WebUI.openBrowser(GlobalVariable.Web)
 WebUI.maximizeWindow()
 
 'Insertar usuario'
-WebUI.setText(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('input_username'), GlobalVariable.Usuario)
+WebUI.setText(findTestObject('Object Repository/login_objects/input_username'), GlobalVariable.Usuario)
 
 'Insertar contraseña'
-WebUI.setEncryptedText(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('input_password'), GlobalVariable.Contrasena)
+WebUI.setEncryptedText(findTestObject('Object Repository/login_objects/input_password'), GlobalVariable.Contrasena)
 
 'Click en el boton entrar'
-WebUI.click(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('button_entrar'))
+WebUI.click(findTestObject('Object Repository/login_objects/button_entrar'))
 
 'Esperar 2 segundos'
 WebUI.delay(2)

@@ -24,8 +24,10 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 	if (exitVal == 0) {
 
 		System.out.println(output);
+		
+		WebUI.comment("Buscar el archivo en C://Proyecto QA Admintotal/build/docs/groovydoc/index.html");
 
 	} else {
 
-		System.out.println("\nNo se puedo crear el archivo!");
+		WebUI.comment("No se puedo crear el archivo!");
 	}

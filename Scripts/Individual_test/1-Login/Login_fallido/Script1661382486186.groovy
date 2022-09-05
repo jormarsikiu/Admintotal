@@ -41,19 +41,19 @@ WebUI.openBrowser(GlobalVariable.Web)
 WebUI.maximizeWindow()
 
 'Insertar usuario'
-WebUI.setText(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('input_username'), GlobalVariable.Usuario)
+WebUI.setText(findTestObject('Object Repository/login_objects/input_username'), GlobalVariable.Usuario)
 
 'Insertar contraseña incorrecta'
-WebUI.setEncryptedText(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('input_password'), GlobalVariable.Contrasena_incorrecta)
+WebUI.setEncryptedText(findTestObject('Object Repository/login_objects/input_password'), GlobalVariable.Contrasena_incorrecta)
 
 'Click en el boton entrar'
-WebUI.click(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('button_entrar'))
+WebUI.click(findTestObject('Object Repository/login_objects/button_entrar'))
 
 'Esperar 2 segundos'
 WebUI.delay(2)
 
 'Verificar si aparece la etiqueta de error'
-WebUI.verifyElementPresent(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('error_msg'), 1)
+WebUI.verifyElementPresent(findTestObject('Object Repository/login_objects/error_msg'), 1)
 
 'Obtener la URl'
 currentUrl = WebUI.getUrl()
@@ -82,19 +82,19 @@ WebUI.openBrowser(GlobalVariable.Web)
 WebUI.maximizeWindow()
 
 'Insertar usuario incorrecto'
-WebUI.setText(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('input_username'), GlobalVariable.Usuario_incorrecto)
+WebUI.setText(findTestObject('Object Repository/login_objects/input_username'), GlobalVariable.Usuario_incorrecto)
 
 'Insertar contraseña'
-WebUI.setEncryptedText(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('input_password'), GlobalVariable.Contrasena)
+WebUI.setEncryptedText(findTestObject('Object Repository/login_objects/input_password'), GlobalVariable.Contrasena)
 
 'Click en el boton entrar'
-WebUI.click(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('button_entrar'))
+WebUI.click(findTestObject('Object Repository/login_objects/button_entrar'))
 
 'Esperar 2 segundos'
 WebUI.delay(2)
 
 'Verificar si aparece la etiqueta de error'
-WebUI.verifyElementPresent(CustomKeywords.'keyword_login.xpath_dynamic.getObject'('error_msg'), 1)
+WebUI.verifyElementPresent(findTestObject('Object Repository/login_objects/error_msg'), 1)
 
 'Obtener la URl'
 currentUrl = WebUI.getUrl()

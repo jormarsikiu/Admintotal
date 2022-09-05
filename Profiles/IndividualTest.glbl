@@ -31,7 +31,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>Agregar/Editar_producto. No puede ser producto Ensamble, Ni emsamble dinamico</description>
-      <initValue>'Automatizacion 1460'</initValue>
+      <initValue>'Automatizacion 6855'</initValue>
       <name>Producto</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -41,7 +41,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>Editar ordenCompra</description>
-      <initValue>'23/08/22'</initValue>
+      <initValue>'29/08/22'</initValue>
       <name>FechaFolio</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -51,12 +51,12 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>Editar Compra</description>
-      <initValue>'34'</initValue>
+      <initValue>'35'</initValue>
       <name>FolioCompra</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>Editar Compra</description>
-      <initValue>'30/08/22'</initValue>
+      <initValue>'05/09/2022'</initValue>
       <name>FechaFolioCompra</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

@@ -33,7 +33,7 @@
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
-      <guid>d23a3d2e-ba65-473d-86e0-a42c84d48caa</guid>
+      <guid>84ac8141-dcbf-422d-ae09-143513ae0869</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/CRU/n-CruDelete</testCaseId>

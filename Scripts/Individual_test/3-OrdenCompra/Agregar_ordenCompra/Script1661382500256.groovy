@@ -1,4 +1,5 @@
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.exception.StepFailedException as StepFailedException
@@ -35,26 +36,26 @@ else {
 }
 
 'Click en boton > Menu-Inventario'
-WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_inventario'))
+WebUI.click(findTestObject('Object Repository/menu_objects/button_inventario'))
 
 'Click en boton > Menu - Entradas Almacen'
-WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_entradas_almacen'))
+WebUI.click(findTestObject('Object Repository/menu_objects/button_entradas_almacen'))
 
 'Click en boton > Menu-Orden Compra'
-WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_orden_compra'))
+WebUI.click(findTestObject('Object Repository/menu_objects/button_orden_compra'))
 
 'Click en boton > Agregar Orden Compra'
-WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('boton_agregar_orden_compra'))
+WebUI.click(findTestObject('Object Repository/ordenCompra_objects/button_agregar_orden_compra'))
 
 'Insertar letra para buscar > Proveedor'
-WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('input_proveedor'), CustomKeywords.'keyword_productos.data_aleatory.getAleatotyData'(
+WebUI.setText(findTestObject('Object Repository/ordenCompra_objects/input_proveedor'), CustomKeywords.'keyword_productos.products_data_aleatory.getAleatotyData'(
         'letra'))
 
 'Seleccionar >  Proveedor'
-CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'('opcions_proveedor', '2')
+CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'(findTestObject('Object Repository/ordenCompra_objects/options_proveedor'))
 
 'Guardar valor del Proveedor'
-String nombre_proveedor = WebUI.getAttribute(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('input_proveedor'), 'value')
+String nombre_proveedor = WebUI.getAttribute(findTestObject('Object Repository/ordenCompra_objects/input_proveedor'), 'value')
 println(nombre_proveedor)
 
 'Crear el Proveedor como variable global'
@@ -63,86 +64,86 @@ CustomKeywords.'keyword_variableGlobal.generateVariable.addGlobalVariable'('nomb
 println(GlobalVariable.nombreProveedor)
 
 'Insertar letra para buscar > Entregar a'
-WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('input_entregar_a'), CustomKeywords.'keyword_productos.data_aleatory.getAleatotyData'(
+WebUI.setText(findTestObject('Object Repository/ordenCompra_objects/input_entregar_a'), CustomKeywords.'keyword_productos.products_data_aleatory.getAleatotyData'(
         'letra'))
 
 'Seleccionar >  Entregar a'
-CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'('opcions_entregar_a', '2')
+CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'(findTestObject('Object Repository/ordenCompra_objects/options_entregar_a'))
 
 'Check > Recoger a Domicilio'
-WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('check_recoger_a_dormicilio'))
+WebUI.click(findTestObject('Object Repository/ordenCompra_objects/check_recoger_a_dormicilio'))
 
 'Insertar en input > Fecha Entrega'
-WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('input_fecha_entrega'), CustomKeywords.'keyword_ordenCompra.data_aleatory.getAleatotyData'(
+WebUI.setText(findTestObject('Object Repository/ordenCompra_objects/input_fecha_entrega'), CustomKeywords.'keyword_ordenCompra.ordenCompra_data_aleatory.getAleatotyData'(
 		'fecha_entrega'))
 
 'Abrir select > Hora de'
-WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('select_hora_de'))
+WebUI.click(findTestObject('Object Repository/ordenCompra_objects/select_hora_de'))
 
 'Select opcion > Hora de'
-CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'('opcions_hora_de', '2')
+CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'(findTestObject('Object Repository/ordenCompra_objects/options_hora_de'))
 
 'Abrir select > Hora hasta'
-WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('select_hora_hasta'))
+WebUI.click(findTestObject('Object Repository/ordenCompra_objects/select_hora_hasta'))
 
 'Select opcion > Hora hasta'
-CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'('opcions_hora_hasta', '2')
+CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'(findTestObject('Object Repository/ordenCompra_objects/opcions_hora_hasta'))
 
 'Aceptar modal'
-WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('button_aceptar_modal'))
+WebUI.click(findTestObject('Object Repository/ordenCompra_objects/button_aceptar_modal'))
 
 'Abrir select > Moneda'
-WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('select_moneda'))
+WebUI.click(findTestObject('Object Repository/ordenCompra_objects/select_moneda'))
 
 'Select opcion > Moneda'
-CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'('options_moneda', '2')
+CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'(findTestObject('Object Repository/ordenCompra_objects/options_moneda'))
 
 'Insertar un T.C'
-WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('input_T_C'), CustomKeywords.'keyword_ordenCompra.data_aleatory.getAleatotyData'(
+WebUI.setText(findTestObject('Object Repository/ordenCompra_objects/input_T_C'), CustomKeywords.'keyword_ordenCompra.ordenCompra_data_aleatory.getAleatotyData'(
         'T.C'))
 
 'Abrir select > Condicion'
-WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('select_condicion'))
+WebUI.click(findTestObject('Object Repository/ordenCompra_objects/select_condicion'))
 	
 'Seleccionar opcion > Condicion'
-CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'('options_condicion', '2')
+CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'(findTestObject('Object Repository/ordenCompra_objects/options_condicion'))
 
 'Abrir select > Uso CFDI'
-WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('select_cfdi'))
+WebUI.click(findTestObject('Object Repository/ordenCompra_objects/select_cfdi'))
 	
 'Seleccionar opcion > Uso CFDI'
-CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'('options_cfdi', '2')
+CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'(findTestObject('Object Repository/ordenCompra_objects/options_cfdi'))
 
 'Scroll hacia el producto'
-WebUI.scrollToElement(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('input_producto'), 1)
+WebUI.scrollToElement(findTestObject('Object Repository/ordenCompra_objects/input_producto'), 1)
 
 'Insertar producto'
-WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('input_producto'), descripcionproduct)
+WebUI.setText(findTestObject('Object Repository/ordenCompra_objects/input_producto'), descripcionproduct)
 
 'Select opcion > producto'
-CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'('options_producto', '2')
+CustomKeywords.'keyword_sharedElements.selectOptionAleatory.aleatoryobject'(findTestObject('Object Repository/ordenCompra_objects/options_producto'))
 
 'Insertar cantidad'
-WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('input_cantidad'), CustomKeywords.'keyword_ordenCompra.data_aleatory.getAleatotyData'(
+WebUI.setText(findTestObject('Object Repository/ordenCompra_objects/input_cantidad'), CustomKeywords.'keyword_ordenCompra.ordenCompra_data_aleatory.getAleatotyData'(
 		'cantidad'))
 
 'Insertar en input > Fecha Entrega'
-WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('input_fecha'), CustomKeywords.'keyword_ordenCompra.data_aleatory.getAleatotyData'(
+WebUI.setText(findTestObject('Object Repository/ordenCompra_objects/input_fecha'), CustomKeywords.'keyword_ordenCompra.ordenCompra_data_aleatory.getAleatotyData'(
         'fecha_entrega'))
 
 'Insertar en input > Comentario'
-WebUI.setText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('textarea_comentario'), CustomKeywords.'keyword_ordenCompra.data_aleatory.getAleatotyData'(
+WebUI.setText(findTestObject('Object Repository/ordenCompra_objects/textarea_comentario'), CustomKeywords.'keyword_ordenCompra.ordenCompra_data_aleatory.getAleatotyData'(
         'comentarioCrear'))
 
 'Scroll'
-WebUI.scrollToElement(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('guardar_form'), 1)
+WebUI.scrollToElement(findTestObject('Object Repository/ordenCompra_objects/guardar_form'), 1)
 
 'Guardar formulario'
-WebUI.click(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('guardar_form'))
+WebUI.click(findTestObject('Object Repository/ordenCompra_objects/guardar_form'))
 
 
 'Guardar valor del Folio'
-String folio = WebUI.getText(CustomKeywords.'keyword_ordenCompra.xpath_dynamic.getObject'('id_folio'))
+String folio = WebUI.getText(findTestObject('Object Repository/ordenCompra_objects/id_folio'))
 println(folio)
 
 'Crear el folio como variable global'

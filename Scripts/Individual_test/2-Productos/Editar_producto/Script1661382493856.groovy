@@ -31,7 +31,7 @@ if (openBrowser == '1')
 		String descripcionproduct = GlobalVariable.descripcionproducto
 		
 		'Insertar descripcion en el filtro'
-		WebUI.setText(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('input_buscar_texto'), descripcionproduct)
+		WebUI.setText(findTestObject('Object Repository/buscador_objects/input_buscar_texto'), descripcionproduct)
 		
 		'Indicador para no cerrar el navegador y continuar el flujo'
 		closeBrowser = '0'
@@ -43,18 +43,18 @@ else {
 		String descripcionproduct = GlobalVariable.Producto
 		
 		'Click en boton > Menu-Inventario'
-		WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_inventario'))
+		WebUI.click(findTestObject('Object Repository/menu_objects/button_inventario'))
 		
 		'Click en boton > Menu - Catalogos'
-		WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_catalogo'))
+		WebUI.click(findTestObject('Object Repository/menu_objects/button_catalogo'))
 		
 		'Click en boton > Menu-Productos'
-		WebUI.click(CustomKeywords.'keyword_sharedElements.menu_xpath_dynamic.getObject'('boton_productos'))
+		WebUI.click(findTestObject('Object Repository/menu_objects/button_productos'))
 		
 		WebUI.comment('Si se genera un error es porque el producto no existe, debe agregarse en variables globales')
 		
 		'Insertar descripcion en el filtro'
-		WebUI.setText(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('input_buscar_texto'), descripcionproduct)
+		WebUI.setText(findTestObject('Object Repository/buscador_objects/input_buscar_texto'), descripcionproduct)
 		
 		'Indicador para cerrar el navegador'
 		closeBrowser = '1'
@@ -62,33 +62,33 @@ else {
 
 
 'Click en el boton de buscar'
-WebUI.click(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('button_buscar_texto'))
+WebUI.click(findTestObject('Object Repository/buscador_objects/button_buscar_texto'))
 
 'Scroll'
-WebUI.scrollToElement(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('first_prod_table'), 1)
+WebUI.scrollToElement(findTestObject('Object Repository/buscador_objects/first_prod_table'), 1)
 
 'Abrir el producto'
-WebUI.click(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('first_prod_table'))
+WebUI.click(findTestObject('Object Repository/buscador_objects/first_prod_table'))
 
 'Editar el producto'
-WebUI.click(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('edit_producto'))
+WebUI.click(findTestObject('Object Repository/buscador_objects/button_edit_product'))
 
 'Validar la URl'
 assert WebUI.getUrl().contains('/admin/producto/edit/')
 
 'Insertar en input > Comentarios'
-WebUI.setText(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('input_comentarios'), 'Automatizacion > Producto Actualizado')
+WebUI.setText(findTestObject('Object Repository/productos_objects/textareas/comentarios'), 'Automatizacion > Producto Actualizado')
 
 'Scroll'
-WebUI.scrollToElement(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('input_unidad_medida'), 1)
+WebUI.scrollToElement(findTestObject('Object Repository/productos_objects/inputs/input_unidad_medida'), 1)
 
 'Guardar formulario'
-WebUI.click(CustomKeywords.'keyword_productos.xpath_dynamic.getObject'('guardar_form'))
+WebUI.click(findTestObject('Object Repository/productos_objects/buttons/button_guardar_form'))
 
 'Espera de 8 segundos'
 WebUI.delay(8)
 
-'Ir al filtro'
+//'Ir al filtro'
 //WebUI.navigateToUrl(GlobalVariable.Web +'/admin/inventario/catalogos/productos/')
 
 'Espera de 5 segundos'

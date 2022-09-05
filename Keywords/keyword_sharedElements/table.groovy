@@ -19,7 +19,7 @@ import com.kms.katalon.core.testobject.TestObject
  */
 
 public class table {
-	
+
 	/**
 	 *Este método permite buscar dentro de una tabla un valor esperado.
 	 *Realiza la ruta /table/tbody/td/a
@@ -29,10 +29,11 @@ public class table {
 	 *@return false es el valor de la variable global
 	 */
 	@Keyword
-	def findtextintable(String xpath, String ExpectedValue) {
+	def findtextintable(TestObject xpath, String ExpectedValue) {
+
 
 		'Guarda las filas de la tabla - tr'
-		List<WebElement> rows_table =  WebUiCommonHelper.findWebElements(new keyword_compra.xpath_dynamic().getObject(xpath), 30)
+		List<WebElement> rows_table = WebUiCommonHelper.findWebElements(xpath, 30)
 
 		'Guarda el tamano de las filas'
 		int rows_count = rows_table.size()
@@ -72,10 +73,10 @@ public class table {
 	 *@return false es el valor de la variable global
 	 */
 	@Keyword
-	def findheaderintable(String xpath, String ExpectedValue) {
+	def findheaderintable(TestObject xpath, String ExpectedValue) {
 
 		'Guarda las filas de la tabla - tr'
-		List<WebElement> rows_table =  WebUiCommonHelper.findWebElements(new keyword_compra.xpath_dynamic().getObject(xpath), 30)
+		List<WebElement> rows_table = WebUiCommonHelper.findWebElements(xpath, 30)
 
 		'Guarda el tamano de las filas'
 		int rows_count = rows_table.size()
