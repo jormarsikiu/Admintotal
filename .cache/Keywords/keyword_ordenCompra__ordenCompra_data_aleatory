@@ -1,0 +1,30 @@
+{
+  "keywordFileContentHash": "8D277BC514A3BB1F4E5108D26DD1358C",
+  "keywordClasses": [
+    {
+      "name": "keyword_ordenCompra.ordenCompra_data_aleatory",
+      "keywordMethods": [
+        {
+          "name": "getAleatotyData",
+          "parameters": [
+            {
+              "name": "element",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": "/**\r\n\t *Genera datos aleatorios para incluir en los elements\r\n\t *@param element es un nombre que se le asigna al element para buscarlo\r\n\t *@return aleatoryData es una cadena compuesta por números, letras o alfanumericos\r\n\t */"
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

@@ -1,0 +1,16 @@
+{
+  "keywordFileContentHash": "1A1DA3A2ED77A6C51FF261DB1A04947F",
+  "keywordClasses": [
+    {
+      "name": "keyword_navegador.validateNavegador",
+      "keywordMethods": [
+        {
+          "name": "browser",
+          "parameters": [],
+          "javadoc": "/**\r\n\t *\u003ch3\u003eEste método valida si la ventana del navegador esta abierta o cerrada.\u003c/h3\u003e\r\n\t *Si esta abierto solo retornará el valor de 1.\r\n\t *Si esta cerrado abrirá el test case de Login_exitoso.\r\n\t *@return 1 si el navegador esta abierto\r\n\t *@return 0 si el navegador esta cerrado\r\n\t */"
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

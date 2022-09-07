@@ -6,7 +6,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
  * gradle groovydoc -x compileGroovy 
  * */
 
-	Process process = Runtime.getRuntime().exec("cmd /c gradle groovydoc -x compileGroovy");
+	Process process = Runtime.getRuntime().exec("cmd /c gradlew groovydoc -x compileGroovy");
 
 	StringBuilder output = new StringBuilder();
 
@@ -29,5 +29,5 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 
 	} else {
 
-		WebUI.comment("No se puedo crear el archivo!");
+		WebUI.comment("No se puedo crear el archivo!. Instalar Gradle");
 	}

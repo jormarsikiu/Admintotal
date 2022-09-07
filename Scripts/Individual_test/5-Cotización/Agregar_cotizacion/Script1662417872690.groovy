@@ -17,3 +17,56 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+'Keyword para abrir el navegador'
+String openBrowser = CustomKeywords.'keyword_navegador.validateNavegador.browser'()
+
+if (openBrowser == '1')
+	{
+		'Flujo Completo'
+		WebUI.navigateToUrl(GlobalVariable.Web +'/admin/ventas/cotizaciones/')
+		
+		//proveedor = GlobalVariable.nombreProveedor
+		
+		//id_folio = GlobalVariable.idfolio
+		
+		closeBrowser = '0'
+		
+		/*String id_tipoproducto = GlobalVariable.tipoproducto
+		
+		if (id_tipoproducto == '2' || id_tipoproducto == '8')
+			{
+				WebUI.comment('El producto creado es un Ensamble o Emsamble Dinamico y no se procesa compra')
+				
+				'Cerrar navegador'
+				WebUI.closeBrowser()
+				
+				'Espera de 5 segundos'
+				WebUI.delay(5)
+				
+			}
+			
+		ordenCompra = '1'*/
+		
+	}
+
+else {
+		
+		'Flujo Individual'
+		
+		proveedor = GlobalVariable.Proveedor
+		
+		id_folio = GlobalVariable.Folio
+		
+		closeBrowser = '1'
+		
+		ordenCompra = '0'
+}
+
+'Click en boton > Menu-Ventas'
+WebUI.click(findTestObject('Object Repository/menu_objects/button_ventas'))
+		
+'Click en boton > Menu - Cotizacion Cliente'
+WebUI.click(findTestObject('Object Repository/menu_objects/button_cotizacion_cliente'))
+		
+'Click en boton > Menu - Cotizacion Cliente'
+WebUI.click(findTestObject('Object Repository/cotizacion_cliente/agregar_cotizacion'))

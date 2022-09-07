@@ -1,0 +1,30 @@
+{
+  "keywordFileContentHash": "14653B4D274CAE5C24A6F39E152E0A5E",
+  "keywordClasses": [
+    {
+      "name": "keyword_sharedElements.selectOptionAleatory",
+      "keywordMethods": [
+        {
+          "name": "aleatoryobject",
+          "parameters": [
+            {
+              "name": "element",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "com.kms.katalon.core.testobject.TestObject",
+                "unresolvedClassName": "TestObject",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": "/**\r\n\t *Este método busca el select,\r\n\t *al encontrarlos elimina los values que esten vacios,\r\n\t *muestra cuantos elementos tiene el select,\r\n\t *selecciona y presiona un aleatorio de las opciones del select.\r\n\t *Puede ser usado para selects con tamaño limitado y selects con tamaño personalizado.\r\n\t *@param element es el nombre del TestObject\r\n\t */"
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

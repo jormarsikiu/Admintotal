@@ -1,0 +1,75 @@
+{
+  "keywordFileContentHash": "B8538D6BCCE0E7F9338EC21236599489",
+  "keywordClasses": [
+    {
+      "name": "keyword_sharedElements.table",
+      "keywordMethods": [
+        {
+          "name": "findtextintable",
+          "parameters": [
+            {
+              "name": "xpath",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "com.kms.katalon.core.testobject.TestObject",
+                "unresolvedClassName": "TestObject",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "ExpectedValue",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": "/**\r\n\t *Este método permite buscar dentro de una tabla un valor esperado.\r\n\t *Realiza la ruta /table/tbody/td/a\r\n\t *@param xpath es un nombre del elemento xpath\r\n\t *@param ExpectedValue es el valor que se espera encontrar\r\n\t *@return true si encontro el valor en la tabla y presiona el elemento\r\n\t *@return false es el valor de la variable global\r\n\t */"
+        },
+        {
+          "name": "findheaderintable",
+          "parameters": [
+            {
+              "name": "xpath",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "com.kms.katalon.core.testobject.TestObject",
+                "unresolvedClassName": "TestObject",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "ExpectedValue",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": "/**\r\n\t *Este método permite buscar dentro de la cabecera de una tabla un valor esperado.\r\n\t *Realiza la ruta /table/tbody/tr/th\r\n\t *@param xpath es un nombre del elemento xpath\r\n\t *@param ExpectedValue es el valor que se espera encontrar\r\n\t *@return true si encontro el valor en la tabla\r\n\t *@return false es el valor de la variable global\r\n\t */"
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}
